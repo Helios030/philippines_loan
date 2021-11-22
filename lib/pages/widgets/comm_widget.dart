@@ -1,60 +1,49 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
 
-class InputTextView extends StatefulWidget {
-  final String title;
-  final TextEditingController NController;
-  final ValueChanged<String>? onTextChage;
-  var tt = TextInputType.text;
-  int length =100;
+class userItemWidget extends StatelessWidget {
+  final String image;
+  final String text;
+  final bool isShowLine;
+  final GestureTapCallback? onclick;
 
 
+  const userItemWidget(this.text, this.image, {Key? key, this.isShowLine = true,this.onclick}) : super(key: key);
 
-  InputTextView(this.title, this.NController, this.onTextChage,
-      {this.tt = TextInputType.text,this.length=100, Key? key})
-      : super(key: key);
-
-  @override
-  _InputTextViewState createState() => _InputTextViewState();
-}
-
-class _InputTextViewState extends State<InputTextView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-        TextView(widget.title),
-        TextField(
-          onChanged: widget.onTextChage,
-          controller: widget.NController,
-          maxLines: 1,
-
-          maxLength: widget.length,
-          keyboardType: widget.tt,
-
-          style: TextStyle(color: N.black33, fontSize: 16.r,fontWeight: FontWeight.bold),
-          decoration: InputDecoration(
-              hintText: S.current.please_input,
-              counterText: "",
-              hintStyle: const TextStyle(color: N.grayD6), //修改颜色
-              border: InputBorder.none),
+    return GestureDetector(
+    onTap: onclick,
+      child: Container(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                    margin: EdgeInsets.only(
+                        top: 10.h, bottom: 10.h, left: 16.w, right: 16.h),
+                    width: 42.r,
+                    height: 42.r,
+                    child: Image(image: AssetImage(image))),
+                Expanded(
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: TextView(
+                          text,
+                          color: N.black33,
+                        )))
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 65.w),
+              height: 1.h,
+              color: N.grayF2,
+            ),
+          ],
         ),
-
-          Container(
-            width: double.infinity,
-            color: N.gray1A,
-            height: 1.h,
-          )
-
-      ],),
+      ),
     );
   }
 }
-
-

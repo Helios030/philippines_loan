@@ -84,6 +84,12 @@ extension ContextExt on BuildContext {
       Navigator.pushNamed(this, routeName);
     }
   }
+
+  finish(){
+    Navigator.pop(this);
+  }
+
+
 }
 
 

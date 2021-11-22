@@ -45,7 +45,7 @@ int currentTimeMillis() {
 List<MenuItem> toMenus(List<String> stringArr, {int offset = 1}) {
   var menus = <MenuItem>[];
   for (int index = 0; index < stringArr.length; index++) {
-    menus.add(MenuItem(index + offset, stringArr[index]));
+    menus.add(MenuItem(index,index + offset, stringArr[index]));
   }
   return menus;
 }

@@ -26,3 +26,7 @@ String nicon_tab_pay_n= "assets/images/icon_tab_pay_n.png";
 String nimg_line= "assets/images/img_line.png";
 String nicon_up= "assets/images/icon_up.png";
 String nimg_btn_ok= "assets/images/img_btn_ok.png";
+String nicon_pop_close= "assets/images/icon_pop_close.png";
+String nicon_my_user_info= "assets/images/icon_my_user_info.png";
+String nicon_main_user_n= "assets/images/icon_main_user_n.png";
+String nicon_main_user_y= "assets/images/icon_main_user_y.png";

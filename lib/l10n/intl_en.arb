@@ -10,7 +10,7 @@
   "please_selected": "请勾选隐私政策",
   "my_info": "我的资料",
   "my_loan": "我的贷款",
-  "my_call": "客服电话",
+  "my_call": "客服",
   "about_us": "关于我们",
   "my_exit": "退出登录",
   "product_tip": "按时还款，可自动提升额度",
@@ -122,5 +122,6 @@
   "over_tip": "您的贷款已逾期，请尽快还款避免产生额外费用",
   "order_cancel": "已取消",
   "loan": "借款",
-  "main_user": "个人"
+  "main_user": "个人",
+  "my_coupon": "我的优惠券"
 }

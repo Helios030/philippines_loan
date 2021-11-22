@@ -12,13 +12,14 @@ class TextView extends StatelessWidget {
   double size;
   var color;
   var weight;
+  TextAlign textAlign;
 
-   TextView (this.text,{this.size=14,this.color=N.pinkCF,this.weight=FontWeight.bold,Key? key}) : super(key: key);
+   TextView (this.text,{this.size=14,this.color=N.pinkCF,this.weight=FontWeight.bold,this.textAlign=TextAlign.left,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(text,
-      textAlign: TextAlign.left,
+      textAlign: textAlign,
       style: TextStyle(fontSize: size.r,color: color,fontWeight: weight),);
   }
 }

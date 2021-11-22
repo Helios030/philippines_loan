@@ -160,10 +160,10 @@ class S {
     );
   }
 
-  /// `客服电话`
+  /// `客服`
   String get my_call {
     return Intl.message(
-      '客服电话',
+      '客服',
       name: 'my_call',
       desc: '',
       args: [],
@@ -1285,6 +1285,16 @@ class S {
     return Intl.message(
       '个人',
       name: 'main_user',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的优惠券`
+  String get my_coupon {
+    return Intl.message(
+      '我的优惠券',
+      name: 'my_coupon',
       desc: '',
       args: [],
     );

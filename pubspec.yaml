@@ -89,3 +89,7 @@ flutter:
     - assets/images/icon_my_exit.png
     - assets/images/icon_my_coupon.png
     - assets/images/icon_tab_pay_n.png
+    - assets/images/icon_pop_close.png
+    - assets/images/icon_my_user_info.png
+ - assets/images/icon_main_user_n.png
+ - assets/images/icon_main_user_y.png

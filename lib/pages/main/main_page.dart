@@ -49,7 +49,7 @@ class _NMainPageState extends State<NMainPage> {
         },
         items:  [
           BottomNavigationBarItem( icon: Container(width: 24.r,height: 24.r,child: Image(image:index==0? AssetImage(nicon_tab_pay): AssetImage(nicon_tab_pay_n))) ,label: S.of(context).loan,backgroundColor: N.red20),
-          BottomNavigationBarItem( icon: Container(width: 24.r,height: 24.r,child: Image(image:index==1? AssetImage(nicon_tab_pay): AssetImage(nicon_tab_pay_n))) ,label: S.of(context).main_user,backgroundColor: N.red20),
+          BottomNavigationBarItem( icon: Container(width: 24.r,height: 24.r,child: Image(image:index==1? AssetImage(nicon_main_user_y): AssetImage(nicon_main_user_n))) ,label: S.of(context).main_user,backgroundColor: N.red20),
         ],
       ),
     );

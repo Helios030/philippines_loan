@@ -1,6 +1,7 @@
 
 
 class MenuItem{
+  final int index;
 final int menuCode;
 final String menuName;
  bool isSelected;
@@ -8,7 +9,7 @@ final String menuName;
  String? imageUri;
 
 
-  MenuItem(this.menuCode,this.menuName,{this.isSelected=false,this.imageUri,this.bankCode});
+  MenuItem(this.index,this.menuCode,this.menuName,{this.isSelected=false,this.imageUri,this.bankCode});
 
 @override
   String toString() {

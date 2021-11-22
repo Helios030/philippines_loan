@@ -6,7 +6,7 @@ import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/sms.dart';
 import 'package:philippines_loan/pages/home/home_screen.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
-import 'package:philippines_loan/pages/widgets/comm_widget.dart';
+import 'package:philippines_loan/pages/widgets/input_text_view.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
