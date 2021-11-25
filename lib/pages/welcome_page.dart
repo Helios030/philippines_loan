@@ -35,6 +35,7 @@ class _NWelComePageState extends State<NWelComePage> {
       Future.delayed(const Duration(milliseconds: 3000), () {
         sp_data.get(SPKey.USERID.toString(), "").then((value) {
           String? UserId = value;
+          //todo 测试阶段
           if (UserId == null || UserId == "") {
             context.startTo( NLoginPage.routeName, isNewTask: true);
           } else {
@@ -57,7 +58,7 @@ class _NWelComePageState extends State<NWelComePage> {
         child: Container(
           height: 300.h,
           width: 280.w,
-          child: Image.asset(nimg_welcome),
+          child: Image.asset(nimg_welcome.assetName),
         ),
       ),
     );

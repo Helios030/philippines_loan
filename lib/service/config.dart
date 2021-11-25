@@ -1,5 +1,6 @@
 class HttpConfig {
-  static const String baseURL = "http://api.th.golden-union.top/api/";
+  // static const String baseURL = "http://api.th.golden-union.top/api/";
+  static const String baseURL = "http://api.ms.golden-union.top/api/";
   static const int timeout = 60000;
 }
 
@@ -39,8 +40,8 @@ class UriPath{
 
 }
    class PackConfig{
- static String appName="Rich Money";
- static String packageName="com.neutron.richmoney";
+ static String appName="Credit line";
+ static String packageName="com.neutron.philippines_loan";
  static String version="1.0";
  static String buildNumber="";
  static String uuid="null";

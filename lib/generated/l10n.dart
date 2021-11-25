@@ -240,20 +240,20 @@ class S {
     );
   }
 
-  /// `人脸认证`
+  /// `人脸识别`
   String get face_title {
     return Intl.message(
-      '人脸认证',
+      '人脸识别',
       name: 'face_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `为了保障您的财产安全\n需要进行人脸识别`
+  /// `将进行人脸识别\n进一步保护您的财产安全`
   String get face_tip {
     return Intl.message(
-      '为了保障您的财产安全\n需要进行人脸识别',
+      '将进行人脸识别\n进一步保护您的财产安全',
       name: 'face_tip',
       desc: '',
       args: [],
@@ -330,10 +330,10 @@ class S {
     );
   }
 
-  /// `生日`
+  /// `出生年月`
   String get birthday {
     return Intl.message(
-      '生日',
+      '出生年月',
       name: 'birthday',
       desc: '',
       args: [],
@@ -1295,6 +1295,16 @@ class S {
     return Intl.message(
       '我的优惠券',
       name: 'my_coupon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确定要拨打客服电话？`
+  String get call_user_tip {
+    return Intl.message(
+      '确定要拨打客服电话？',
+      name: 'call_user_tip',
       desc: '',
       args: [],
     );

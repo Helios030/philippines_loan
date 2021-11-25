@@ -23,7 +23,7 @@ class ButtonView extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(nimg_btn_bg),
+              image: (nimg_btn_bg),
             ),
           ),
           child: TextView(text,size: 17,color: Colors.white,)),

@@ -30,7 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "bank": MessageLookupByLibrary.simpleMessage("银行"),
         "bank_account": MessageLookupByLibrary.simpleMessage("银行账号"),
         "bank_number": MessageLookupByLibrary.simpleMessage("银行卡号"),
-        "birthday": MessageLookupByLibrary.simpleMessage("生日"),
+        "birthday": MessageLookupByLibrary.simpleMessage("出生年月"),
+        "call_user_tip": MessageLookupByLibrary.simpleMessage("确定要拨打客服电话？"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "card_info": MessageLookupByLibrary.simpleMessage("银行卡信息"),
         "cardholder": MessageLookupByLibrary.simpleMessage("持卡人"),
@@ -57,8 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "end_time": MessageLookupByLibrary.simpleMessage("展期结束时间"),
         "exit_app_tip": MessageLookupByLibrary.simpleMessage("确定退出当前账号？"),
         "face_tip":
-            MessageLookupByLibrary.simpleMessage("为了保障您的财产安全\n需要进行人脸识别"),
-        "face_title": MessageLookupByLibrary.simpleMessage("人脸认证"),
+            MessageLookupByLibrary.simpleMessage("将进行人脸识别\n进一步保护您的财产安全"),
+        "face_title": MessageLookupByLibrary.simpleMessage("人脸识别"),
         "fail_tip":
             MessageLookupByLibrary.simpleMessage("您的申请已被拒绝，请保持信用。七天后再试"),
         "fale_fee": MessageLookupByLibrary.simpleMessage("滞纳金"),

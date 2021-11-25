@@ -1,8 +1,16 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:philippines_loan/pages/authentication/card/card_info_page.dart';
+import 'package:philippines_loan/pages/authentication/contact/contact_info_page.dart';
+import 'package:philippines_loan/pages/authentication/idcard/id_card_page.dart';
+import 'package:philippines_loan/pages/authentication/user_info_menu_page.dart';
+import 'package:philippines_loan/pages/authentication/userinfo/user_info_page.dart';
+import 'package:philippines_loan/pages/authentication/work/work_info_page.dart';
+import 'package:philippines_loan/pages/face/face_detect.dart';
 import 'package:philippines_loan/pages/home/home_screen.dart';
 import 'package:philippines_loan/pages/login/login_page.dart';
 import 'package:philippines_loan/pages/main/main_page.dart';
+import 'package:philippines_loan/pages/orders/orders_page.dart';
 import 'package:philippines_loan/pages/welcome_page.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
@@ -75,8 +83,21 @@ class _ApplicationState extends State<Application> {
           NLoginPage.routeName: (context) => NLoginPage(),
           NHomePage.routeName: (context) => NHomePage(),
           NMainPage.routeName: (context) => NMainPage(),
+          NFaceDetectorWidget.routeName: (context) => NFaceDetectorWidget(),
+          NUserInfoMenuPager.routeName: (context) => NUserInfoMenuPager(),
+          NUserInfoWidget.routeName: (context) => NUserInfoWidget(),
+          NContactInfoWidget.routeName: (context) => NContactInfoWidget(),
+          NWorkInfoWidget.routeName: (context) => NWorkInfoWidget(),
+          NCardInfoWidget.routeName: (context) => NCardInfoWidget(),
+          NOrdersPage.routeName: (context) => NOrdersPage(),
+          NIdCardPage.routeName: (context) => NIdCardPage(),
+
+
         });
   }
+
+
+
 
   void uploadDownoknotify() {
     sp_data.get(SPKey.ISFITST.toString(), true).then((isFirst){
@@ -99,7 +120,7 @@ class _ApplicationState extends State<Application> {
 void initLoadding() {
   EasyLoading.instance
     ..displayDuration = const Duration(milliseconds: 2000)
-    ..indicatorType = EasyLoadingIndicatorType.circle
+    ..indicatorType = EasyLoadingIndicatorType.wave
     ..loadingStyle = EasyLoadingStyle.custom
     ..indicatorSize = 45.0
     ..radius = 10.0
@@ -149,7 +170,7 @@ Future<void> initPageInfo() async {
    * */
   var info= await PackageInfo.fromPlatform();
     PackConfig.appName = info.appName;
-    PackConfig.packageName = info.packageName == "" ? "com.neutron.richmoney" : info.packageName;
+    PackConfig.packageName = info.packageName == "" ? "com.neutron.philippines_loan" : info.packageName;
     PackConfig.version = info.version;
     PackConfig.buildNumber = info.buildNumber;
 

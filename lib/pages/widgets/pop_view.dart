@@ -174,7 +174,7 @@ class _listPopScreenState extends State<listPopScreen> {
                       margin: EdgeInsets.only(right: 20.w),
                       width: 16.r,
                       height: 16.r,
-                      child: Image(image: AssetImage(nicon_pop_close))))
+                      child: Image(image: (nicon_pop_close))))
             ],
           ),
           Container(

@@ -18,8 +18,8 @@
   "loan_date": "借款期限",
   "go_loan": "去借款",
   "review_tip": "正在为您尽快审核，请耐心等待，并保持电话畅通",
-  "face_title": "人脸认证",
-  "face_tip": "为了保障您的财产安全\n需要进行人脸识别",
+  "face_title": "人脸识别",
+  "face_tip": "将进行人脸识别\n进一步保护您的财产安全",
   "certification": "认证",
   "user_info": "个人信息",
   "next_tip": "下一步",
@@ -27,7 +27,7 @@
   "upload_id_t": "上传身份证正面",
   "id_number": "身份证号",
   "name": "姓名",
-  "birthday": "生日",
+  "birthday": "出生年月",
   "gender": "性别",
   "email": "电子邮箱",
   "nick_name": "小名",
@@ -123,5 +123,6 @@
   "order_cancel": "已取消",
   "loan": "借款",
   "main_user": "个人",
-  "my_coupon": "我的优惠券"
+  "my_coupon": "我的优惠券",
+  "call_user_tip": "确定要拨打客服电话？"
 }

@@ -1,4 +1,4 @@
-package com.neutron.richmoney
+package com.neutron.philippines_loan
 
 import io.flutter.embedding.android.FlutterActivity
 

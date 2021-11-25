@@ -53,7 +53,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
         Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage(nimg_bg),
+            image: (nimg_bg),
             fit: BoxFit.fill, /* 完全填充*/
           )),
         ),

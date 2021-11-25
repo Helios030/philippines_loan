@@ -13,6 +13,15 @@ import 'package:flutter/material.dart';
   static const Color red07 = Color(0xFFE81507);
   static const Color grayF2 = Color(0xFFF5F4F2);
   static const Color meetC4 = Color(0xFFFFDDC4);
+  static const Color meetD3 = Color(0xFFFFE7D3);
+  static const Color grayAB = Color(0xFFABABAB);
+  static const Color gray9B = Color(0xFF9B9B9B);
+  static const Color black36 = Color(0xFF844936);
+  static const Color black15 = Color(0xFF131415);
+  static const Color black0C15 = Color(0xFF500C15);
+  static const Color meetF1 = Color(0xFFFFF6F1);
+  static const Color orange37 = Color(0xFFF97B37);
+  static const Color grayF4 = Color(0xFFF4F4F4);
 
 }
 

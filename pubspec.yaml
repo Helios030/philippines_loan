@@ -22,6 +22,8 @@ environment:
 
 
 dependencies:
+  animated_text_kit: ^4.2.1
+
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
@@ -52,44 +54,74 @@ dev_dependencies:
   url_launcher: ^6.0.12
   sprintf: ^6.0.0
   fluttertoast: ^8.0.8
+
   liveness_plugin:
     path: liveness_plugin
   app_info:
     path: app_info
+
+
+
 flutter_intl:
   enabled: true
+
+
+
+
+
+
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/img_welcome.png
-    - assets/images/img_btn_ok.png
     - assets/images/img_ben_cancel.png
-    - assets/images/img_bg.png
-    - assets/images/icon_not_select.png
-    - assets/images/img_slide_red.png
-    - assets/images/img_slide_gray.png
-    - assets/images/icon_selected.png
-    - assets/images/icon_down.png
-    - assets/images/img_btn_bg.png
-    - assets/images/img_rd_bg.png
-    - assets/images/icon_up.png
-    - assets/images/icon_tab_pay.png
-    - assets/images/img_line.png
-    - assets/images/icon_ip_n.png
-    - assets/images/icon_down_r.png
-    - assets/images/img_user_info.png
-    - assets/images/img_usercontact.png
+    - assets/images/img_ruler_bg.png
     - assets/images/img_card_bank.png
-    - assets/images/img_work_info.png
-    - assets/images/img_user_icon.png
-    - assets/images/icon_my_loan.png
-    - assets/images/icon_my_bg.png
-    - assets/images/icon_my_user_call.png
     - assets/images/icon_my_about.png
+    - assets/images/img_slide_red.png
     - assets/images/icon_my_exit.png
-    - assets/images/icon_my_coupon.png
-    - assets/images/icon_tab_pay_n.png
+    - assets/images/icon_my_bg.png
+    - assets/images/icon_down_r.png
     - assets/images/icon_pop_close.png
+    - assets/images/img_work_info.png
+    - assets/images/img_btn_bg.png
+    - assets/images/icon_tab_pay.png
+    - assets/images/icon_main_user_n.png
+    - assets/images/icon_main_user_y.png
+    - assets/images/img_usercontact.png
+    - assets/images/img_face_d.png
+    - assets/images/icon_ip_n.png
+    - assets/images/img_rd_bg.png
+    - assets/images/icon_my_coupon.png
+    - assets/images/img_user_icon.png
+    - assets/images/icon_selected.png
+    - assets/images/icon_my_loan.png
+    - assets/images/img_not_order.png
+    - assets/images/icon_my_user_call.png
+    - assets/images/img_product_bg.png
+    - assets/images/img_user_info.png
+    - assets/images/img_bg.png
+    - assets/images/img_slide_gray.png
+    - assets/images/icon_down.png
+    - assets/images/img_welcome.png
+    - assets/images/icon_not_select.png
+    - assets/images/icon_tab_pay_n.png
+    - assets/images/img_line.png
     - assets/images/icon_my_user_info.png
- - assets/images/icon_main_user_n.png
- - assets/images/icon_main_user_y.png
+    - assets/images/icon_up.png
+    - assets/images/img_btn_ok.png
+    - assets/images/img_mainreview_bg.png
+    - assets/images/ic_launcher.png
+    - assets/images/img_main_value_bg.png
+    - assets/images/img_upload_id.png
+    - assets/images/img_upload_work.png
+    - assets/images/img_progress_o.png
+    - assets/images/icon_item_down.png
+    - assets/images/img_progress_t.png
+    - assets/images/img_progress_tree.png
+    - assets/images/img_progress_f.png
+    - assets/images/img_main_review_bg.png
+    - assets/images/img_main_fail_bg.png
+    - assets/images/img_main_loaning_bg.png
+    - assets/images/img_main_loan_value_bg.png
+    - assets/images/img_main_loan_value_bottom_bg.png
+    - assets/images/img_confirm_bg.png
