@@ -37,6 +37,7 @@ class _EditTextViewState extends State<EditTextView> {
             onChanged: widget.onTextChage,
             controller: widget.NController,
             maxLines: 1,
+
             keyboardType: widget.tt,
             textAlign: TextAlign.left,
             style: TextStyle(color: N.black33, fontSize: 14.r),

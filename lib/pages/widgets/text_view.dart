@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
 
-import '../../resource.dart';
-
 class TextView extends StatelessWidget {
 
   String text="";
@@ -49,8 +47,9 @@ class IconTextView extends StatelessWidget {
   var weight;
   TextAlign textAlign;
   bool isShowArror;
+  AssetImage? textIcon;
 
-  IconTextView (this.text,{this.isShowArror=false,this.size=14,this.color=N.pinkCF,this.weight=FontWeight.bold,this.textAlign=TextAlign.left,Key? key}) : super(key: key);
+  IconTextView (this.text,{required this.textIcon,   this.isShowArror=false,this.size=14,this.color=N.pinkCF,this.weight=FontWeight.bold,this.textAlign=TextAlign.left,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +60,7 @@ class IconTextView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextView(text,size:size,color:color,weight:weight,textAlign:textAlign),
-          isShowArror ? Container(width:22.r,height:22.r,child: Image(image: nicon_item_down)) : Container()
+          isShowArror ? Container(width:22.r,height:22.r,child: Image(image: textIcon!)) : Container()
         ],
       ),
     );

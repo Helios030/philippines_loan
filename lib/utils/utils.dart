@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:app_info/app_info.dart';
@@ -10,11 +11,11 @@ import 'package:philippines_loan/model/menu.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/slog.dart';
-import 'package:philippines_loan/utils/sp_key.dart';
-import 'dart:convert';
-import 'expand_util.dart';
-import 'package:sprintf/sprintf.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+import 'package:sprintf/sprintf.dart';
+
+import 'expand_util.dart';
 class Utils {}
 
 String imgBaseUri = 'assets/images/%s.png';
@@ -260,4 +261,15 @@ uploadPhone(BuildContext context) async {
      slog.d("已经上传过APP信息");
     }
   }
+}
+
+Future<DateTime?> selectBirthday(BuildContext context) async {
+  return await showDatePicker(
+      context: context,
+      initialDate: DateTime(1997),
+      firstDate: DateTime(1940),
+      lastDate: DateTime(2020),
+      builder: (context, mc) {
+        return Theme(data: ThemeData(primarySwatch: Colors.red), child: mc!);
+      });
 }

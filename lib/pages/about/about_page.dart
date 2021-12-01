@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/pages/widgets/comm_widget.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../resource.dart';
 
 class NAboutPage extends StatelessWidget {

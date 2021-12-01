@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:philippines_loan/pages/authentication/idcard/id_card_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:philippines_loan/generated/l10n.dart';
+import 'package:philippines_loan/model/loan_status.dart';
+import 'package:philippines_loan/model/products.dart';
+import 'package:philippines_loan/model/s_user_state_result.dart';
+import 'package:philippines_loan/pages/authentication/card/card_info_page.dart';
+import 'package:philippines_loan/pages/authentication/contact/contact_info_page.dart';
+import 'package:philippines_loan/pages/authentication/userinfo/user_info_page.dart';
+import 'package:philippines_loan/pages/authentication/work/work_info_page.dart';
+import 'package:philippines_loan/pages/confirm/confirm_page.dart';
 import 'package:philippines_loan/pages/face/face_detect.dart';
-import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/ruler_view.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:philippines_loan/utils/ncolors.dart';
-import '../../resource.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:philippines_loan/utils/slog.dart';
+import 'package:philippines_loan/service/config.dart';
+import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
+import 'package:philippines_loan/utils/ncolors.dart';
+import 'package:philippines_loan/utils/slog.dart';
+import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+
+import '../../resource.dart';
+
+SUserStateResult? sUserStateResult;
 
 class ProductScreenWidget extends StatelessWidget {
   const ProductScreenWidget({Key? key}) : super(key: key);
@@ -58,13 +71,47 @@ class RulerWidget extends StatefulWidget {
 }
 
 class _RulerWidgetState extends State<RulerWidget> {
-  var lists = <String>["1000", "2000", "3000", "4000", "5000"];
-
   var isDown = true;
   var isUp = true;
-  var currIndex = 3;
+  var currIndex = 0;
   var isNeedBuild = false;
-  var currvalue = "5000";
+  var loan_term = "120";
+  var max_money = "10000";
+
+  PResult? currvalue;
+
+  var lists = <PResult>[];
+
+  var isAvailable = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    sp_data.get(SPKey.USERID.toString(), "").then((id) {
+      if (id.toString().isSafe()) {
+        var map = Map<String, String>();
+        map["user_id"] = id;
+        request(UriPath.queryproducts2, {"user_id": id}).then((value) {
+          slog.d("返回结果   $value");
+          var product = Products.fromJson(value);
+          lists = product.result!;
+          var lickList = [];
+          for (var value in lists) {
+            if (value.enable == "1") {
+              lickList.add(value);
+            }
+          }
+          slog.d("筛选解锁项 $lickList ");
+          if (lickList.isNotEmpty && lickList.last != null) {
+            setNewValue(lickList.last!);
+
+          }
+          setState(() {});
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +123,7 @@ class _RulerWidgetState extends State<RulerWidget> {
           Container(
               margin: EdgeInsets.only(bottom: 5.h, top: 5.h),
               child: TextView(
-                "你想借",
+                S.of(context).you_want_borrow,
                 color: N.black36,
               )),
           Row(
@@ -88,7 +135,8 @@ class _RulerWidgetState extends State<RulerWidget> {
                     currIndex--;
                   }
                   isNeedBuild = true;
-                  currvalue = lists[currIndex];
+                  setNewValue(lists[currIndex]);
+
                   print("onclick   curr  $currIndex");
                   setState(() {});
                 },
@@ -106,7 +154,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                     right: 26.w,
                   ),
                   child: TextView(
-                    currvalue,
+                    currvalue != null ? currvalue!.principal! : "",
                     color: N.red20,
                     size: 31.r,
                   )),
@@ -117,7 +165,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                   }
                   isNeedBuild = true;
                   print("onclick   up  $currIndex");
-                  currvalue = lists[currIndex];
+                  setNewValue(lists[currIndex]);
                   setState(() {});
                 },
                 child: Container(
@@ -144,7 +192,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                   subScaleCountPerScale: 10,
                   scaleColor: N.grayAB,
                   scaleWidth: 2,
-                  lists: lists,
+                  lists: toStringList(lists),
                   isNeedBuild: isNeedBuild,
                   scaleTextColor: N.grayAB,
                   scaleTextWidth: 15,
@@ -153,21 +201,15 @@ class _RulerWidgetState extends State<RulerWidget> {
                     isDown = result > 0;
                     currIndex = result;
 
-
-                    if(result == lists.length-1){
-                      isUp=false;
-                    }else{
-                      isUp=true;
+                    if (result == lists.length - 1) {
+                      isUp = false;
+                    } else {
+                      isUp = true;
                     }
-
-                    slog.d("isUp $isUp result $result  lists.length  ${lists.length} ");
-
-
-                    currvalue = lists[result];
+                    setNewValue(lists[result]);
                     setState(() {});
                   },
                 ),
-
                 // GestureDetector(
                 //     onTap: null,
                 //     child: Image(image: (nimg_ruler_bg))),
@@ -193,18 +235,19 @@ class _RulerWidgetState extends State<RulerWidget> {
                           fit: BoxFit.fill, /* 完全填充*/
                         )),
                         child: TextView(
-                          "时间",
+                          S.of(context).time,
                           color: N.black36,
                         )),
                     Container(
                         margin:
                             EdgeInsets.only(left: 22.w, top: 10.h, bottom: 7.h),
-                        child: TextView("贷款期限", color: N.black36)),
+                        child: TextView(S.of(context).loan_term,
+                            color: N.black36)),
                     Container(
                         margin: EdgeInsets.only(
                           left: 22.w,
                         ),
-                        child: TextView("120", size: 31.r, color: N.red20)),
+                        child: TextView(loan_term, size: 31.r, color: N.red20)),
                   ],
                 ),
               ),
@@ -225,18 +268,19 @@ class _RulerWidgetState extends State<RulerWidget> {
                           fit: BoxFit.fill, /* 完全填充*/
                         )),
                         child: TextView(
-                          "额度",
+                          S.of(context).quota,
                           color: N.black36,
                         )),
                     Container(
                         margin:
                             EdgeInsets.only(left: 22.w, top: 10.h, bottom: 7.h),
-                        child: TextView("最高可借", color: N.black36)),
+                        child: TextView(S.of(context).highest_loanable,
+                            color: N.black36)),
                     Container(
                         margin: EdgeInsets.only(
                           left: 22.w,
                         ),
-                        child: TextView("10000", size: 31.r, color: N.red20)),
+                        child: TextView(max_money, size: 30.r, color: N.red20)),
                   ],
                 ),
               ),
@@ -244,15 +288,134 @@ class _RulerWidgetState extends State<RulerWidget> {
           ),
           Container(
               margin: EdgeInsets.only(top: 51.h),
-              child: ButtonView("立即借钱", () {
-
-                context.startTo(NIdCardPage.routeName);
-                // context.startTo(NFaceDetectorWidget.routeName);
-
-
-              })),
+              child: InkWell(
+                onTap: isAvailable
+                    ? () {
+                        if (currvalue != null) {
+                          sp_data.get(SPKey.USERID.toString(), "").then((id) {
+                            if (id.toString().isSafe()) {
+                              var map = Map<String, String>();
+                              map["user_id"] = id;
+                              request(UriPath.userStatus, map).then((value) {
+                                var result =
+                                    S_user_state_result.fromJson(value);
+                                if (result.code == "200") {
+                                  sp_data.put(SPKey.ISMAIN.toString(), true);
+                                  sUserStateResult = result.result;
+                                  sp_data.put(SPKey.PRODUCTID.toString(),
+                                      currvalue!.productId);
+                                  if (sUserStateResult != null) {
+                                    if (sUserStateResult!.personStatus == "0") {
+                                      Navigator.pushNamed(
+                                          context, NUserInfoWidget.routeName);
+                                    } else if (sUserStateResult!.compStatus ==
+                                        "0") {
+                                      Navigator.pushNamed(
+                                          context, NWorkInfoWidget.routeName);
+                                    } else if (sUserStateResult!
+                                            .contactStatus ==
+                                        "0") {
+                                      Navigator.pushNamed(context,
+                                          NContactInfoWidget.routeName);
+                                    } else if (sUserStateResult!.cardStatus ==
+                                        "0") {
+                                      Navigator.pushNamed(
+                                          context, NCardInfoWidget.routeName);
+                                    } else {
+                                      sp_data
+                                          .get(SPKey.USERID.toString(), "")
+                                          .then((id) {
+                                        Map<String, dynamic> dataMap = {};
+                                        dataMap["user_id"] = id;
+                                        request(UriPath.queryloanstatus,
+                                                dataMap)
+                                            .then((value) {
+                                          Loanstatus jsonResult =
+                                              Loanstatus.fromJson(value);
+                                          if (jsonResult.code == "200") {
+                                            var loanResult = jsonResult.result;
+                                            if (loanResult != null) {
+                                              if (loanResult.loanStatus ==
+                                                  "3") {
+                                                toast(S
+                                                    .of(context)
+                                                    .start_fail_tip);
+                                              } else {
+                                                if (loanResult.hasLoanApp ==
+                                                    true) {
+                                                  sp_data.put(
+                                                      SPKey.ISREREQUEST
+                                                          .toString(),
+                                                      true);
+                                                  Navigator.pushNamed(
+                                                      context,
+                                                      NConfirmPageWidget
+                                                          .routeName);
+                                                } else {
+                                                  sp_data.put(
+                                                      SPKey.ISREREQUEST
+                                                          .toString(),
+                                                      false);
+                                                  Navigator.pushNamed(
+                                                      context,
+                                                      NFaceDetectorWidget
+                                                          .routeName);
+                                                }
+                                              }
+                                            }
+                                          } else {
+                                            toast(jsonResult.message);
+                                          }
+                                        });
+                                      });
+                                    }
+                                  }
+                                } else {
+                                  toast(result.message);
+                                }
+                              });
+                            }
+                          });
+                        }
+                      }
+                    : null,
+                child: Container(
+                    width: 312.r,
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: isAvailable ? (nimg_btn_bg) : (nimg_btn_bg_meet),
+                      ),
+                    ),
+                    child: TextView(
+                      isAvailable
+                          ? S.of(context).borrow_money_now
+                          : S.of(context).not_money_now,
+                      size: 17,
+                      color: Colors.white,
+                    )),
+              )),
         ],
       ),
     );
+  }
+
+  void setNewValue(PResult value) {
+    slog.d("设置新值 $value ");
+
+    currvalue = value;
+    currIndex = lists.indexOf(currvalue!);
+    isAvailable = currvalue!.enable == "1";
+    loan_term = currvalue!.duration!.toString();
+    max_money = lists.last.principal.toString();
+    setState(() {});
+  }
+
+  List<String> toStringList(List<PResult> lists) {
+    var newList = lists.map((e) => e.principal.toString()).toList();
+
+    return newList;
   }
 }

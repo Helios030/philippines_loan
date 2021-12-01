@@ -14,10 +14,19 @@ import '../../../resource.dart';
 
 var cardDataMap = <String, dynamic>{};
 
-class NCardInfoWidget extends StatelessWidget {
+class NCardInfoWidget extends StatefulWidget {
   static String routeName = "/card_info";
 
   const NCardInfoWidget({Key? key}) : super(key: key);
+
+  @override
+  State<NCardInfoWidget> createState() => _NCardInfoWidgetState();
+}
+
+class _NCardInfoWidgetState extends State<NCardInfoWidget> {
+  var bankNumberCTL = TextEditingController();
+  var bankPhoneCTL = TextEditingController();
+  var withdrawal_method = S.current.please_check;
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +46,14 @@ class NCardInfoWidget extends StatelessWidget {
               margin: EdgeInsets.only(left: 18.w, right: 18.w),
               child: Column(children: [
 
-                ItemTextView(S.current.birthday, "1993-09-13"),
+                ItemTextView(S.of(context).withdrawal_method, withdrawal_method,
+                    onBank: (menu) {
+                      cardDataMap['bank_code'] = menu.menuCode;
+                      withdrawal_method = menu.menuName;
+                    }),
 
-                EditTextView(S.current.nick_name, (text) {},
-                    TextEditingController(text: "zhangsan")),
-
-                EditTextView(S.current.nick_name, (text) {},
-                    TextEditingController(text: "zhangsan")),
-
-
-
-
-
-
-
-
+                EditTextView(S.current.bank_account, (text) {cardDataMap['card_no'] = text;}, bankNumberCTL),
+                EditTextView(S.of(context).bank_phone, (text) {cardDataMap['card_phone'] = text;}, bankPhoneCTL),
 
 
 

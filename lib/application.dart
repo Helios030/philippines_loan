@@ -1,11 +1,18 @@
 import 'dart:io';
+
+import 'package:appsflyer_sdk/appsflyer_sdk.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:liveness_plugin/liveness_plugin.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:philippines_loan/pages/authentication/card/card_info_page.dart';
 import 'package:philippines_loan/pages/authentication/contact/contact_info_page.dart';
 import 'package:philippines_loan/pages/authentication/idcard/id_card_page.dart';
 import 'package:philippines_loan/pages/authentication/user_info_menu_page.dart';
 import 'package:philippines_loan/pages/authentication/userinfo/user_info_page.dart';
 import 'package:philippines_loan/pages/authentication/work/work_info_page.dart';
+import 'package:philippines_loan/pages/confirm/confirm_page.dart';
 import 'package:philippines_loan/pages/face/face_detect.dart';
 import 'package:philippines_loan/pages/home/home_screen.dart';
 import 'package:philippines_loan/pages/login/login_page.dart';
@@ -15,19 +22,13 @@ import 'package:philippines_loan/pages/welcome_page.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/af_utils.dart';
-import 'package:philippines_loan/utils/ncolors.dart';
+import 'package:philippines_loan/utils/slog.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
 import 'package:philippines_loan/utils/sp_key.dart';
-import 'package:philippines_loan/utils/slog.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:appsflyer_sdk/appsflyer_sdk.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
+
 import 'generated/l10n.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:liveness_plugin/liveness_plugin.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
@@ -91,6 +92,7 @@ class _ApplicationState extends State<Application> {
           NCardInfoWidget.routeName: (context) => NCardInfoWidget(),
           NOrdersPage.routeName: (context) => NOrdersPage(),
           NIdCardPage.routeName: (context) => NIdCardPage(),
+          NConfirmPageWidget.routeName: (context) =>  NConfirmPageWidget(),
 
 
         });
@@ -173,9 +175,8 @@ Future<void> initPageInfo() async {
     PackConfig.packageName = info.packageName == "" ? "com.neutron.philippines_loan" : info.packageName;
     PackConfig.version = info.version;
     PackConfig.buildNumber = info.buildNumber;
-
-  var uuid = const Uuid(options: {'grng': UuidUtil.cryptoRNG});
-  sp_data.get(SPKey.UUID.toString(), "").then((value) {
+    var uuid = const Uuid(options: {'grng': UuidUtil.cryptoRNG});
+    sp_data.get(SPKey.UUID.toString(), "").then((value) {
     slog.d("获取UUID  $value");
     if (value == null||value=="") {
       PackConfig.uuid = uuid.toString();

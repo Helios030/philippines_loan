@@ -145,6 +145,41 @@ class DicUtil {
       "tarjeta de débito",
     ]);
   }
+
+
+
+  static  List<MenuItem> get array_religions{
+    return toMenus(<String> [
+      "No",
+      "Islam",
+      "Catholic",
+      "Hinduism",
+      "Buddhism",
+      "Confucius",
+      "Christian"
+    ]);
+  }
+
+
+  static  List<MenuItem> get array_idTypes{
+    return toMenus(<String> [
+      "PhilHealth ID",
+      "Passport",
+      "Driver's license",
+      "VOTERS ID",
+      "Postal",
+      "SSS",
+      "UMID",
+      "PRC"
+    ]);
+  }
+
+
+
+
+
+
+
   static  List<MenuItem> get array_industry{
     return toMenus(<String> [
       "IT",

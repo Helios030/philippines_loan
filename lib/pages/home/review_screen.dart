@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/model/loan_status.dart';
-import 'package:philippines_loan/pages/widgets/comm_widget.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
@@ -69,7 +68,7 @@ class ReviewScreenWidget extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(right: 20.w),
                       child: Column(children: [
-                        TextView("贷款期限",size: 12,color: N.black36,),
+                        TextView("S.of(context).loan_term",size: 12,color: N.black36,),
                         TextView("180" + "天",size: 35,color: N.black33),
                       ]),
                     ),

@@ -6,12 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/menu.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
-
 import 'package:philippines_loan/utils/ncolors.dart';
 
-
 import 'button_view.dart';
-import 'comm_widget.dart';
 
 class DialogWidget extends Dialog {
   final Widget content; //内容
@@ -59,7 +56,7 @@ void showMyDialog(BuildContext myContext, Widget widget, {double heightSize = 20
       });
 }
 
-void showSimpleDialog(BuildContext myContext, String title, String imgUri,
+void showSimpleDialog(BuildContext myContext, String title, AssetImage img,
     VoidCallback confirmFun) {
   var simpleDialog = Column(
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,7 +78,7 @@ void showSimpleDialog(BuildContext myContext, String title, String imgUri,
         child: Container(
             width: 118.w,
             height: 130.h,
-            child: Image(image: AssetImage(imgUri))),
+            child: Image(image: img)),
       ),
       ButtonView(S.current.iknow, confirmFun)
     ],

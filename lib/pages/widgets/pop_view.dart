@@ -182,16 +182,19 @@ class _listPopScreenState extends State<listPopScreen> {
             color: N.pinkF1,
             margin: EdgeInsets.only(top: 17.h),
           ),
-          Column(
-            children: buildPopItem(widget.items, (menu) {
-              setState(() {
-                currItem = menu;
-                widget.onselected(menu);
-                Future.delayed(const Duration(milliseconds: 1000), () {
-                  context.finish();
+          Expanded(
+            child: ListView(
+              shrinkWrap: true, //防止状态溢出 自适应大小
+              children: buildPopItem(widget.items, (menu) {
+                setState(() {
+                  currItem = menu;
+                  widget.onselected(menu);
+                  Future.delayed(const Duration(milliseconds: 200), () {
+                    context.finish();
+                  });
                 });
-              });
-            },  currItem),
+              },  currItem),
+            ),
           ),
         ],
       ),

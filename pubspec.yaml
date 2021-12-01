@@ -27,7 +27,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -54,14 +53,12 @@ dev_dependencies:
   url_launcher: ^6.0.12
   sprintf: ^6.0.0
   fluttertoast: ^8.0.8
-
+  image_picker: ^0.8.4
+  geolocator: ^7.7.1
   liveness_plugin:
     path: liveness_plugin
   app_info:
     path: app_info
-
-
-
 flutter_intl:
   enabled: true
 
@@ -125,3 +122,7 @@ flutter:
     - assets/images/img_main_loan_value_bg.png
     - assets/images/img_main_loan_value_bottom_bg.png
     - assets/images/img_confirm_bg.png
+    - assets/images/icon_location.png
+    - assets/images/img_btn_bg_meet.png
+    - assets/images/img_value_bg_confirm.png
+    - assets/images/img_confirm_success.png

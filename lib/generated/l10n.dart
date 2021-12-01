@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -690,40 +691,40 @@ class S {
     );
   }
 
-  /// `第一联系人姓名`
+  /// `第一联系人`
   String get contact_name_f {
     return Intl.message(
-      '第一联系人姓名',
+      '第一联系人',
       name: 'contact_name_f',
       desc: '',
       args: [],
     );
   }
 
-  /// `第二联系人姓名`
+  /// `第二联系人`
   String get contact_name_s {
     return Intl.message(
-      '第二联系人姓名',
+      '第二联系人',
       name: 'contact_name_s',
       desc: '',
       args: [],
     );
   }
 
-  /// `和您的关系`
+  /// `联系人关系`
   String get relationship_with_you {
     return Intl.message(
-      '和您的关系',
+      '联系人关系',
       name: 'relationship_with_you',
       desc: '',
       args: [],
     );
   }
 
-  /// `联系电话`
+  /// `联系人电话`
   String get contact_number {
     return Intl.message(
-      '联系电话',
+      '联系人电话',
       name: 'contact_number',
       desc: '',
       args: [],
@@ -1305,6 +1306,276 @@ class S {
     return Intl.message(
       '确定要拨打客服电话？',
       name: 'call_user_tip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `时间`
+  String get time {
+    return Intl.message(
+      '时间',
+      name: 'time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `贷款期限`
+  String get loan_term {
+    return Intl.message(
+      '贷款期限',
+      name: 'loan_term',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `立即借钱`
+  String get borrow_money_now {
+    return Intl.message(
+      '立即借钱',
+      name: 'borrow_money_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `额度`
+  String get quota {
+    return Intl.message(
+      '额度',
+      name: 'quota',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `最高可借`
+  String get highest_loanable {
+    return Intl.message(
+      '最高可借',
+      name: 'highest_loanable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `你想借`
+  String get you_want_borrow {
+    return Intl.message(
+      '你想借',
+      name: 'you_want_borrow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `暂不可借`
+  String get not_money_now {
+    return Intl.message(
+      '暂不可借',
+      name: 'not_money_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `您的申请已被拒绝,请稍后再试`
+  String get start_fail_tip {
+    return Intl.message(
+      '您的申请已被拒绝,请稍后再试',
+      name: 'start_fail_tip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `联系人姓名`
+  String get contact_name {
+    return Intl.message(
+      '联系人姓名',
+      name: 'contact_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `第三联系人`
+  String get contact_name_three {
+    return Intl.message(
+      '第三联系人',
+      name: 'contact_name_three',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `第四联系人`
+  String get contact_name_four {
+    return Intl.message(
+      '第四联系人',
+      name: 'contact_name_four',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `第五联系人`
+  String get contact_name_five {
+    return Intl.message(
+      '第五联系人',
+      name: 'contact_name_five',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `宗教`
+  String get religion {
+    return Intl.message(
+      '宗教',
+      name: 'religion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `选择省/市`
+  String get select_province {
+    return Intl.message(
+      '选择省/市',
+      name: 'select_province',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `选择县/区`
+  String get select_county {
+    return Intl.message(
+      '选择县/区',
+      name: 'select_county',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `选择街道`
+  String get select_street {
+    return Intl.message(
+      '选择街道',
+      name: 'select_street',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `位置`
+  String get location {
+    return Intl.message(
+      '位置',
+      name: 'location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `点击获取定位`
+  String get get_location {
+    return Intl.message(
+      '点击获取定位',
+      name: 'get_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请先选择上一级地址!`
+  String get plese_select_superior {
+    return Intl.message(
+      '请先选择上一级地址!',
+      name: 'plese_select_superior',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `手机号`
+  String get bank_phone {
+    return Intl.message(
+      '手机号',
+      name: 'bank_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取款方式`
+  String get withdrawal_method {
+    return Intl.message(
+      '取款方式',
+      name: 'withdrawal_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确认贷款`
+  String get confirm_loan {
+    return Intl.message(
+      '确认贷款',
+      name: 'confirm_loan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `订单信息`
+  String get order_info {
+    return Intl.message(
+      '订单信息',
+      name: 'order_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `天`
+  String get day {
+    return Intl.message(
+      '天',
+      name: 'day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attention！For late repayment，thebelow fees will be applied.`
+  String get comfirm_tip {
+    return Intl.message(
+      'Attention！For late repayment，thebelow fees will be applied.',
+      name: 'comfirm_tip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取款账号`
+  String get withdrawal_method_number {
+    return Intl.message(
+      '取款账号',
+      name: 'withdrawal_method_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Information`
+  String get account_Information {
+    return Intl.message(
+      'Account Information',
+      name: 'account_Information',
       desc: '',
       args: [],
     );

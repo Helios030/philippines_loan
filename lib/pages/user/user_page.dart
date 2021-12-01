@@ -9,13 +9,11 @@ import 'package:philippines_loan/pages/widgets/pop_view.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
-import 'package:philippines_loan/utils/sp_key.dart';
-import 'package:philippines_loan/utils/utils.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../resource.dart';
-import '../welcome_page.dart';
 
 class NUserPage extends StatelessWidget {
   const NUserPage({Key? key}) : super(key: key);

@@ -53,3 +53,7 @@ var  nimg_main_loaning_bg= AssetImage("assets/images/img_main_loaning_bg.png");
 var  nimg_main_loan_value_bg= AssetImage("assets/images/img_main_loan_value_bg.png");
 var  nimg_main_loan_value_bottom_bg= AssetImage("assets/images/img_main_loan_value_bottom_bg.png");
 var  nimg_confirm_bg= AssetImage("assets/images/img_confirm_bg.png");
+var  nicon_location= AssetImage("assets/images/icon_location.png");
+var  nimg_btn_bg_meet= AssetImage("assets/images/img_btn_bg_meet.png");
+var  nimg_value_bg_confirm= AssetImage("assets/images/img_value_bg_confirm.png");
+var  nimg_confirm_success= AssetImage("assets/images/img_confirm_success.png");

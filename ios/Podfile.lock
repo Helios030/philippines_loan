@@ -30,6 +30,10 @@ PODS:
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
+  - geolocator_apple (1.2.0):
+    - Flutter
+  - image_picker (0.0.1):
+    - Flutter
   - liveness_plugin (1.2.1):
     - Flutter
   - memory_info (0.0.1):
@@ -55,6 +59,8 @@ DEPENDENCIES:
   - flutter_facebook_sdk (from `.symlinks/plugins/flutter_facebook_sdk/ios`)
   - fluttercontactpicker (from `.symlinks/plugins/fluttercontactpicker/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
+  - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - liveness_plugin (from `.symlinks/plugins/liveness_plugin/ios`)
   - memory_info (from `.symlinks/plugins/memory_info/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
@@ -89,6 +95,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/fluttercontactpicker/ios"
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  geolocator_apple:
+    :path: ".symlinks/plugins/geolocator_apple/ios"
+  image_picker:
+    :path: ".symlinks/plugins/image_picker/ios"
   liveness_plugin:
     :path: ".symlinks/plugins/liveness_plugin/ios"
   memory_info:
@@ -115,6 +125,8 @@ SPEC CHECKSUMS:
   flutter_facebook_sdk: 82c8d10c6226b66de5459d6115ab02d1ecd66cd9
   fluttercontactpicker: 141493596bfca4a786d695d2572c65885bc4f088
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  geolocator_apple: b741765c55dc21950e3e106e8b3584e55cf81ce5
+  image_picker: 9aa50e1d8cdacdbed739e925b7eea16d014367e6
   liveness_plugin: 1a359c516dbe67c8f79b55bfa20ee642c22de60e
   memory_info: 4559bfc41a5fad956f88a9ba0e4f2f9944c767e1
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e

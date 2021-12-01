@@ -9,12 +9,12 @@ import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/input_text_view.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
-import 'package:philippines_loan/utils/expand_util.dart';
-import 'package:philippines_loan/utils/ncolors.dart';
-import 'package:philippines_loan/utils/sp_key.dart';
-import '../../resource.dart';
 import 'package:philippines_loan/utils/af_utils.dart';
+import 'package:philippines_loan/utils/expand_util.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+
+import '../../resource.dart';
 
 class NLoginPage extends StatefulWidget {
   static String routeName = "/login";

@@ -78,7 +78,7 @@ class LoaningScreenWidget extends StatelessWidget {
                         margin: EdgeInsets.only(right: 20.w),
                         child: Column(children: [
                           TextView(
-                            "贷款期限",
+                            "S.of(context).loan_term",
                             size: 12,
                             color: N.black36,
                           ),

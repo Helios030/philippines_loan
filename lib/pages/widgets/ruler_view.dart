@@ -283,7 +283,7 @@ if(widget.isNeedBuild){
 
 ///真实刻度尺View
 class RealRulerView extends StatelessWidget {
-  const RealRulerView({
+   RealRulerView({
     Key? key,
     this.subGridCount,
     this.subScaleWidth,
@@ -334,9 +334,12 @@ class RealRulerView extends StatelessWidget {
   Widget build(BuildContext context) {
     double rulerWidth = (subScaleWidth! * subGridCount!).toDouble();
     double rulerHeight = this.height!.toDouble();
+
+
+
     return CustomPaint(
       size: Size(rulerWidth, rulerHeight),
-      painter: RulerViewPainter(
+      painter:  RulerViewPainter(
         this.subScaleWidth!,
         this.step!,
         this.minValue!,
@@ -345,7 +348,7 @@ class RealRulerView extends StatelessWidget {
         this.scaleTextColor!,
         this.scaleTextWidth!,
         this.subScaleCountPerScale!,
-        this.lists!
+        this.lists
       ),
     );
   }
@@ -371,7 +374,7 @@ class RulerViewPainter extends CustomPainter {
   Paint? linePaint;
 
   TextPainter? textPainter;
-  List<String> lists;
+  List<String>? lists;
 
   RulerViewPainter(
       this.subScaleWidth,
@@ -384,6 +387,11 @@ class RulerViewPainter extends CustomPainter {
       this.subScaleCountPerScale,
       this.lists
       ) {
+
+    if(null==lists){
+      return ;
+    }
+
     //刻度尺
     linePaint = Paint()
       ..isAntiAlias = true
@@ -431,6 +439,11 @@ class RulerViewPainter extends CustomPainter {
 
   ///绘制数字
   void drawNum(Canvas canvas, Size size) {
+
+    if(lists==null||lists!.isEmpty){
+      return;
+    }
+
     canvas.save();
     //坐标移动（0，0）点
     canvas.translate(0, 0);
@@ -440,7 +453,7 @@ class RulerViewPainter extends CustomPainter {
     //绘制数字
     for (double x = 0; x <= size.width; x += offsetX) {
       textPainter!.text = TextSpan(
-        text: "${lists[index]}",
+        text: "${lists![index]}",
         style: TextStyle(color: scaleTextColor, fontSize: scaleTextWidth),
       );
       textPainter!.layout();
