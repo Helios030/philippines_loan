@@ -74,7 +74,16 @@ dynamic request(String path,Map<String, dynamic> dataMap) async {
    if(reslut.toString().contains("200")){
      return  reslut;
    }else{
-     toast(reslut["message"]);
+
+     try{
+       toast(reslut["message"]);
+
+     }catch(e){
+
+       slog.d("返回数据解析错误  $e");
+     }
+
+
      return null;
    }
 

@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/generated/l10n.dart';
+import 'package:philippines_loan/model/empty_result.dart';
 import 'package:philippines_loan/pages/face/face_detect.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/comm_widget.dart';
 import 'package:philippines_loan/pages/widgets/edit_view.dart';
 import 'package:philippines_loan/pages/widgets/item_text_view.dart';
+import 'package:philippines_loan/service/config.dart';
+import 'package:philippines_loan/service/http_request.dart';
+import 'package:philippines_loan/utils/af_utils.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
-
+import 'package:philippines_loan/utils/sp_key.dart';
+import 'package:philippines_loan/utils/sp_data.dart';
 import '../../../resource.dart';
-
+import 'package:philippines_loan/utils/slog.dart';
 
 
 var cardDataMap = <String, dynamic>{};
@@ -58,7 +63,28 @@ class _NCardInfoWidgetState extends State<NCardInfoWidget> {
 
 
                 ButtonView(S.current.next_tip, () {
-                  context.startTo(NFaceDetectorWidget.routeName);
+                  // context.startTo(NFaceDetectorWidget.routeName);
+                  cardDataMap["accountBankType"] = "1";
+
+               request(UriPath.userCard, cardDataMap)
+                      .then((value) {
+                    var result = EmptyReslut.fromJson(value);
+                    if (result.isSuccess()) {
+                      sp_data.get(SPKey.ISMAIN.toString(), true).then((value) {
+                        if (value) {
+                          trackAFBankSuccessEvent();
+                          Navigator.pop(context);
+                          context.startTo( NFaceDetectorWidget.routeName);
+                        } else {
+                          Navigator.pop(context);
+                        }
+                      });
+                    } else {
+                      toast(result.message);
+                      slog.d("上传失败  == $result ");
+                    }
+                  });
+
                 }),
                 Container(
                   height: 25.h,

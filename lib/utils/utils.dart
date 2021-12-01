@@ -68,8 +68,7 @@ TextEditingController getCTL(String value) {
       // 设置内容
       text: value,
       // 保持光标在最后
-      selection: TextSelection.fromPosition(TextPosition(
-          affinity: TextAffinity.downstream, offset: value.length))));
+      selection: TextSelection.fromPosition(TextPosition(affinity: TextAffinity.downstream, offset: value.length))));
 }
 
 // 可以在utils定义log.dart

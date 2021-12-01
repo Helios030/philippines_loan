@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -1371,10 +1370,10 @@ class S {
     );
   }
 
-  /// `暂不可借`
+  /// `当前等级暂不可借`
   String get not_money_now {
     return Intl.message(
-      '暂不可借',
+      '当前等级暂不可借',
       name: 'not_money_now',
       desc: '',
       args: [],
@@ -1576,6 +1575,66 @@ class S {
     return Intl.message(
       'Account Information',
       name: 'account_Information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `* Please ensure the ID uploaded matches with the ID Type previously selected.`
+  String get id_card_tip {
+    return Intl.message(
+      '* Please ensure the ID uploaded matches with the ID Type previously selected.',
+      name: 'id_card_tip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `请拍摄工作证明(或以下其一)`
+  String get take_photo_tip {
+    return Intl.message(
+      '请拍摄工作证明(或以下其一)',
+      name: 'take_photo_tip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `1. 工资单`
+  String get payroll {
+    return Intl.message(
+      '1. 工资单',
+      name: 'payroll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `2. 工作证`
+  String get work_permit {
+    return Intl.message(
+      '2. 工作证',
+      name: 'work_permit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `3. 驾驶执照（摩托车/汽车）`
+  String get driving_license {
+    return Intl.message(
+      '3. 驾驶执照（摩托车/汽车）',
+      name: 'driving_license',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `4. 工作场所照片`
+  String get work_place_photo {
+    return Intl.message(
+      '4. 工作场所照片',
+      name: 'work_place_photo',
       desc: '',
       args: [],
     );

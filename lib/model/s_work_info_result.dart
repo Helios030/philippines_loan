@@ -158,11 +158,11 @@ class SWorkInfoResult {
   String? get compRegion1Value => _compRegion1Value;
   String? get compRegion2 => _compRegion2;
   String? get compRegion2Value => _compRegion2Value;
-  dynamic get compRegion3 => _compRegion3;
-  dynamic get compRegion3Value => _compRegion3Value;
-  dynamic get compRegion4 => _compRegion4;
-  dynamic get compRegion4Value => _compRegion4Value;
-  dynamic get compRegionValue => _compRegionValue;
+   String? get compRegion3 => _compRegion3;
+   String? get compRegion3Value => _compRegion3Value;
+   String? get compRegion4 => _compRegion4;
+   String? get compRegion4Value => _compRegion4Value;
+   String? get compRegionValue => _compRegionValue;
   String? get companyName => _companyName;
   String? get companyTel => _companyTel;
   String? get custemerType => _custemerType;

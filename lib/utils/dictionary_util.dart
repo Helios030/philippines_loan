@@ -111,6 +111,8 @@ class DicUtil {
       "8000以下",
       "在8000和15000之间",
       "15000以上",
+      "15000以上",
+      "15000以上",
     ]);
   }
   static  List<MenuItem> get array_company_position{

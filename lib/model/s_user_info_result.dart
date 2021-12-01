@@ -238,11 +238,11 @@ class SUserInfoResult {
   String? get gender => _gender;
   String? get homeAddress => _homeAddress;
   dynamic get homeRegion1 => _homeRegion1;
-  dynamic get homeRegion1Value => _homeRegion1Value;
+  String? get homeRegion1Value => _homeRegion1Value;
   dynamic get homeRegion2 => _homeRegion2;
-  dynamic get homeRegion2Value => _homeRegion2Value;
+  String? get homeRegion2Value => _homeRegion2Value;
   dynamic get homeRegion3 => _homeRegion3;
-  dynamic get homeRegion3Value => _homeRegion3Value;
+  String? get homeRegion3Value => _homeRegion3Value;
   dynamic get homeRegion4 => _homeRegion4;
   dynamic get homeRegion4Value => _homeRegion4Value;
   dynamic get homeRegionValue => _homeRegionValue;
@@ -252,16 +252,16 @@ class SUserInfoResult {
   String? get lastName => _lastName;
   String? get line => _line;
   String? get maritalStatus => _maritalStatus;
-  dynamic get middleName => _middleName;
+  String? get middleName => _middleName;
   String? get mobile => _mobile;
   String? get nameMother => _nameMother;
   String? get noKtp => _noKtp;
   String? get numberChildren => _numberChildren;
-  dynamic get pkgName => _pkgName;
+  String? get pkgName => _pkgName;
   String? get realName => _realName;
-  dynamic get religion => _religion;
+  String? get religion => _religion;
   String? get userId => _userId;
-  dynamic get uuid => _uuid;
+  String? get uuid => _uuid;
 
 
   @override

@@ -34,7 +34,7 @@ toast(String? message) {
 
 extension NullCheck on dynamic {
   bool isNull() {
-    return this == null || this == "null" || this == "NULL";
+    return this == null || toString() == "null" || toString() == "NULL";
   }
 
   bool isEmpty() {

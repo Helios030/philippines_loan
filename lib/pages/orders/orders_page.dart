@@ -189,7 +189,7 @@ class _NOrdersPageState extends State<NOrdersPage> {
                     left: 21.w, right: 21.w, top: 3.h, bottom: 3.h),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                  image: (nimg_rd_bg),
+                  image: (nicon_bg_right),
                   fit: BoxFit.fill, /* 完全填充*/
                 )),
                 child: TextView(

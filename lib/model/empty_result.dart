@@ -10,7 +10,7 @@ class EmptyReslut {
 
   EmptyReslut.fromJson(dynamic json) {
     _code = json["code"]+"";
-    _sign = json["sign"].toString();
+    // _sign = json["sign"].toString();
     _message = json["message"].toString();
   }
 

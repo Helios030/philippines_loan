@@ -131,7 +131,7 @@
   "quota": "额度",
   "highest_loanable": "最高可借",
   "you_want_borrow": "你想借",
-  "not_money_now": "暂不可借",
+  "not_money_now": "当前等级暂不可借",
   "start_fail_tip": "您的申请已被拒绝,请稍后再试",
   "contact_name": "联系人姓名",
   "contact_name_three": "第三联系人",
@@ -151,5 +151,11 @@
   "day": "天",
   "comfirm_tip": "Attention！For late repayment，thebelow fees will be applied.",
   "withdrawal_method_number": "取款账号",
-  "account_Information": "Account Information"
+  "account_Information": "Account Information",
+  "id_card_tip": "* Please ensure the ID uploaded matches with the ID Type previously selected.",
+  "take_photo_tip": "请拍摄工作证明(或以下其一)",
+  "payroll": "1. 工资单",
+  "work_permit": "2. 工作证",
+  "driving_license": "3. 驾驶执照（摩托车/汽车）",
+  "work_place_photo": "4. 工作场所照片"
 }

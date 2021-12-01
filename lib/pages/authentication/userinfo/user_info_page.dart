@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/city.dart';
+import 'package:philippines_loan/model/empty_result.dart';
 import 'package:philippines_loan/model/s_user_info_result.dart';
 import 'package:philippines_loan/pages/authentication/contact/contact_info_page.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
@@ -32,6 +33,7 @@ CityResult? sCity3;
 class NUserInfoWidget extends StatefulWidget {
   static String routeName = "/user_info";
 
+
   const NUserInfoWidget({Key? key}) : super(key: key);
 
   @override
@@ -56,12 +58,13 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
   var how_children = S.current.please_check;
   var province_city = S.current.please_check;
   var home_time = S.current.please_check;
-
   var id_type = S.current.please_check;
   var religion = S.current.please_check;
   var location = S.current.get_location;
 
-
+  var home_religion_1 = S.current.please_check;
+  var home_religion_2 = S.current.please_check;
+  var home_religion_3 = S.current.please_check;
 
   @override
   void initState() {
@@ -73,6 +76,7 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
       request(UriPath.queryUserBase, dataMap).then((value) {
         var s_user_info_result = S_user_info_result.fromJson(value);
         if (s_user_info_result.code == "200") {
+          print("JsonResult 返回结果  $sUserInfo");
           sUserInfo = s_user_info_result.result;
           print("返回结果  $sUserInfo");
           setMapForResult(sUserInfo);
@@ -86,6 +90,81 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    //获取服务器保存内容 需要每次编译获取服务器的值
+    if (sUserInfo.isNotNull()) {
+      if (sUserInfo!.noKtp.isNotNull()) {
+        idNumberCTL = getCTL(sUserInfo!.noKtp!);
+      }
+      if (sUserInfo!.firstName.isNotNull()) {
+        fNameCTL = getCTL(sUserInfo!.firstName!);
+      }
+      if (sUserInfo!.middleName.isNotNull()) {
+        mNameCTL = getCTL(sUserInfo!.middleName!);
+      }
+      if (sUserInfo!.lastName.isNotNull()) {
+        lastNameCTL = getCTL(sUserInfo!.lastName!);
+      }
+      if (sUserInfo!.birthday.isNotNull()) {
+        birthday = sUserInfo!.birthday!;
+      }
+      if (sUserInfo!.gender.isNotNull()) {
+        //服务器从1开始
+        gender = DicUtil.array_genders[getIndex(sUserInfo!.gender!)].menuName;
+      }
+    }
+    if (sUserInfo!.nameMother.isNotNull()) {
+      nNameCTL = getCTL(sUserInfo!.nameMother!);
+    }
+    if (sUserInfo!.homeAddress.isNotNull()) {
+      detailAddressCTL = getCTL(sUserInfo!.homeAddress!);
+    }
+
+    if (sUserInfo!.email.isNotNull()) {
+      emailCTL = getCTL(sUserInfo!.email!);
+    }
+
+
+    if (sUserInfo!.duraOccupancy.isNotNull()) {
+      home_time = DicUtil
+          .array_home_ttime[getIndex(sUserInfo!.duraOccupancy!)]
+          .menuName;
+    }
+    if (sUserInfo!.education.isNotNull()) {
+      education = DicUtil
+          .array_education_level[getIndex(sUserInfo!.education!)]
+          .menuName;
+    }
+    if (sUserInfo!.maritalStatus.isNotNull()) {
+      marital_status = DicUtil
+          .array_marital_status[getIndex(sUserInfo!.maritalStatus!)]
+          .menuName;
+    }
+    if (sUserInfo!.numberChildren.isNotNull()) {
+      how_children = DicUtil
+          .array_children_num[getIndex(sUserInfo!.numberChildren!)]
+          .menuName;
+    }
+
+
+    if (sUserInfo!.idType.isNotNull()) {
+      id_type = DicUtil
+          .array_idTypes[getIndex(sUserInfo!.idType!)]
+          .menuName;
+    }
+
+
+    if (sUserInfo!.religion.isNotNull()) {
+      religion = DicUtil
+          .array_religions[getIndex(sUserInfo!.religion!)]
+          .menuName;
+    }
+
+
+
+
+
+
+
     return SingleChildScrollView(
       child: Container(
         child: Column(
@@ -177,7 +256,7 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     datas: DicUtil.array_children_num,
                   ),
 
-                  NCitySelectWidget(),
+                  NCitySelectWidget(sUserInfo!),
 
 
 
@@ -217,7 +296,19 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     emailCTL,
                   ),
                   ButtonView(S.current.next_tip, () {
-                    context.startTo(NContactInfoWidget.routeName);
+                   // todo
+                   // request(UriPath.userBase, userDataMap)
+                   //      .then((value) {
+                   //    var result = EmptyReslut.fromJson(value);
+                   //    if (result.isSuccess()) {
+                   //      //print(" 个人信息上传成功  ");
+                   //      Navigator.pop(context);
+                        context.startTo(NContactInfoWidget.routeName);
+                    //   } else {
+                    //     toast(result.message);
+                    //     printLog("上传失败  == $result ", StackTrace.current);
+                    //   }
+                    // });
                   }),
                   Container(
                     height: 25.h,
@@ -237,6 +328,7 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
       userDataMap["home_address"] = it.homeAddress;
       userDataMap["home_region_1"] = it.homeRegion1;
       userDataMap["home_region_2"] = it.homeRegion2;
+      userDataMap["home_region_3"] = it.homeRegion3;
       userDataMap["education"] = it.education;
       userDataMap["marital_status"] = it.maritalStatus;
       userDataMap["number_children"] = it.numberChildren;
@@ -252,6 +344,7 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
       userDataMap["email"] = it.email;
       userDataMap["line"] = it.line;
       userDataMap["facebook"] = it.facebook;
+      userDataMap["religion"] = it.religion;
     }
   }
 
@@ -263,7 +356,10 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
 
 
 class NCitySelectWidget extends StatefulWidget {
-  const NCitySelectWidget({Key? key}) : super(key: key);
+
+   SUserInfoResult? sUserInfo = null;
+
+   NCitySelectWidget(this.sUserInfo,{Key? key}) : super(key: key);
 
   @override
   _NCitySelectWidgetState createState() => _NCitySelectWidgetState();
@@ -278,8 +374,18 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
   var color2 = N.gray1A;
   var color3 = N.gray1A;
 
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.sUserInfo!.homeRegion1Value.isNotNull()) {select_province=widget.sUserInfo!.homeRegion1Value.toString();}
+    if (widget.sUserInfo!.homeRegion2Value.isNotNull()) {select_county=widget.sUserInfo!.homeRegion2Value.toString();}
+    if (widget.sUserInfo!.homeRegion3Value.isNotNull()) {select_street=widget.sUserInfo!.homeRegion3Value.toString();}
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Column(children: [
       ItemTextView(
         S.current.home_city,
@@ -319,5 +425,18 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
       ),
     ],);
   }
+
+
 }
 
+
+int getIndex(String value, {int offset = 1}) {
+  int index = 0;
+  try {
+    index = int.parse(value) - offset;
+    if(index<0){index=0;}
+  } catch (e) {
+    //print(" Error: " + value);
+  }
+  return index;
+}

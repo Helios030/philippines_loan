@@ -65,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "depositTime": MessageLookupByLibrary.simpleMessage("应还时间"),
         "detail_address": MessageLookupByLibrary.simpleMessage("详细地址"),
         "details_address": MessageLookupByLibrary.simpleMessage("详细地址"),
+        "driving_license":
+            MessageLookupByLibrary.simpleMessage("3. 驾驶执照（摩托车/汽车）"),
         "education": MessageLookupByLibrary.simpleMessage("学历"),
         "email": MessageLookupByLibrary.simpleMessage("电子邮箱"),
         "end_time": MessageLookupByLibrary.simpleMessage("展期结束时间"),
@@ -84,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_time": MessageLookupByLibrary.simpleMessage("居住时长"),
         "home_type": MessageLookupByLibrary.simpleMessage("居住类型"),
         "how_children": MessageLookupByLibrary.simpleMessage("孩子数"),
+        "id_card_tip": MessageLookupByLibrary.simpleMessage(
+            "* Please ensure the ID uploaded matches with the ID Type previously selected."),
         "id_number": MessageLookupByLibrary.simpleMessage("身份证号"),
         "iknow": MessageLookupByLibrary.simpleMessage("我知道了"),
         "industry": MessageLookupByLibrary.simpleMessage("行业分类"),
@@ -109,7 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("姓名"),
         "next_tip": MessageLookupByLibrary.simpleMessage("下一步"),
         "nick_name": MessageLookupByLibrary.simpleMessage("小名"),
-        "not_money_now": MessageLookupByLibrary.simpleMessage("暂不可借"),
+        "not_money_now": MessageLookupByLibrary.simpleMessage("当前等级暂不可借"),
         "ok": MessageLookupByLibrary.simpleMessage("确定"),
         "open_account_bank": MessageLookupByLibrary.simpleMessage("开户银行"),
         "order_cancel": MessageLookupByLibrary.simpleMessage("已取消"),
@@ -120,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pay": MessageLookupByLibrary.simpleMessage("支付费用"),
         "pay_money": MessageLookupByLibrary.simpleMessage("已还金额"),
         "pay_time": MessageLookupByLibrary.simpleMessage("还款时间"),
+        "payroll": MessageLookupByLibrary.simpleMessage("1. 工资单"),
         "penalty": MessageLookupByLibrary.simpleMessage("罚息"),
         "phone_number": MessageLookupByLibrary.simpleMessage("电话号码"),
         "photo_tip_f": MessageLookupByLibrary.simpleMessage("四角完整"),
@@ -173,6 +178,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub_amount_due": MessageLookupByLibrary.simpleMessage("应还展期金额"),
         "sub_pay": MessageLookupByLibrary.simpleMessage("展期还款"),
         "submit": MessageLookupByLibrary.simpleMessage("提交"),
+        "take_photo_tip":
+            MessageLookupByLibrary.simpleMessage("请拍摄工作证明(或以下其一)"),
         "time": MessageLookupByLibrary.simpleMessage("时间"),
         "to_pay": MessageLookupByLibrary.simpleMessage("去还款"),
         "unlocked": MessageLookupByLibrary.simpleMessage("待解锁"),
@@ -188,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "withdrawal_method_number":
             MessageLookupByLibrary.simpleMessage("取款账号"),
         "work_info": MessageLookupByLibrary.simpleMessage("职业信息"),
+        "work_permit": MessageLookupByLibrary.simpleMessage("2. 工作证"),
+        "work_place_photo": MessageLookupByLibrary.simpleMessage("4. 工作场所照片"),
         "you_want_borrow": MessageLookupByLibrary.simpleMessage("你想借")
       };
 }

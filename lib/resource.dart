@@ -57,3 +57,4 @@ var  nicon_location= AssetImage("assets/images/icon_location.png");
 var  nimg_btn_bg_meet= AssetImage("assets/images/img_btn_bg_meet.png");
 var  nimg_value_bg_confirm= AssetImage("assets/images/img_value_bg_confirm.png");
 var  nimg_confirm_success= AssetImage("assets/images/img_confirm_success.png");
+var  nicon_bg_right= AssetImage("assets/images/icon_bg_right.png");

@@ -21,10 +21,8 @@ import 'package:philippines_loan/utils/sp_key.dart';
 
 import '../../../resource.dart';
 
-
-var isIdUpload=false;
-var isWorkUpload=false;
-
+var isIdUpload = false;
+var isWorkUpload = false;
 
 class NIdCardPage extends StatefulWidget {
   static const String routeName = "/id_card";
@@ -51,63 +49,59 @@ class _NIdCardPageState extends State<NIdCardPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            AppBarWidget("认证"),
-
+            AppBarWidget(S.current.certification),
             GestureDetector(
-
-                onTap:(){
-
+                onTap: () {
                   showSelectPhotoDialog(context, (menu) {
                     selectPhoto(menu.menuCode == 0).then((photo) {
                       if (photo != null) {
                         setState(() {
-                          idImageWidget = Image.file(File(photo.path), width: 180.w, height: 120.h,);
-                          upLoadImg(photo,true);
-
+                          idImageWidget = Image.file(
+                            File(photo.path),
+                            width: 180.w,
+                            height: 120.h,
+                          );
+                          upLoadImg(photo, true);
                         });
                       }
                     });
                   });
-
-
-
-
                 },
-                child: SizedBox(width: 272.w, height: 174.h, child: idImageWidget)),
-
-
-
-
+                child: SizedBox(
+                    width: 272.w, height: 174.h, child: idImageWidget)),
             Container(
                 width: 304.w,
                 margin: EdgeInsets.only(top: 19.h, bottom: 40.h),
                 child: TextView(
-                  "* Please ensure the ID uploaded matches with the ID Type previously selected.",
+                  S.of(context).id_card_tip,
                   color: N.black36,
                   textAlign: TextAlign.center,
                 )),
-
             GestureDetector(
-
-                onTap:(){
+                onTap: () {
                   showSelectPhotoDialog(context, (menu) {
                     selectPhoto(menu.menuCode == 0).then((photo) {
                       if (photo != null) {
                         setState(() {
-                       workImageWidget = Image.file(File(photo.path), width: 180.w, height: 120.h,);
-                       upLoadImg(photo,false);
-                       });
+                          workImageWidget = Image.file(
+                            File(photo.path),
+                            width: 180.w,
+                            height: 120.h,
+                          );
+                          upLoadImg(photo, false);
+                        });
                       }
                     });
                   });
                 },
-                child: SizedBox(child: Container(width: 272.w, height: 174.h, child: workImageWidget))),
-
+                child: SizedBox(
+                    child: Container(
+                        width: 272.w, height: 174.h, child: workImageWidget))),
             Container(
               height: 19.h,
             ),
             TextView(
-              "请拍摄工作证明(或以下其一)",
+              S.of(context).take_photo_tip,
               color: N.black36,
             ),
             Container(
@@ -117,17 +111,17 @@ class _NIdCardPageState extends State<NIdCardPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextView("1. 工资单 ", color: N.gray9B),
+                TextView(S.of(context).payroll, color: N.gray9B),
                 TextView(
-                  "2. 工作证 ",
+                  S.of(context).work_permit,
                   color: N.gray9B,
                 ),
                 TextView(
-                  "3. 驾驶执照（摩托车/汽车）",
+                  S.of(context).driving_license,
                   color: N.gray9B,
                 ),
                 TextView(
-                  "4. 工作场所照片",
+                  S.of(context).work_place_photo,
                   color: N.gray9B,
                 )
               ],
@@ -146,11 +140,12 @@ class _NIdCardPageState extends State<NIdCardPage> {
       ),
     );
   }
+
   void showSelectPhotoDialog(BuildContext context, onDialogClick) async {
     String title = S.of(context).choose_get_photo;
     List<MenuItem> lists = [
-      MenuItem(0,0, S.of(context).photograph),
-      MenuItem(1,1, S.of(context).select_album)
+      MenuItem(0, 0, S.of(context).photograph),
+      MenuItem(1, 1, S.of(context).select_album)
     ];
     showListPop(context, title, lists, onDialogClick);
   }
@@ -175,36 +170,28 @@ class _NIdCardPageState extends State<NIdCardPage> {
     return photo;
   }
 
-  Future<Map<String, dynamic>?> getFileMap(String path,bool isIdCard) async {
+  Future<Map<String, dynamic>?> getFileMap(String path, bool isIdCard) async {
     Map<String, dynamic> fileMap = {};
     fileMap["user_id"] = await sp_data.get(SPKey.USERID.toString(), "");
-    fileMap["file_type"] = isIdCard ? "1":"4";
+    fileMap["file_type"] = isIdCard ? "1" : "4";
     slog.d("fileMap  $fileMap");
-    fileMap["file"] = await MultipartFile.fromFile(path, filename: path.split("/").last);
+    fileMap["file"] =
+        await MultipartFile.fromFile(path, filename: path.split("/").last);
     return fileMap.create;
   }
 
   void upLoadImg(XFile photo, bool isIdCard) {
-
-    getFileMap(photo.path,isIdCard).then((value) {
+    getFileMap(photo.path, isIdCard).then((value) {
       upload(value!).then((result) {
         var JsonResult = EmptyReslut.fromJson(result);
         slog.d("图片上传返回  $JsonResult");
         if (JsonResult.code != "200") {
           toast(JsonResult.message);
-        }else{
-          isIdCard?isIdUpload:isWorkUpload=true;
+        } else {
+          isIdCard ? isIdUpload : isWorkUpload = true;
           slog.d("标记是否上传  isIdUpload $isIdUpload  isWorkUpload $isWorkUpload");
         }
       });
     });
-
-
-
   }
-
 }
-
-
-
-
