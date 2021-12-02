@@ -97,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "jx_tip": MessageLookupByLibrary.simpleMessage("请先点击下一步，再上传还款凭证"),
         "loan": MessageLookupByLibrary.simpleMessage("借款"),
         "loan_amount": MessageLookupByLibrary.simpleMessage("借款金额（泰铢）"),
+        "loan_amount_main": MessageLookupByLibrary.simpleMessage("借款金额"),
         "loan_date": MessageLookupByLibrary.simpleMessage("借款期限"),
         "loan_money": MessageLookupByLibrary.simpleMessage("借款金额（泰铢）"),
         "loan_period": MessageLookupByLibrary.simpleMessage("借款期限"),
@@ -148,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "repay": MessageLookupByLibrary.simpleMessage("待还款"),
         "repay_amo": MessageLookupByLibrary.simpleMessage("还款额"),
         "repayment": MessageLookupByLibrary.simpleMessage("还款"),
+        "repayment_date": MessageLookupByLibrary.simpleMessage("还款日期"),
         "repayment_sign": MessageLookupByLibrary.simpleMessage("还款标志"),
         "review": MessageLookupByLibrary.simpleMessage("审核中"),
         "review_faile": MessageLookupByLibrary.simpleMessage("审核未通过"),
@@ -183,6 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "time": MessageLookupByLibrary.simpleMessage("时间"),
         "to_pay": MessageLookupByLibrary.simpleMessage("去还款"),
         "unlocked": MessageLookupByLibrary.simpleMessage("待解锁"),
+        "until_date": MessageLookupByLibrary.simpleMessage("距离还款日还有"),
         "upload_id_t": MessageLookupByLibrary.simpleMessage("上传身份证正面"),
         "upload_pay_tip": MessageLookupByLibrary.simpleMessage(
             "还款凭证上传成功，我们将尽快核对\n注意查看您的还款状态"),

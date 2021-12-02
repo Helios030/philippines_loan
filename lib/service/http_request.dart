@@ -70,7 +70,9 @@ class HttpRequest {
 
 dynamic request(String path,Map<String, dynamic> dataMap) async {
    var reslut=  await HttpRequest.request(path, params: dataMap.create);
-   slog.d("服务器返回结果 $reslut");
+
+   slog.d("服务器返回结果 ${json.encode(reslut)}");
+
    if(reslut.toString().contains("200")){
      return  reslut;
    }else{

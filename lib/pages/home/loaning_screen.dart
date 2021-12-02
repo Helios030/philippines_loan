@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/loan_status.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/service/config.dart';
@@ -67,7 +68,7 @@ class LoaningScreenWidget extends StatelessWidget {
                         margin: EdgeInsets.only(left: 20.w),
                         child: Column(children: [
                           TextView(
-                            "借款金额",
+                            S.of(context).loan_amount_main,
                             size: 12,
                             color: N.black36,
                           ),

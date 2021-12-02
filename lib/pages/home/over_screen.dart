@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/loan_status.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
@@ -108,7 +109,7 @@ class OverScreenWidget extends StatelessWidget {
               child: Row(children: [
 
                 ButtonView("展期还款",(){},size: 156,),
-                ButtonView("全额还款",(){},size: 156,),
+                ButtonView(  S.current.all_pay,(){},size: 156,),
 
               ],),
             )

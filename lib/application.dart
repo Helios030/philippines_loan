@@ -18,6 +18,7 @@ import 'package:philippines_loan/pages/home/home_screen.dart';
 import 'package:philippines_loan/pages/login/login_page.dart';
 import 'package:philippines_loan/pages/main/main_page.dart';
 import 'package:philippines_loan/pages/orders/orders_page.dart';
+import 'package:philippines_loan/pages/repayment/repayment_page.dart';
 import 'package:philippines_loan/pages/welcome_page.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
@@ -93,6 +94,7 @@ class _ApplicationState extends State<Application> {
           NOrdersPage.routeName: (context) => NOrdersPage(),
           NIdCardPage.routeName: (context) => NIdCardPage(),
           NConfirmPageWidget.routeName: (context) =>  NConfirmPageWidget(),
+          NRePaymentPage.routeName: (context) =>  NRePaymentPage(),
 
 
         });

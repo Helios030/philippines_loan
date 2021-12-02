@@ -157,5 +157,8 @@
   "payroll": "1. 工资单",
   "work_permit": "2. 工作证",
   "driving_license": "3. 驾驶执照（摩托车/汽车）",
-  "work_place_photo": "4. 工作场所照片"
+  "work_place_photo": "4. 工作场所照片",
+  "loan_amount_main": "借款金额",
+  "repayment_date": "还款日期",
+  "until_date": "距离还款日还有"
 }

@@ -25,7 +25,10 @@ import '../../resource.dart';
 SUserStateResult? sUserStateResult;
 
 class ProductScreenWidget extends StatelessWidget {
-  const ProductScreenWidget({Key? key}) : super(key: key);
+  final LoanstatusResult? loanResult;
+
+
+  const ProductScreenWidget(this.loanResult,{Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

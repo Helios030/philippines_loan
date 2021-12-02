@@ -1639,6 +1639,36 @@ class S {
       args: [],
     );
   }
+
+  /// `借款金额`
+  String get loan_amount_main {
+    return Intl.message(
+      '借款金额',
+      name: 'loan_amount_main',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `还款日期`
+  String get repayment_date {
+    return Intl.message(
+      '还款日期',
+      name: 'repayment_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `距离还款日还有`
+  String get until_date {
+    return Intl.message(
+      '距离还款日还有',
+      name: 'until_date',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
