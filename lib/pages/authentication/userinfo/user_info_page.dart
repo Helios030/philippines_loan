@@ -29,10 +29,8 @@ CityResult? sCity1;
 CityResult? sCity2;
 CityResult? sCity3;
 
-
 class NUserInfoWidget extends StatefulWidget {
   static String routeName = "/user_info";
-
 
   const NUserInfoWidget({Key? key}) : super(key: key);
 
@@ -69,16 +67,16 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
   @override
   void initState() {
     super.initState();
-    sp_data.get(SPKey.USERID.toString(), "").then((id) {
+    SPData.get(SPKey.USERID.toString(), "").then((id) {
       Map<String, dynamic> dataMap = {};
       dataMap["user_id"] = id;
       userDataMap["user_id"] = id;
       request(UriPath.queryUserBase, dataMap).then((value) {
         var s_user_info_result = S_user_info_result.fromJson(value);
         if (s_user_info_result.code == "200") {
-          print("JsonResult 返回结果  $sUserInfo");
+          Slog.d("JsonResult 返回结果  $sUserInfo");
           sUserInfo = s_user_info_result.result;
-          print("返回结果  $sUserInfo");
+          Slog.d("返回结果  $sUserInfo");
           setMapForResult(sUserInfo);
           setState(() {});
         } else {
@@ -91,79 +89,64 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
   @override
   Widget build(BuildContext context) {
     //获取服务器保存内容 需要每次编译获取服务器的值
-    if (sUserInfo.isNotNull()) {
-      if (sUserInfo!.noKtp.isNotNull()) {
+    if (sUserInfo != null) {
+      if (sUserInfo!.noKtp != null) {
         idNumberCTL = getCTL(sUserInfo!.noKtp!);
       }
-      if (sUserInfo!.firstName.isNotNull()) {
+      if (sUserInfo!.firstName != null) {
         fNameCTL = getCTL(sUserInfo!.firstName!);
       }
-      if (sUserInfo!.middleName.isNotNull()) {
+      if (sUserInfo!.middleName != null) {
         mNameCTL = getCTL(sUserInfo!.middleName!);
       }
-      if (sUserInfo!.lastName.isNotNull()) {
+      if (sUserInfo!.lastName != null) {
         lastNameCTL = getCTL(sUserInfo!.lastName!);
       }
-      if (sUserInfo!.birthday.isNotNull()) {
+      if (sUserInfo!.birthday != null) {
         birthday = sUserInfo!.birthday!;
       }
-      if (sUserInfo!.gender.isNotNull()) {
+      if (sUserInfo!.gender != null) {
         //服务器从1开始
         gender = DicUtil.array_genders[getIndex(sUserInfo!.gender!)].menuName;
       }
+
+      if (sUserInfo!.nameMother != null) {
+        nNameCTL = getCTL(sUserInfo!.nameMother!);
+      }
+      if (sUserInfo!.homeAddress != null) {
+        detailAddressCTL = getCTL(sUserInfo!.homeAddress!);
+      }
+
+      if (sUserInfo!.email != null) {
+        emailCTL = getCTL(sUserInfo!.email!);
+      }
+
+      if (sUserInfo!.duraOccupancy != null) {
+        home_time = DicUtil
+            .array_home_ttime[getIndex(sUserInfo!.duraOccupancy!)].menuName;
+      }
+      if (sUserInfo!.education != null) {
+        education = DicUtil
+            .array_education_level[getIndex(sUserInfo!.education!)].menuName;
+      }
+      if (sUserInfo!.maritalStatus != null) {
+        marital_status = DicUtil
+            .array_marital_status[getIndex(sUserInfo!.maritalStatus!)].menuName;
+      }
+      if (sUserInfo!.numberChildren != null) {
+        how_children = DicUtil
+            .array_children_num[getIndex(sUserInfo!.numberChildren!)].menuName;
+      }
+
+      if (sUserInfo!.idType != null) {
+        id_type = DicUtil.array_idTypes[getIndex(sUserInfo!.idType!)].menuName;
+      }
+
+      if (sUserInfo!.religion != null) {
+        religion =
+            DicUtil.array_religions[getIndex(sUserInfo!.religion!)].menuName;
+      }
     }
-    if (sUserInfo!.nameMother.isNotNull()) {
-      nNameCTL = getCTL(sUserInfo!.nameMother!);
-    }
-    if (sUserInfo!.homeAddress.isNotNull()) {
-      detailAddressCTL = getCTL(sUserInfo!.homeAddress!);
-    }
-
-    if (sUserInfo!.email.isNotNull()) {
-      emailCTL = getCTL(sUserInfo!.email!);
-    }
-
-
-    if (sUserInfo!.duraOccupancy.isNotNull()) {
-      home_time = DicUtil
-          .array_home_ttime[getIndex(sUserInfo!.duraOccupancy!)]
-          .menuName;
-    }
-    if (sUserInfo!.education.isNotNull()) {
-      education = DicUtil
-          .array_education_level[getIndex(sUserInfo!.education!)]
-          .menuName;
-    }
-    if (sUserInfo!.maritalStatus.isNotNull()) {
-      marital_status = DicUtil
-          .array_marital_status[getIndex(sUserInfo!.maritalStatus!)]
-          .menuName;
-    }
-    if (sUserInfo!.numberChildren.isNotNull()) {
-      how_children = DicUtil
-          .array_children_num[getIndex(sUserInfo!.numberChildren!)]
-          .menuName;
-    }
-
-
-    if (sUserInfo!.idType.isNotNull()) {
-      id_type = DicUtil
-          .array_idTypes[getIndex(sUserInfo!.idType!)]
-          .menuName;
-    }
-
-
-    if (sUserInfo!.religion.isNotNull()) {
-      religion = DicUtil
-          .array_religions[getIndex(sUserInfo!.religion!)]
-          .menuName;
-    }
-
-
-
-
-
-
 
     return SingleChildScrollView(
       child: Container(
@@ -255,12 +238,7 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     },
                     datas: DicUtil.array_children_num,
                   ),
-
-                  NCitySelectWidget(sUserInfo!),
-
-
-
-
+                  NCitySelectWidget(sUserInfo),
                   EditTextView(
                     S.of(context).details_address,
                     (value) {
@@ -274,7 +252,7 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     location,
                     itemIcon: nicon_location,
                     onLocation: (locationStr) {
-                      slog.d("点击事件   ");
+                      Slog.d("点击事件   ");
                       location = locationStr;
                     },
                   ),
@@ -296,14 +274,14 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     emailCTL,
                   ),
                   ButtonView(S.current.next_tip, () {
-                   // todo
-                   // request(UriPath.userBase, userDataMap)
-                   //      .then((value) {
-                   //    var result = EmptyReslut.fromJson(value);
-                   //    if (result.isSuccess()) {
-                   //      //print(" 个人信息上传成功  ");
-                   //      Navigator.pop(context);
-                        context.startTo(NContactInfoWidget.routeName);
+                    // todo
+                    // request(UriPath.userBase, userDataMap)
+                    //      .then((value) {
+                    //    var result = EmptyReslut.fromJson(value);
+                    //    if (result.isSuccess()) {
+                    //      //    Slog.d(" 个人信息上传成功  ");
+                    //      Navigator.pop(context);
+                    context.startTo(NContactInfoWidget.routeName);
                     //   } else {
                     //     toast(result.message);
                     //     printLog("上传失败  == $result ", StackTrace.current);
@@ -347,96 +325,88 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
       userDataMap["religion"] = it.religion;
     }
   }
-
-
-
-
-
 }
 
-
 class NCitySelectWidget extends StatefulWidget {
+  SUserInfoResult? sUserInfo = null;
 
-   SUserInfoResult? sUserInfo = null;
-
-   NCitySelectWidget(this.sUserInfo,{Key? key}) : super(key: key);
+  NCitySelectWidget(this.sUserInfo, {Key? key}) : super(key: key);
 
   @override
   _NCitySelectWidgetState createState() => _NCitySelectWidgetState();
 }
 
 class _NCitySelectWidgetState extends State<NCitySelectWidget> {
-
-  var select_province=S.current.select_province;
-  var select_county=S.current.select_county;
-  var select_street=S.current.select_street;
+  var select_province = S.current.select_province;
+  var select_county = S.current.select_county;
+  var select_street = S.current.select_street;
   var color1 = N.gray1A;
   var color2 = N.gray1A;
   var color3 = N.gray1A;
 
-
   @override
   void initState() {
     super.initState();
-    if (widget.sUserInfo!.homeRegion1Value.isNotNull()) {select_province=widget.sUserInfo!.homeRegion1Value.toString();}
-    if (widget.sUserInfo!.homeRegion2Value.isNotNull()) {select_county=widget.sUserInfo!.homeRegion2Value.toString();}
-    if (widget.sUserInfo!.homeRegion3Value.isNotNull()) {select_street=widget.sUserInfo!.homeRegion3Value.toString();}
+    // if(widget.sUserInfo!=null){
+    //   if (widget.sUserInfo!.homeRegion1Value!=null) {select_province=widget.sUserInfo!.homeRegion1Value.toString();}
+    //   if (widget.sUserInfo!.homeRegion2Value!=null) {select_county=widget.sUserInfo!.homeRegion2Value.toString();}
+    //   if (widget.sUserInfo!.homeRegion3Value!=null) {select_street=widget.sUserInfo!.homeRegion3Value.toString();}
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return Column(children: [
-      ItemTextView(
-        S.current.home_city,
-        select_province,
-        onCity: (city) {
-          sCity1 = city;
-          select_province=city.addressName.toString();
-          color1 = N.black33;
-          setState(() {});
-        },vColor: color1,
-      ),
-      ItemTextView(
-        "",
-      select_county,
-        onCity: (city) {
-          sCity2 = city;
-          select_county=city.addressName.toString();
-          color2 = N.black33;
-          setState(() {
-
-          });
-        },vColor: color2,
-        cityId: sCity1?.addressNo.toString(),
-      ),
-      ItemTextView(
-        "",
-        select_street,
-        onCity: (city) {
-          sCity3 = city;
-          select_street=city.addressName.toString();
-          color3 = N.black33;
-          setState(() {
-
-          });
-        },vColor: color3,
-        cityId: sCity2?.addressNo.toString(),
-      ),
-    ],);
+    return Column(
+      children: [
+        ItemTextView(
+          S.current.home_city,
+          select_province,
+          onCity: (city) {
+            sCity1 = city;
+            select_province = city.addressName.toString();
+            color1 = N.black33;
+            setState(() {});
+          },
+          vColor: color1,
+        ),
+        ItemTextView(
+          "",
+          select_county,
+          onCity: (city) {
+            sCity2 = city;
+            select_county = city.addressName.toString();
+            color2 = N.black33;
+            setState(() {});
+          },
+          vColor: color2,
+          cityId: sCity1?.addressNo.toString(),
+        ),
+        ItemTextView(
+          "",
+          select_street,
+          onCity: (city) {
+            sCity3 = city;
+            select_street = city.addressName.toString();
+            color3 = N.black33;
+            setState(() {});
+          },
+          vColor: color3,
+          cityId: sCity2?.addressNo.toString(),
+        ),
+      ],
+    );
   }
-
-
 }
-
 
 int getIndex(String value, {int offset = 1}) {
   int index = 0;
   try {
     index = int.parse(value) - offset;
-    if(index<0){index=0;}
+    if (index < 0) {
+      index = 0;
+    }
   } catch (e) {
-    //print(" Error: " + value);
+    //    Slog.d(" Error: " + value);
   }
   return index;
 }

@@ -56,7 +56,7 @@ class _NWorkInfoWidgetState extends State<NWorkInfoWidget> {
   void initState() {
     super.initState();
     //  获取服务器保存数据
-    sp_data.get(SPKey.USERID.toString(), "").then((id) {
+    SPData.get(SPKey.USERID.toString(), "").then((id) {
       Map<String, dynamic> dataMap = {};
       dataMap["user_id"] = id;
       request(UriPath.queryUserwork, dataMap).then((value) {

@@ -47,15 +47,15 @@ class _NConfirmPageWidgetState extends State<NConfirmPageWidget> {
   @override
   void initState() {
     super.initState();
-    sp_data.get(SPKey.USERID.toString(), "").then((id) {
-      sp_data.get(SPKey.PRODUCTID.toString(), 0).then((productId) {
+    SPData.get(SPKey.USERID.toString(), "").then((id) {
+      SPData.get(SPKey.PRODUCTID.toString(), 0).then((productId) {
         request(UriPath.confirm, {"user_id": id, "product_id": productId})
             .then((value) {
           var jsonResult = S_confirm_info.fromJson(value);
           if (jsonResult.code == "200") {
             var sConfirmResult = jsonResult.result;
 
-            slog.d("sConfirmResult   $sConfirmResult");
+            Slog.d("sConfirmResult   $sConfirmResult");
 
             if (sConfirmResult != null) {
               if (sConfirmResult.amount2Account != null) {
@@ -244,11 +244,11 @@ class _NConfirmPageWidgetState extends State<NConfirmPageWidget> {
                 margin: EdgeInsets.only(top: 30.h),
                 child: ButtonView(S.current.next_tip, () {
                   uploadInfo(context);
-                  sp_data
+                  SPData
                       .get(SPKey.ISREREQUEST.toString(), false)
                       .then((isRequest) {
-                    sp_data.get(SPKey.USERID.toString(), "").then((id) {
-                      sp_data
+                    SPData.get(SPKey.USERID.toString(), "").then((id) {
+                      SPData
                           .get(SPKey.PRODUCTID.toString(), 0)
                           .then((productId) {
                         if (isRequest) {
@@ -261,7 +261,7 @@ class _NConfirmPageWidgetState extends State<NConfirmPageWidget> {
                             if (jsonResult.code == "200") {
                               //print("提交陈宫");
                               var result = jsonResult.result;
-                              sp_data
+                              SPData
                                   .get(SPKey.PHONE.toString(), "")
                                   .then((value) {
                                 if (value.isNotEmpty() &&
@@ -281,7 +281,7 @@ class _NConfirmPageWidgetState extends State<NConfirmPageWidget> {
                         } else {
                           //需要许可
 
-                          sp_data
+                          SPData
                               .get(SPKey.lIVENESSID.toString(), "")
                               .then((value) {
                             request(UriPath.loanapp, {
@@ -295,7 +295,7 @@ class _NConfirmPageWidgetState extends State<NConfirmPageWidget> {
                               if (jsonResult.code == "200") {
                                 //print("提交陈宫");
                                 var result = jsonResult.result;
-                                sp_data
+                                SPData
                                     .get(SPKey.PHONE.toString(), "")
                                     .then((value) {
                                   if (value.isNotEmpty() &&

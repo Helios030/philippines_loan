@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-class sp_data {
+class SPData {
   static Object? put( String key , Object? value) async {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();

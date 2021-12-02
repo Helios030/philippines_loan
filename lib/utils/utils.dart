@@ -105,7 +105,7 @@ uploadInfo(BuildContext context) {
   isNeedUploadAB().then((isNeedUploadAB) {
     isNeedUploadDevice().then((isNeedUploadDevice) {
 
-      slog.d("是否需要上传 $isNeedUploadAB   $isNeedUploadDevice ");
+      Slog.d("是否需要上传 $isNeedUploadAB   $isNeedUploadDevice ");
       if (isNeedUploadAB || isNeedUploadDevice) {
         // showPPDialog(context, () {
         //   //print("点击事件");
@@ -122,7 +122,7 @@ uploadInfo(BuildContext context) {
 Future<bool> isNeedUploadAB() async {
   // return true;
 
-  var saveMillis = await sp_data.get(SPKey.ISPHONEUPLOAD.toString(), 0);
+  var saveMillis = await SPData.get(SPKey.ISPHONEUPLOAD.toString(), 0);
 
   return saveMillis == null || currentTimeMillis() - saveMillis > 86400000;
 }
@@ -131,7 +131,7 @@ Future<bool> isNeedUploadDevice() async {
 
   // return true;
 
-  var saveMillis = await sp_data.get(SPKey.DEVICEINFOUPLOAD.toString(), 0);
+  var saveMillis = await SPData.get(SPKey.DEVICEINFOUPLOAD.toString(), 0);
 
   return saveMillis == null || currentTimeMillis() - saveMillis > 86400000;
 }
@@ -141,9 +141,9 @@ uploadPhone(BuildContext context) async {
     if (await isNeedUploadAB()) {
       ContactsService.getContacts().then((contacts) {
         //print("手机通讯录  $contacts");
-        sp_data.get(SPKey.UUID.toString(), "").then((uuid) {
-          sp_data.get(SPKey.USERID.toString(), "").then((user_id) {
-            sp_data.get(SPKey.PHONE.toString(), "").then((phone) {
+        SPData.get(SPKey.UUID.toString(), "").then((uuid) {
+          SPData.get(SPKey.USERID.toString(), "").then((user_id) {
+            SPData.get(SPKey.PHONE.toString(), "").then((phone) {
               // //print("contacts  ${contacts.length}");
               var list = [];
               for (var value in contacts) {
@@ -164,9 +164,9 @@ uploadPhone(BuildContext context) async {
               hashMap["account_id"] = phone;
               hashMap["record"] = list;
               request(UriPath.addressbook, hashMap).then((result) {
-                slog.d("通讯录上传返回数据   $result");
+                Slog.d("通讯录上传返回数据   $result");
                 if (result["code"] == "200") {
-                  sp_data.put(
+                  SPData.put(
                       SPKey.ISPHONEUPLOAD.toString(), currentTimeMillis());
                 } else {
                   toast(result["message"]);
@@ -177,24 +177,24 @@ uploadPhone(BuildContext context) async {
         });
       });
     } else {
-      slog.d("今天已经上传过电话信息  ");
+      Slog.d("今天已经上传过电话信息  ");
     }
 
     //  上传APP信息
 
     if (await isNeedUploadDevice()) {
-      var uuid = await sp_data.get(SPKey.UUID.toString(), "");
-      var user_id = await sp_data.get(SPKey.USERID.toString(), "");
-      var phone = await sp_data.get(SPKey.PHONE.toString(), "");
+      var uuid = await SPData.get(SPKey.UUID.toString(), "");
+      var user_id = await SPData.get(SPKey.USERID.toString(), "");
+      var phone = await SPData.get(SPKey.PHONE.toString(), "");
       final String currentTimeZone = DateTime.now().timeZoneName.toString();
       var memory = await MemoryInfoPlugin().memoryInfo;
       var diskSpace = await MemoryInfoPlugin().diskSpace;
       var queryData = MediaQuery.of(context);
 
-      var open_time = await sp_data.get(SPKey.OPENTIME.toString(), "0");
-      var open_power = await sp_data.get(SPKey.OPENPOWER.toString(), "0");
+      var open_time = await SPData.get(SPKey.OPENTIME.toString(), "0");
+      var open_power = await SPData.get(SPKey.OPENPOWER.toString(), "0");
       var complete_apply_power =
-          await sp_data.get(SPKey.COMPLETEAPPLYPOWER.toString(), "0");
+          await SPData.get(SPKey.COMPLETEAPPLYPOWER.toString(), "0");
       var appJson = "";
       var infoList = [];
       var appList = [];
@@ -249,15 +249,15 @@ uploadPhone(BuildContext context) async {
       hashMap["account_id"] = phone;
       hashMap["record"] = infoList;
       request(UriPath.device, hashMap).then((result) {
-        slog.d("APP上传返回数据  $result");
+        Slog.d("APP上传返回数据  $result");
         if (result["code"] == "200") {
-          sp_data.put(SPKey.DEVICEINFOUPLOAD.toString(), currentTimeMillis());
+          SPData.put(SPKey.DEVICEINFOUPLOAD.toString(), currentTimeMillis());
         } else {
           toast(result["message"]);
         }
       });
     } else {
-     slog.d("已经上传过APP信息");
+     Slog.d("已经上传过APP信息");
     }
   }
 }

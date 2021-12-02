@@ -1669,6 +1669,46 @@ class S {
       args: [],
     );
   }
+
+  /// `还款银行`
+  String get repayment_bank {
+    return Intl.message(
+      '还款银行',
+      name: 'repayment_bank',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `还款数字码`
+  String get repayment_digital_code {
+    return Intl.message(
+      '还款数字码',
+      name: 'repayment_digital_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `还款二维码`
+  String get repayment_digital_qr {
+    return Intl.message(
+      '还款二维码',
+      name: 'repayment_digital_qr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tell the clerk: Pay Bills to Skypay`
+  String get skypay_tip {
+    return Intl.message(
+      'Tell the clerk: Pay Bills to Skypay',
+      name: 'skypay_tip',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

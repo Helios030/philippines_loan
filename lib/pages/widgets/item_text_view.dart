@@ -63,6 +63,10 @@ class ItemTextView extends StatefulWidget {
 }
 
 class _ItemTextViewState extends State<ItemTextView> {
+
+  var textSize=14.r;
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -95,14 +99,14 @@ class _ItemTextViewState extends State<ItemTextView> {
             Geolocator.getCurrentPosition(
                     desiredAccuracy: LocationAccuracy.high)
                 .then((position) {
-              slog.d("position  $position");
+              Slog.d("position  $position");
               widget.value = "${position.latitude}/${position.longitude}";
               widget.vColor = N.black33;
               widget.onLocation!(widget.value);
               setState(() {});
             });
           } else if (widget.onCity != null) {
-            slog.d("显示Dialog  ${widget.cityId} ");
+            Slog.d("显示Dialog  ${widget.cityId} ");
 
             if (widget.cityId == "-1" && widget.title == "") {
               toast(S.of(context).plese_select_superior);
@@ -117,7 +121,8 @@ class _ItemTextViewState extends State<ItemTextView> {
               setState(() {});
             });
           } else if (widget.onBank != null) {
-            sp_data.get(SPKey.USERID.toString(), "").then((id) {
+            textSize=16.r;
+            SPData.get(SPKey.USERID.toString(), "").then((id) {
               request(UriPath.bankcode, {
               "user_id" : id,
               "pay_type":"1",
@@ -159,16 +164,12 @@ class _ItemTextViewState extends State<ItemTextView> {
             Container(
               height: 13.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconTextView(
-                  widget.value,
-                  color: widget.vColor,
-                  isShowArror: widget.isShowIcon,
-                  textIcon: widget.itemIcon ?? nicon_item_down,
-                ),
-              ],
+            IconTextView(
+              widget.value,
+              color: widget.vColor,
+              isShowArror: widget.isShowIcon,
+              textIcon: widget.itemIcon ?? nicon_item_down,
+              size: textSize,
             ),
             _buildLine(widget.isShowLine)
           ],

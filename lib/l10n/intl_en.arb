@@ -160,5 +160,9 @@
   "work_place_photo": "4. 工作场所照片",
   "loan_amount_main": "借款金额",
   "repayment_date": "还款日期",
-  "until_date": "距离还款日还有"
+  "until_date": "距离还款日还有",
+  "repayment_bank": "还款银行",
+  "repayment_digital_code": "还款数字码",
+  "repayment_digital_qr": "还款二维码",
+  "skypay_tip": "Tell the clerk: Pay Bills to Skypay"
 }

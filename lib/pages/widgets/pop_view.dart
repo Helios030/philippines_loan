@@ -72,22 +72,32 @@ showSimplePop(BuildContext context, String title, GestureTapCallback onOKClick,
 
 //普通点击事件 end =========
 
-
 //普通列表选择  start =========
 typedef onSelected = Function(MenuItem menu);
 
 showListPop(BuildContext context, String title, List<MenuItem> items,
-    onSelected onselected,{MenuItem? currMenu}) {
-  showBasePopView(context, listPopScreen(title, items, onselected,selectMenu: currMenu,));
+    onSelected onselected,
+    {MenuItem? currMenu}) {
+  showBasePopView(
+      context,
+      listPopScreen(
+        title,
+        items,
+        onselected,
+        selectMenu: currMenu,
+      ));
 }
 
 List<Widget> buildPopItem(
     List<MenuItem> items, onSelected onselected, MenuItem? currItem) {
-  slog.d("当前选中  $currItem ");
+  Slog.d("当前选中  $currItem ");
   var widgetItems = <Widget>[];
 
   for (MenuItem item in items) {
     bool isSelected = false;
+
+    bool isImageNull = item.imageUri == null;
+
     if (currItem != null) {
       isSelected = item.index == currItem.index;
     }
@@ -102,13 +112,36 @@ List<Widget> buildPopItem(
             height: 48.h,
             width: double.infinity,
             color: isSelected ? N.pinkF1 : Colors.white,
-            child: Center(
-              child: TextView(
-                item.menuName,
-                color: isSelected ? N.red07 : N.gray6F,
-                textAlign: TextAlign.center,
-              ),
-            ),
+            child: isImageNull
+                ? Center(
+                    child: TextView(
+                      item.menuName,
+                      color: isSelected ? N.red07 : N.gray6F,
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 25.w,
+                      ),
+                      Image.network(
+                        item.imageUri!,
+                        width: 32.r,
+                        height: 32.r,
+                      ),
+                      Container(
+                        width: 12.w,
+                      ),
+                      TextView(
+                        item.menuName,
+                        color: isSelected ? N.red07 : N.gray6F,
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
           ),
           Container(height: 1.h, color: N.pinkF1),
         ],
@@ -124,8 +157,10 @@ class listPopScreen extends StatefulWidget {
   final List<MenuItem> items;
   final onSelected onselected;
 
-final MenuItem? selectMenu;
-  const listPopScreen(this.title, this.items, this.onselected, {this.selectMenu,Key? key})
+  final MenuItem? selectMenu;
+
+  const listPopScreen(this.title, this.items, this.onselected,
+      {this.selectMenu, Key? key})
       : super(key: key);
 
   @override
@@ -137,16 +172,13 @@ class _listPopScreenState extends State<listPopScreen> {
 
   @override
   void initState() {
-
     super.initState();
 
-    if(widget.selectMenu==null){
-      currItem=widget.items.first;
-    }else{
-      currItem=  widget.selectMenu;
+    if (widget.selectMenu == null) {
+      currItem = widget.items.first;
+    } else {
+      currItem = widget.selectMenu;
     }
-
-
   }
 
   @override
@@ -193,7 +225,7 @@ class _listPopScreenState extends State<listPopScreen> {
                     context.finish();
                   });
                 });
-              },  currItem),
+              }, currItem),
             ),
           ),
         ],

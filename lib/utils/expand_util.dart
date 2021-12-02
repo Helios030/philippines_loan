@@ -77,12 +77,12 @@ extension BoolExt on bool {
 
 
 extension ContextExt on BuildContext {
-  startTo(String routeName, {var isNewTask = false}) {
+  startTo(String routeName, {var isNewTask = false,dynamic arg =""}) {
     if (isNewTask) {
       Navigator.of(this).pushNamedAndRemoveUntil(
-          routeName, (Route<dynamic> route) => false);
+          routeName, (Route<dynamic> route) => false,arguments: arg);
     } else {
-      Navigator.pushNamed(this, routeName);
+      Navigator.pushNamed(this, routeName,arguments: arg);
     }
   }
 

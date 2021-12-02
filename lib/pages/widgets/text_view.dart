@@ -54,13 +54,11 @@ class IconTextView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
-      width: 338 .w,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextView(text,size:size,color:color,weight:weight,textAlign:textAlign),
-          isShowArror ? Container(width:22.r,height:22.r,child: Image(image: textIcon!)) : Container()
+          isShowArror ? SizedBox(width:22.r,height:22.r,child: Image(image: textIcon!)) : Container()
         ],
       ),
     );

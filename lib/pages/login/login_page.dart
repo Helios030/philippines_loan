@@ -127,11 +127,11 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                 request(UriPath.smsLogin, dataMap).then((response) {
                   if (response != null) {
                     var value = SmsReslut.fromJson(response);
-                    sp_data.put(SPKey.USERID.toString(), value.result!.userId);
-                    sp_data.put(
+                    SPData.put(SPKey.USERID.toString(), value.result!.userId);
+                    SPData.put(
                         SPKey.REALNAME.toString(), value.result!.realName);
-                    sp_data.put(SPKey.PHONE.toString(), value.result!.phone);
-                    sp_data.put(
+                    SPData.put(SPKey.PHONE.toString(), value.result!.phone);
+                    SPData.put(
                         SPKey.PHONEPRE.toString(), value.result!.phonepre);
                     toast(S.of(context).login);
 

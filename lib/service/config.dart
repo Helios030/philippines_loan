@@ -45,7 +45,7 @@ class UriPath{
  static String packageName="com.neutron.philippines_loan";
  static String version="1.0";
  static String buildNumber="";
- static String uuid="null";
+ static String uuid="";
 
  @override
   String toString() {

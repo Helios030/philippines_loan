@@ -28,7 +28,7 @@ showCityPop(BuildContext context, String title, String city_id, onSingleSelected
 
 List<Widget> buildPopItem(
     List<CityResult> items, onSingleSelected onselected, CityResult? currItem) {
-  slog.d("当前选中  $currItem ");
+  Slog.d("当前选中  $currItem ");
   var widgetItems = <Widget>[];
   for (CityResult item in items) {
     bool isSelected = false;

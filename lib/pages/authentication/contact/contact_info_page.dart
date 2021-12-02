@@ -64,7 +64,7 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
     // TODO: implement initState
     super.initState();
     //print("initState ============== ");
-    sp_data.get(SPKey.USERID.toString(), "").then((id) {
+    SPData.get(SPKey.USERID.toString(), "").then((id) {
       Map<String, dynamic> dataMap = {};
       dataMap["user_id"] = id;
       contactDataMap["user_id"] = id;
@@ -72,7 +72,7 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
         var s_contact_result = S_contact_result.fromJson(value);
         if (s_contact_result.code == "200") {
           sContactInfo = s_contact_result.result;
-          slog.d("联系人返回结果  $sContactInfo");
+          Slog.d("联系人返回结果  $sContactInfo");
           setMapForResult(sContactInfo);
 
           if (sContactInfo != null) {

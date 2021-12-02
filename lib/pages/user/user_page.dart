@@ -97,7 +97,7 @@ class NUserPage extends StatelessWidget {
                     color: N.grayF2,
                   ),
                   userItemWidget(S.current.about_us, nicon_my_about,onclick: (){
-                    sp_data.get(SPKey.ABOUTUS.toString(), "").then((value) {
+                    SPData.get(SPKey.ABOUTUS.toString(), "").then((value) {
                       if (value != null && value != "") {
                         launch(value);
                       }
@@ -108,7 +108,7 @@ class NUserPage extends StatelessWidget {
                     nicon_my_user_call,
                     onclick: () {
                       showSimplePop(context, S.of(context).call_user_tip, () {
-                        sp_data.get(SPKey.HOTTEL.toString(),"").then((value){
+                        SPData.get(SPKey.HOTTEL.toString(),"").then((value){
                           launch("tel://$value");
                         });
 
@@ -122,7 +122,7 @@ class NUserPage extends StatelessWidget {
                     nicon_my_exit,
                     onclick: () {
                       showSimplePop(context, S.current.exit_app_tip, () {
-                        sp_data.clear();
+                        SPData.clear();
                         context.startTo(NLoginPage.routeName,
                             isNewTask: true);
                       }, () {

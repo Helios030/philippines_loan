@@ -1,5 +1,5 @@
 
-class slog {
+class Slog {
   static var _separator = "=";
   static var _split =
       "$_separator$_separator$_separator$_separator$_separator$_separator$_separator$_separator$_separator";

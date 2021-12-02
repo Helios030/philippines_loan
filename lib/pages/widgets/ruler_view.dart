@@ -126,7 +126,7 @@ class RulerState extends State<RulerView> {
   @override
   Widget build(BuildContext context) {
 
-    slog.d("build ruler  ${widget.currValue}");
+    Slog.d("build ruler  ${widget.currValue}");
 
 if(widget.isNeedBuild){
   select(widget.currValue);
@@ -227,7 +227,7 @@ if(widget.isNeedBuild){
       // 选中值回调
       if (widget.onSelectedChanged != null) {
         widget.onSelectedChanged!(centerValue~/10);
-        slog.d("result selected  value ");
+        Slog.d("result selected  value ");
       }
       //如果是否滚动停止，停止则滚动到centerValue
 

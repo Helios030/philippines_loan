@@ -25,14 +25,14 @@ class _NOrdersPageState extends State<NOrdersPage> {
 
   @override
   void initState() {
-    sp_data.get(SPKey.USERID.toString(), "").then((id) {
+    SPData.get(SPKey.USERID.toString(), "").then((id) {
       Map<String, dynamic> dataMap = {};
       dataMap["user_id"] = id;
       //print("user_id  $id");
       request(UriPath.loanappquery, dataMap).then((value) {
         var result = Orders.fromJson(value);
         list = result.result;
-        slog.d("order list    $list");
+        Slog.d("order list    $list");
         setState(() {});
       });
     });

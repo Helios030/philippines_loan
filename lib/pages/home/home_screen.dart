@@ -43,7 +43,7 @@ class _NHomePageState extends State<NHomePage> {
   }
 
   void queyLoanStatus() {
-    sp_data.get(SPKey.USERID.toString(), "").then((id) {
+    SPData.get(SPKey.USERID.toString(), "").then((id) {
       Map<String, dynamic> dataMap = {};
       dataMap["user_id"] = id;
       request(UriPath.queryloanstatus, dataMap).then((value) {
@@ -51,23 +51,33 @@ class _NHomePageState extends State<NHomePage> {
         if (jsonResult.code == "200") {
           loanResult = jsonResult.result;
           //保存当前id与待还金额
-          sp_data.put(
-              SPKey.APPLICATIONID.toString(), loanResult!.applicationId);
-          sp_data.put(SPKey.AMOUNT.toString(), loanResult!.remainAmount);
-          slog.d("请求贷款状态返回  $loanResult");
+          Slog.d("请求贷款状态返回  $loanResult");
+          SPData.put(SPKey.APPLICATIONID.toString(), loanResult!.applicationId);
+          SPData.put(SPKey.AMOUNT.toString(), loanResult!.remainAmount);
+
+
+
+
+          SPData.get(SPKey.APPLICATIONID.toString(), "").then((value){
+            Slog.d("=======APPLICATIONID   $value");
+          });
+          SPData.get(SPKey.AMOUNT.toString(), "").then((value){
+            Slog.d("=======AMOUNT   $value");
+          });
+
           switch (int.parse(loanResult!.loanStatus!)) {
             case STATE_LOANING:
             case STATE_APPLYING:
               currPage = ReviewScreenWidget(loanResult);
-              sp_data.put(SPKey.ISSHOWFAILE.toString(), true);
+              SPData.put(SPKey.ISSHOWFAILE.toString(), true);
               break;
             case STATE_APPROint_REJECTED:
               //需要判断
               currPage = FailScreenWidget(loanResult);
-              sp_data.get(SPKey.ISSHOWFAILE.toString(), true).then((value) {
+              SPData.get(SPKey.ISSHOWFAILE.toString(), true).then((value) {
                 //print("是否可借  $value");
                 if (value) {
-                  sp_data.put(SPKey.ISSHOWFAILE.toString(), false);
+                  SPData.put(SPKey.ISSHOWFAILE.toString(), false);
                 } else {
                   currPage = ProductScreenWidget(loanResult);
                 }
@@ -93,13 +103,13 @@ class _NHomePageState extends State<NHomePage> {
 }
 
 void queyUserConfig() {
-  sp_data.get(SPKey.USERID.toString(), "").then((id) {
+  SPData.get(SPKey.USERID.toString(), "").then((id) {
     request(UriPath.config, {"user_id": id}).then((value) {
       var JsonUser = S_user_config.fromJson(value);
       if (JsonUser.result != null) {
-        sp_data.put(SPKey.KPRIVATE.toString(), JsonUser.result!.kPrivate);
-        sp_data.put(SPKey.HOTTEL.toString(), JsonUser.result!.hotTel);
-        sp_data.put(SPKey.ABOUTUS.toString(), JsonUser.result!.aboutUs);
+        SPData.put(SPKey.KPRIVATE.toString(), JsonUser.result!.kPrivate);
+        SPData.put(SPKey.HOTTEL.toString(), JsonUser.result!.hotTel);
+        SPData.put(SPKey.ABOUTUS.toString(), JsonUser.result!.aboutUs);
       }
     });
   });

@@ -49,7 +49,7 @@ trackCommitLoanSuccessEvent(String mobile, String loanId) {
 }
 
 uploadServiceEvent(Map<String, String?> map) async {
-  slog.d("开始上传 uploadServiceEvent ${map} ");
+  Slog.d("开始上传 uploadServiceEvent ${map} ");
   var sdk = getAF();
   var appsFlyerUID = await sdk.getAppsFlyerUID();
   map["appsflyer_id"] = appsFlyerUID;
@@ -58,7 +58,7 @@ uploadServiceEvent(Map<String, String?> map) async {
       map[key] = value.toString();
     });
     request(UriPath.appsFlyer, map).then((value) {
-      slog.d("手动Event 上传 map $map ");
+      Slog.d("手动Event 上传 map $map ");
     });
   });
 }

@@ -35,11 +35,14 @@ class _WaitPayScreenWidgetState extends State<WaitPayScreenWidget> {
   var until_date = "";
   var day = S.current.day;
 
+
+  var isPayAll=false;
+
   @override
   void initState() {
     super.initState();
     if (widget.loanResult != null) {
-      slog.d("widget.loanResult      ${widget.loanResult}");
+      Slog.d("widget.loanResult      ${widget.loanResult}");
       loan_amount_main = widget.loanResult!.principal.toString();
       repayment_date = widget.loanResult!.depositTime.toString();
       loan_term = widget.loanResult!.duration.toString();
@@ -153,14 +156,17 @@ class _WaitPayScreenWidgetState extends State<WaitPayScreenWidget> {
                   ButtonView(
                     S.current.sub_pay,
                     () {
-                      context.startTo(NRePaymentPage.routeName);
+                      isPayAll=false;
+
+                      context.startTo(NRePaymentPage.routeName,arg: isPayAll);
                     },
                     size: 156,
                   ),
                   ButtonView(
                     S.current.all_pay,
                     () {
-                      context.startTo(NRePaymentPage.routeName);
+                      isPayAll=true;
+                      context.startTo(NRePaymentPage.routeName,arg: isPayAll);
                     },
                     size: 156,
                   ),

@@ -91,12 +91,12 @@ class _RulerWidgetState extends State<RulerWidget> {
   void initState() {
     super.initState();
 
-    sp_data.get(SPKey.USERID.toString(), "").then((id) {
+    SPData.get(SPKey.USERID.toString(), "").then((id) {
       if (id.toString().isSafe()) {
         var map = Map<String, String>();
         map["user_id"] = id;
         request(UriPath.queryproducts2, {"user_id": id}).then((value) {
-          slog.d("返回结果   $value");
+          Slog.d("返回结果   $value");
           var product = Products.fromJson(value);
           lists = product.result!;
           var lickList = [];
@@ -105,7 +105,7 @@ class _RulerWidgetState extends State<RulerWidget> {
               lickList.add(value);
             }
           }
-          slog.d("筛选解锁项 $lickList ");
+          Slog.d("筛选解锁项 $lickList ");
           if (lickList.isNotEmpty && lickList.last != null) {
             setNewValue(lickList.last!);
 
@@ -295,7 +295,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                 onTap: isAvailable
                     ? () {
                         if (currvalue != null) {
-                          sp_data.get(SPKey.USERID.toString(), "").then((id) {
+                          SPData.get(SPKey.USERID.toString(), "").then((id) {
                             if (id.toString().isSafe()) {
                               var map = Map<String, String>();
                               map["user_id"] = id;
@@ -303,9 +303,9 @@ class _RulerWidgetState extends State<RulerWidget> {
                                 var result =
                                     S_user_state_result.fromJson(value);
                                 if (result.code == "200") {
-                                  sp_data.put(SPKey.ISMAIN.toString(), true);
+                                  SPData.put(SPKey.ISMAIN.toString(), true);
                                   sUserStateResult = result.result;
-                                  sp_data.put(SPKey.PRODUCTID.toString(),
+                                  SPData.put(SPKey.PRODUCTID.toString(),
                                       currvalue!.productId);
                                   if (sUserStateResult != null) {
                                     if (sUserStateResult!.personStatus == "0") {
@@ -325,7 +325,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                                       Navigator.pushNamed(
                                           context, NCardInfoWidget.routeName);
                                     } else {
-                                      sp_data
+                                      SPData
                                           .get(SPKey.USERID.toString(), "")
                                           .then((id) {
                                         Map<String, dynamic> dataMap = {};
@@ -346,7 +346,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                                               } else {
                                                 if (loanResult.hasLoanApp ==
                                                     true) {
-                                                  sp_data.put(
+                                                  SPData.put(
                                                       SPKey.ISREREQUEST
                                                           .toString(),
                                                       true);
@@ -355,7 +355,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                                                       NConfirmPageWidget
                                                           .routeName);
                                                 } else {
-                                                  sp_data.put(
+                                                  SPData.put(
                                                       SPKey.ISREREQUEST
                                                           .toString(),
                                                       false);
@@ -406,7 +406,7 @@ class _RulerWidgetState extends State<RulerWidget> {
   }
 
   void setNewValue(PResult value) {
-    slog.d("设置新值 $value ");
+    Slog.d("设置新值 $value ");
 
     currvalue = value;
     currIndex = lists.indexOf(currvalue!);

@@ -27,13 +27,13 @@ class _NWelComePageState extends State<NWelComePage> {
     if (EasyLoading.isShow) {
       EasyLoading.dismiss();
     }
-    sp_data.put(SPKey.OPENTIME.toString(), currentTimeMillis().toString());
+    SPData.put(SPKey.OPENTIME.toString(), currentTimeMillis().toString());
     Battery().batteryLevel.then((value) {
-      sp_data.put(SPKey.OPENPOWER.toString(), value.toString());
+      SPData.put(SPKey.OPENPOWER.toString(), value.toString());
     });
     if (isFirst) {
       Future.delayed(const Duration(milliseconds: 3000), () {
-        sp_data.get(SPKey.USERID.toString(), "").then((value) {
+        SPData.get(SPKey.USERID.toString(), "").then((value) {
           String? UserId = value;
           if (UserId == null || UserId == "") {
             context.startTo( NLoginPage.routeName, isNewTask: true);

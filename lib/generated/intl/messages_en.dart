@@ -149,7 +149,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "repay": MessageLookupByLibrary.simpleMessage("待还款"),
         "repay_amo": MessageLookupByLibrary.simpleMessage("还款额"),
         "repayment": MessageLookupByLibrary.simpleMessage("还款"),
+        "repayment_bank": MessageLookupByLibrary.simpleMessage("还款银行"),
         "repayment_date": MessageLookupByLibrary.simpleMessage("还款日期"),
+        "repayment_digital_code": MessageLookupByLibrary.simpleMessage("还款数字码"),
+        "repayment_digital_qr": MessageLookupByLibrary.simpleMessage("还款二维码"),
         "repayment_sign": MessageLookupByLibrary.simpleMessage("还款标志"),
         "review": MessageLookupByLibrary.simpleMessage("审核中"),
         "review_faile": MessageLookupByLibrary.simpleMessage("审核未通过"),
@@ -174,6 +177,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "send_success": MessageLookupByLibrary.simpleMessage("发送验证码成功！"),
         "service": MessageLookupByLibrary.simpleMessage("审核咨询费"),
         "settle": MessageLookupByLibrary.simpleMessage("已结清"),
+        "skypay_tip": MessageLookupByLibrary.simpleMessage(
+            "Tell the clerk: Pay Bills to Skypay"),
         "start_fail_tip":
             MessageLookupByLibrary.simpleMessage("您的申请已被拒绝,请稍后再试"),
         "start_time": MessageLookupByLibrary.simpleMessage("展期开始时间"),

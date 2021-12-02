@@ -18,12 +18,12 @@ class HttpRequest {
     // 1.创建单独配置
     final options = Options(method: method);
     try {
-      slog.d("""
+      Slog.d("""
     请求地址： $url
     请求参数： ${json.encode(params).replaceAll("\\", "")}
     """);
     }catch (e) {
-      slog.d("字段异常");
+      Slog.d("字段异常");
     }
     Interceptor dInter = InterceptorsWrapper(onError: (error, handler) {
       //print("request 拦截到错误  $error");
@@ -46,7 +46,7 @@ class HttpRequest {
 
 
   static Future<T> upload<T>(String url, {String method = "post", required   FormData params}) async {
-    slog.d("图片上传  url  $url  ");
+    Slog.d("图片上传  url  $url  ");
     final options = Options(method: method,sendTimeout:60000,receiveTimeout: 60000,receiveDataWhenStatusError: true,);
     EasyLoading.show();
     try {
@@ -55,7 +55,7 @@ class HttpRequest {
       return response.data;
     } on DioError catch (e) {
       EasyLoading.dismiss();
-      slog.d("图片上传  错误 $e ");
+      Slog.d("图片上传  错误 $e ");
       return Future.error(e);
     }finally{
       EasyLoading.dismiss();
@@ -71,7 +71,7 @@ class HttpRequest {
 dynamic request(String path,Map<String, dynamic> dataMap) async {
    var reslut=  await HttpRequest.request(path, params: dataMap.create);
 
-   slog.d("服务器返回结果 ${json.encode(reslut)}");
+   Slog.d("服务器返回结果 ${json.encode(reslut)}");
 
    if(reslut.toString().contains("200")){
      return  reslut;
@@ -82,7 +82,7 @@ dynamic request(String path,Map<String, dynamic> dataMap) async {
 
      }catch(e){
 
-       slog.d("返回数据解析错误  $e");
+       Slog.d("返回数据解析错误  $e");
      }
 
 

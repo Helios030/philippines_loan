@@ -23,6 +23,7 @@ import 'package:philippines_loan/pages/welcome_page.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/af_utils.dart';
+import 'package:philippines_loan/utils/ncolors.dart';
 import 'package:philippines_loan/utils/slog.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
 import 'package:philippines_loan/utils/sp_key.dart';
@@ -46,6 +47,13 @@ class _ApplicationState extends State<Application> {
   @override
   void initState() {
     super.initState();
+    initPageInfo();
+    // getAF();
+    initLive();
+    initLoadding();
+    trackAFActivationEvent();
+    uploadDownoknotify();
+    Slog.init(isDebug: true);
 
   }
 
@@ -104,9 +112,9 @@ class _ApplicationState extends State<Application> {
 
 
   void uploadDownoknotify() {
-    sp_data.get(SPKey.ISFITST.toString(), true).then((isFirst){
+    SPData.get(SPKey.ISFITST.toString(), true).then((isFirst){
       if(isFirst){
-        sp_data.put(SPKey.ISFITST.toString(), false);
+        SPData.put(SPKey.ISFITST.toString(), false);
         trackInstallEvent();
         request(UriPath.downoknotify, {
           "uuid":PackConfig.uuid,
@@ -128,10 +136,10 @@ void initLoadding() {
     ..loadingStyle = EasyLoadingStyle.custom
     ..indicatorSize = 45.0
     ..radius = 10.0
-    // ..progressColor = N.meetff
+    ..progressColor = N.red20
     ..backgroundColor = Colors.white
-    // ..indicatorColor = N.meetff
-    // ..textColor = N.meetff
+    ..indicatorColor = N.red20
+    ..textColor = N.red20
     ..maskColor = Colors.blue.withOpacity(0.5)
     ..userInteractions = true
     ..dismissOnTap = false;
@@ -166,27 +174,37 @@ void initLive() {
   LivenessPlugin.initSDKOfLicense(Market.Thailand);
 }
 
-Future<void> initPageInfo() async {
+
+void initPageInfo() {
   /**
    * packageName 有时获取不到
    * 缺少  sign
    *
    * */
-  var info= await PackageInfo.fromPlatform();
+  PackageInfo.fromPlatform().then((info) {
     PackConfig.appName = info.appName;
-    PackConfig.packageName = info.packageName == "" ? "com.neutron.philippines_loan" : info.packageName;
+    // PackConfig.packageName = info.packageName == "" ? "com.neutron.philippines_loan" : info.packageName;
+    //ios
+    PackConfig.packageName = "com.neutron.philippines_loan" ;
     PackConfig.version = info.version;
     PackConfig.buildNumber = info.buildNumber;
-    var uuid = const Uuid(options: {'grng': UuidUtil.cryptoRNG});
-    sp_data.get(SPKey.UUID.toString(), "").then((value) {
-    slog.d("获取UUID  $value");
+    //print("fromPlatform  ${PackConfig().toString()}");
+  });
+  var uuid = const Uuid(options: {'grng': UuidUtil.cryptoRNG});
+  SPData.get(SPKey.UUID.toString(), "").then((value) {
+    Slog.d("获取UUID  $value");
+    Slog.d("随机UUID  $value");
+
     if (value == null||value=="") {
-      PackConfig.uuid = uuid.toString();
-      sp_data.put(SPKey.UUID.toString(), uuid.toString());
+      String uu = uuid.v1();
+      PackConfig.uuid = uu;
+      SPData.put(SPKey.UUID.toString(), uu);
     } else {
       PackConfig.uuid = value;
-    }
-    slog.d("UUID: " +  PackConfig.uuid );
-  });
-}
 
+    }
+    Slog.d("UUID: " +  PackConfig.uuid );
+  });
+
+
+}

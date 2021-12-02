@@ -16,7 +16,6 @@ import 'package:philippines_loan/utils/sp_data.dart';
 import '../../../resource.dart';
 import 'package:philippines_loan/utils/slog.dart';
 
-
 var cardDataMap = <String, dynamic>{};
 
 class NCardInfoWidget extends StatefulWidget {
@@ -50,41 +49,21 @@ class _NCardInfoWidgetState extends State<NCardInfoWidget> {
           Container(
               margin: EdgeInsets.only(left: 18.w, right: 18.w),
               child: Column(children: [
-
                 ItemTextView(S.of(context).withdrawal_method, withdrawal_method,
                     onBank: (menu) {
-                      cardDataMap['bank_code'] = menu.menuCode;
-                      withdrawal_method = menu.menuName;
-                    }),
-
-                EditTextView(S.current.bank_account, (text) {cardDataMap['card_no'] = text;}, bankNumberCTL),
-                EditTextView(S.of(context).bank_phone, (text) {cardDataMap['card_phone'] = text;}, bankPhoneCTL),
-
-
-
+                  cardDataMap['bank_code'] = menu.menuCode;
+                  withdrawal_method = menu.menuName;
+                }),
+                EditTextView(S.current.bank_account, (text) {
+                  cardDataMap['card_no'] = text;
+                }, bankNumberCTL),
+                EditTextView(S.of(context).bank_phone, (text) {
+                  cardDataMap['card_phone'] = text;
+                }, bankPhoneCTL),
                 ButtonView(S.current.next_tip, () {
                   // context.startTo(NFaceDetectorWidget.routeName);
-                  cardDataMap["accountBankType"] = "1";
 
-               request(UriPath.userCard, cardDataMap)
-                      .then((value) {
-                    var result = EmptyReslut.fromJson(value);
-                    if (result.isSuccess()) {
-                      sp_data.get(SPKey.ISMAIN.toString(), true).then((value) {
-                        if (value) {
-                          trackAFBankSuccessEvent();
-                          Navigator.pop(context);
-                          context.startTo( NFaceDetectorWidget.routeName);
-                        } else {
-                          Navigator.pop(context);
-                        }
-                      });
-                    } else {
-                      toast(result.message);
-                      slog.d("上传失败  == $result ");
-                    }
-                  });
-
+                  uploadCardInfo();
                 }),
                 Container(
                   height: 25.h,
@@ -94,5 +73,31 @@ class _NCardInfoWidgetState extends State<NCardInfoWidget> {
       ),
     );
   }
-}
 
+  Future<void> uploadCardInfo() async {
+    var id = await SPData.get(SPKey.USERID.toString(), "");
+    var name = await SPData.get(SPKey.REALNAME.toString(), "NULL");
+
+    cardDataMap["accountBankType"] = "1";
+    cardDataMap["user_id"] = id;
+    cardDataMap["card_hold_name"] = name;
+
+    request(UriPath.userCard, cardDataMap).then((value) {
+      var result = EmptyReslut.fromJson(value);
+      if (result.isSuccess()) {
+        SPData.get(SPKey.ISMAIN.toString(), true).then((value) {
+          if (value) {
+            trackAFBankSuccessEvent();
+            Navigator.pop(context);
+            context.startTo(NFaceDetectorWidget.routeName);
+          } else {
+            Navigator.pop(context);
+          }
+        });
+      } else {
+        toast(result.message);
+        Slog.d("上传失败  == $result ");
+      }
+    });
+  }
+}

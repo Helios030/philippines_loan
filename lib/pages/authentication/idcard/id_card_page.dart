@@ -172,9 +172,9 @@ class _NIdCardPageState extends State<NIdCardPage> {
 
   Future<Map<String, dynamic>?> getFileMap(String path, bool isIdCard) async {
     Map<String, dynamic> fileMap = {};
-    fileMap["user_id"] = await sp_data.get(SPKey.USERID.toString(), "");
+    fileMap["user_id"] = await SPData.get(SPKey.USERID.toString(), "");
     fileMap["file_type"] = isIdCard ? "1" : "4";
-    slog.d("fileMap  $fileMap");
+    Slog.d("fileMap  $fileMap");
     fileMap["file"] =
         await MultipartFile.fromFile(path, filename: path.split("/").last);
     return fileMap.create;
@@ -184,12 +184,12 @@ class _NIdCardPageState extends State<NIdCardPage> {
     getFileMap(photo.path, isIdCard).then((value) {
       upload(value!).then((result) {
         var JsonResult = EmptyReslut.fromJson(result);
-        slog.d("图片上传返回  $JsonResult");
+        Slog.d("图片上传返回  $JsonResult");
         if (JsonResult.code != "200") {
           toast(JsonResult.message);
         } else {
           isIdCard ? isIdUpload : isWorkUpload = true;
-          slog.d("标记是否上传  isIdUpload $isIdUpload  isWorkUpload $isWorkUpload");
+          Slog.d("标记是否上传  isIdUpload $isIdUpload  isWorkUpload $isWorkUpload");
         }
       });
     });
