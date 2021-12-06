@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/city.dart';
 import 'package:philippines_loan/model/empty_result.dart';
@@ -8,20 +9,16 @@ import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/comm_widget.dart';
 import 'package:philippines_loan/pages/widgets/edit_view.dart';
 import 'package:philippines_loan/pages/widgets/item_text_view.dart';
-import 'package:philippines_loan/pages/widgets/pop_city_view.dart';
 import 'package:philippines_loan/resource.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/dictionary_util.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
-import 'package:philippines_loan/utils/sp_key.dart';
-import 'package:philippines_loan/utils/sp_data.dart';
-import 'package:philippines_loan/utils/utils.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:philippines_loan/utils/slog.dart';
+import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+import 'package:philippines_loan/utils/utils.dart';
 
 var userDataMap = <String, dynamic>{};
 

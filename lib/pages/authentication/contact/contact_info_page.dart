@@ -4,7 +4,6 @@ import 'package:fluttercontactpicker/fluttercontactpicker.dart';
 import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/empty_result.dart';
 import 'package:philippines_loan/model/s_contact_result.dart';
-import 'package:philippines_loan/pages/authentication/card/card_info_page.dart';
 import 'package:philippines_loan/pages/authentication/work/work_info_page.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/comm_widget.dart';

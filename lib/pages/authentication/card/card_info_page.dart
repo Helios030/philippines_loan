@@ -4,8 +4,6 @@ import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/empty_result.dart';
 import 'package:philippines_loan/model/s_card_info_result.dart';
 import 'package:philippines_loan/pages/authentication/idcard/id_card_page.dart';
-import 'package:philippines_loan/pages/authentication/work/work_info_page.dart';
-import 'package:philippines_loan/pages/face/face_detect.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/comm_widget.dart';
 import 'package:philippines_loan/pages/widgets/edit_view.dart';
@@ -14,11 +12,12 @@ import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/af_utils.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
-import 'package:philippines_loan/utils/sp_key.dart';
-import 'package:philippines_loan/utils/sp_data.dart';
-import 'package:philippines_loan/utils/utils.dart';
-import '../../../resource.dart';
 import 'package:philippines_loan/utils/slog.dart';
+import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+import 'package:philippines_loan/utils/utils.dart';
+
+import '../../../resource.dart';
 
 var cardDataMap = <String, dynamic>{};
 

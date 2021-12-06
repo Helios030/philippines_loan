@@ -41,7 +41,8 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
+   <key>io.flutter.embedded_views_preview</key>
+        <string>YES</string>
     <key>NSPhotoLibraryUsageDescription</key>
         <string>Use the photo to change head portrait</string>
         <key>NSCameraUsageDescription</key>

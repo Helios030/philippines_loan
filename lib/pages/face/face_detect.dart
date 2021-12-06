@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:liveness_plugin/liveness_plugin.dart';
 import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/license_result.dart';
 import 'package:philippines_loan/pages/confirm/confirm_page.dart';
@@ -11,12 +12,10 @@ import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
+import 'package:philippines_loan/utils/slog.dart';
+import 'package:philippines_loan/utils/sp_data.dart';
 import 'package:philippines_loan/utils/sp_key.dart';
 import 'package:philippines_loan/utils/utils.dart';
-import 'package:liveness_plugin/liveness_plugin.dart';
-import 'package:philippines_loan/utils/sp_data.dart';
-import 'package:philippines_loan/utils/slog.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 
 class NFaceDetectorWidget extends StatefulWidget {

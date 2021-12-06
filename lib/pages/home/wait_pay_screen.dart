@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/loan_status.dart';
-import 'package:philippines_loan/pages/confirm/confirm_page.dart';
 import 'package:philippines_loan/pages/repayment/repayment_page.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
+import 'package:philippines_loan/utils/slog.dart';
 
 import '../../resource.dart';
-import 'package:philippines_loan/utils/slog.dart';
 
 class WaitPayScreenWidget extends StatefulWidget {
   final LoanstatusResult? loanResult;

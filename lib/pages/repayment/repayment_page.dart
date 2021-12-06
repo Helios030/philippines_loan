@@ -11,10 +11,10 @@ import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
-import 'package:philippines_loan/utils/slog.dart';
-import '../../resource.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
 import 'package:philippines_loan/utils/sp_key.dart';
+
+import '../../resource.dart';
 
 var rePaymentDataMap = <String, dynamic>{};
 

@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/city.dart';
-import 'package:philippines_loan/model/menu.dart';
 import 'package:philippines_loan/pages/widgets/pop_view.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/service/config.dart';

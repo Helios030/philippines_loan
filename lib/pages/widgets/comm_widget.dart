@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
-import 'package:philippines_loan/utils/sp_key.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../resource.dart';

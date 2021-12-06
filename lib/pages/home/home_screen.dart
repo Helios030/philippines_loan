@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/model/loan_status.dart';
 import 'package:philippines_loan/model/s_user_config.dart';
 import 'package:philippines_loan/pages/home/fail_screen.dart';
@@ -6,14 +9,15 @@ import 'package:philippines_loan/pages/home/over_screen.dart';
 import 'package:philippines_loan/pages/home/product_screen.dart';
 import 'package:philippines_loan/pages/home/review_screen.dart';
 import 'package:philippines_loan/pages/home/wait_pay_screen.dart';
+import 'package:philippines_loan/pages/widgets/dialog_widget.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
 import 'package:philippines_loan/utils/constant.dart';
 import 'package:philippines_loan/utils/expand_util.dart';
-import 'package:philippines_loan/utils/sp_key.dart';
-import 'package:philippines_loan/utils/sp_data.dart';
 import 'package:philippines_loan/utils/slog.dart';
-
+import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'loan_screen.dart';
 
 class NHomePage extends StatefulWidget {
@@ -33,6 +37,23 @@ class _NHomePageState extends State<NHomePage> {
     super.initState();
     queyLoanStatus();
     queyUserConfig();
+    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+
+    Future.delayed(Duration(seconds: 2), (){
+
+
+
+     // 切换到
+     showMyDialog(context, WebView(
+       initialUrl: "https://www.baidu.com/",
+       //JS执行模式 是否允许JS执行
+       javascriptMode: JavascriptMode.unrestricted,
+     ),heightSize: 335.h,widthSize: 270.w);
+
+
+
+    });
+
   }
 
   @override

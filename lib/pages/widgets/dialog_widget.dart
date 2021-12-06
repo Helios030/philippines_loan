@@ -13,18 +13,20 @@ import 'button_view.dart';
 class DialogWidget extends Dialog {
   final Widget content; //内容
   double heightSize;
+  double widthSize;
 
   DialogWidget({
     Key? key,
     required this.content,
     this.heightSize = 200,
+    this.widthSize = 335,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 335.w,
+        width: widthSize.w,
         height: heightSize.h,
         decoration: BoxDecoration(
             color: getPrimaryColor(context),
@@ -38,7 +40,7 @@ class DialogWidget extends Dialog {
   }
 }
 
-void showMyDialog(BuildContext myContext, Widget widget, {double heightSize = 200}) {
+void showMyDialog(BuildContext myContext, Widget widget, {double heightSize = 200,widthSize=335}) {
   showDialog(
       context: myContext,
       barrierDismissible:false,
@@ -49,6 +51,7 @@ void showMyDialog(BuildContext myContext, Widget widget, {double heightSize = 20
               child: DialogWidget(
                 content: widget,
                 heightSize: heightSize,
+                widthSize: widthSize,
               ),
             ),
           ],
