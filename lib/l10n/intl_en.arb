@@ -164,5 +164,17 @@
   "repayment_bank": "还款银行",
   "repayment_digital_code": "还款数字码",
   "repayment_digital_qr": "还款二维码",
-  "skypay_tip": "Tell the clerk: Pay Bills to Skypay"
+  "skypay_tip": "Tell the clerk: Pay Bills to Skypay",
+  "loanAgreement": "《 Loan agreement 》",
+  "dislosureStatement": "《dislosure “statement” and amortization table》",
+  "loan_str": "放款中",
+  "loan_title": "您的贷款已经审核通过",
+  "amount_arrived": "到帐金额",
+  "money_tip": "Tell the clerk: Money From SkyBridge Payment Inc.",
+  "withdrawal_qr": "取款二维码",
+  "withdrawal_digital_code": "取款数字码",
+  "not_order": "暂无订单",
+  "not_use": "未使用",
+  "used": "已使用",
+  "expired": "已过期"
 }

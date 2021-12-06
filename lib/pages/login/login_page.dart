@@ -6,6 +6,7 @@ import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/model/sms.dart';
 import 'package:philippines_loan/pages/home/home_screen.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
+import 'package:philippines_loan/pages/widgets/comm_widget.dart';
 import 'package:philippines_loan/pages/widgets/input_text_view.dart';
 import 'package:philippines_loan/service/config.dart';
 import 'package:philippines_loan/service/http_request.dart';
@@ -45,6 +46,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
   TextEditingController codeController = TextEditingController();
   bool isTiming = false;
   FocusNode commentFocus = FocusNode();
+bool isConfirm=false;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +122,16 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                 height: 49.h,
               ),
               ButtonView(S.current.login, () {
+
+                if(!isConfirm){
+                  toast(S.of(context).please_selected);
+                  return;
+                }
+
+
+
+
+
                 Map<String, String> dataMap = {};
                 dataMap["phone"] = phoneController.text;
                 dataMap["vcode"] = codeController.text;
@@ -143,7 +157,18 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                     Navigator.pushNamed(context, NHomePage.routeName);
                   }
                 });
-              })
+              }),
+
+              Container(height: 16.h,),
+              buildPPWidget(S.of(context).rade_success,S.of(context).pp,(isCheck){
+                isConfirm=isCheck;
+              }),
+
+
+
+
+
+
             ],
           ),
         )

@@ -406,8 +406,6 @@ class _RulerWidgetState extends State<RulerWidget> {
   }
 
   void setNewValue(PResult value) {
-    Slog.d("设置新值 $value ");
-
     currvalue = value;
     currIndex = lists.indexOf(currvalue!);
     isAvailable = currvalue!.enable == "1";

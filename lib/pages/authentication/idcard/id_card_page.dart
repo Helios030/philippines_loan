@@ -34,6 +34,13 @@ class NIdCardPage extends StatefulWidget {
 }
 
 class _NIdCardPageState extends State<NIdCardPage> {
+
+
+  var isLoanAgreement=false;
+  var isDislosure=false;
+
+
+
   Image idImageWidget = Image(
     image: nimg_upload_id,
     fit: BoxFit.fill,
@@ -132,6 +139,16 @@ class _NIdCardPageState extends State<NIdCardPage> {
             ButtonView(S.current.next_tip, () {
               context.startTo(NUserInfoWidget.routeName);
             }),
+
+            Container(height: 16.h,),
+            buildPPWidget(S.of(context).rade_success,S.of(context).loanAgreement,(isCheck){
+              isLoanAgreement=isCheck;
+            }),
+            Container(height: 16.h,),
+            buildPPWidget(S.of(context).rade_success,S.of(context).dislosureStatement,(isCheck){
+              isDislosure=isCheck;
+            }),
+
             Container(
               height: 46.h,
             ),
@@ -182,6 +199,12 @@ class _NIdCardPageState extends State<NIdCardPage> {
 
   void upLoadImg(XFile photo, bool isIdCard) {
     getFileMap(photo.path, isIdCard).then((value) {
+      Slog.d("图片map 拼接完毕  "+photo.path);
+      Slog.d("图片map 拼接完毕  "+photo.name);
+
+      photo.length().then((value) {
+        Slog.d("图片map 拼接完毕 $value ");
+      });
       upload(value!).then((result) {
         var JsonResult = EmptyReslut.fromJson(result);
         Slog.d("图片上传返回  $JsonResult");

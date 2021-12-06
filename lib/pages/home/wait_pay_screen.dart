@@ -49,9 +49,8 @@ class _WaitPayScreenWidgetState extends State<WaitPayScreenWidget> {
       interest = widget.loanResult!.interest.toString();
       withdrawal_method = widget.loanResult!.withdrawalChannel.toString();
       withdrawal_method_number = widget.loanResult!.withdrawalCode.toString();
-      DateTime startTime = DateTime.now();
-      DateTime endDate = DateTime.parse(repayment_date);
-      until_date = endDate.difference(startTime).inDays.toString();
+
+      until_date =widget.loanResult!.repaymentDay.toString();
     }
   }
 
@@ -161,6 +160,7 @@ class _WaitPayScreenWidgetState extends State<WaitPayScreenWidget> {
                       context.startTo(NRePaymentPage.routeName,arg: isPayAll);
                     },
                     size: 156,
+                    bg: nimg_wait_pay_btn_bg_1,
                   ),
                   ButtonView(
                     S.current.all_pay,
@@ -169,6 +169,7 @@ class _WaitPayScreenWidgetState extends State<WaitPayScreenWidget> {
                       context.startTo(NRePaymentPage.routeName,arg: isPayAll);
                     },
                     size: 156,
+                    bg: nimg_wait_pay_btn_bg_2,
                   ),
                 ],
               ),

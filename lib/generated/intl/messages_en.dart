@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account Information"),
         "account_name": MessageLookupByLibrary.simpleMessage("账户名"),
         "all_pay": MessageLookupByLibrary.simpleMessage("全部还款"),
+        "amount_arrived": MessageLookupByLibrary.simpleMessage("到帐金额"),
         "amount_due": MessageLookupByLibrary.simpleMessage("应还金额"),
         "amount_repaid": MessageLookupByLibrary.simpleMessage("待还金额"),
         "bank": MessageLookupByLibrary.simpleMessage("银行"),
@@ -65,12 +66,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "depositTime": MessageLookupByLibrary.simpleMessage("应还时间"),
         "detail_address": MessageLookupByLibrary.simpleMessage("详细地址"),
         "details_address": MessageLookupByLibrary.simpleMessage("详细地址"),
+        "dislosureStatement": MessageLookupByLibrary.simpleMessage(
+            "《dislosure “statement” and amortization table》"),
         "driving_license":
             MessageLookupByLibrary.simpleMessage("3. 驾驶执照（摩托车/汽车）"),
         "education": MessageLookupByLibrary.simpleMessage("学历"),
         "email": MessageLookupByLibrary.simpleMessage("电子邮箱"),
         "end_time": MessageLookupByLibrary.simpleMessage("展期结束时间"),
         "exit_app_tip": MessageLookupByLibrary.simpleMessage("确定退出当前账号？"),
+        "expired": MessageLookupByLibrary.simpleMessage("已过期"),
         "face_tip":
             MessageLookupByLibrary.simpleMessage("将进行人脸识别\n进一步保护您的财产安全"),
         "face_title": MessageLookupByLibrary.simpleMessage("人脸识别"),
@@ -96,16 +100,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "job_type": MessageLookupByLibrary.simpleMessage("职业类型"),
         "jx_tip": MessageLookupByLibrary.simpleMessage("请先点击下一步，再上传还款凭证"),
         "loan": MessageLookupByLibrary.simpleMessage("借款"),
+        "loanAgreement":
+            MessageLookupByLibrary.simpleMessage("《 Loan agreement 》"),
         "loan_amount": MessageLookupByLibrary.simpleMessage("借款金额（泰铢）"),
         "loan_amount_main": MessageLookupByLibrary.simpleMessage("借款金额"),
         "loan_date": MessageLookupByLibrary.simpleMessage("借款期限"),
         "loan_money": MessageLookupByLibrary.simpleMessage("借款金额（泰铢）"),
         "loan_period": MessageLookupByLibrary.simpleMessage("借款期限"),
+        "loan_str": MessageLookupByLibrary.simpleMessage("放款中"),
         "loan_term": MessageLookupByLibrary.simpleMessage("贷款期限"),
+        "loan_title": MessageLookupByLibrary.simpleMessage("您的贷款已经审核通过"),
         "location": MessageLookupByLibrary.simpleMessage("位置"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "main_user": MessageLookupByLibrary.simpleMessage("个人"),
         "marriage": MessageLookupByLibrary.simpleMessage("婚姻"),
+        "money_tip": MessageLookupByLibrary.simpleMessage(
+            "Tell the clerk: Money From SkyBridge Payment Inc."),
         "my_call": MessageLookupByLibrary.simpleMessage("客服"),
         "my_coupon": MessageLookupByLibrary.simpleMessage("我的优惠券"),
         "my_exit": MessageLookupByLibrary.simpleMessage("退出登录"),
@@ -115,6 +125,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "next_tip": MessageLookupByLibrary.simpleMessage("下一步"),
         "nick_name": MessageLookupByLibrary.simpleMessage("小名"),
         "not_money_now": MessageLookupByLibrary.simpleMessage("当前等级暂不可借"),
+        "not_order": MessageLookupByLibrary.simpleMessage("暂无订单"),
+        "not_use": MessageLookupByLibrary.simpleMessage("未使用"),
         "ok": MessageLookupByLibrary.simpleMessage("确定"),
         "open_account_bank": MessageLookupByLibrary.simpleMessage("开户银行"),
         "order_cancel": MessageLookupByLibrary.simpleMessage("已取消"),
@@ -195,13 +207,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "upload_pay_tip": MessageLookupByLibrary.simpleMessage(
             "还款凭证上传成功，我们将尽快核对\n注意查看您的还款状态"),
         "upload_repayment": MessageLookupByLibrary.simpleMessage("上传还款凭证"),
+        "used": MessageLookupByLibrary.simpleMessage("已使用"),
         "user_info": MessageLookupByLibrary.simpleMessage("个人信息"),
         "vCode": MessageLookupByLibrary.simpleMessage("验证码"),
         "wait_pay_tip":
             MessageLookupByLibrary.simpleMessage("您的贷款已经到账，请留意还款时间"),
+        "withdrawal_digital_code":
+            MessageLookupByLibrary.simpleMessage("取款数字码"),
         "withdrawal_method": MessageLookupByLibrary.simpleMessage("取款方式"),
         "withdrawal_method_number":
             MessageLookupByLibrary.simpleMessage("取款账号"),
+        "withdrawal_qr": MessageLookupByLibrary.simpleMessage("取款二维码"),
         "work_info": MessageLookupByLibrary.simpleMessage("职业信息"),
         "work_permit": MessageLookupByLibrary.simpleMessage("2. 工作证"),
         "work_place_photo": MessageLookupByLibrary.simpleMessage("4. 工作场所照片"),

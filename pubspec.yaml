@@ -55,12 +55,15 @@ dev_dependencies:
   fluttertoast: ^8.0.8
   image_picker: ^0.8.4
   geolocator: ^7.7.1
+  webview_flutter: ^2.3.1
+
   liveness_plugin:
     path: liveness_plugin
   app_info:
     path: app_info
 flutter_intl:
-  enabled: true
+    enabled: true
+
 
 
 
@@ -128,3 +131,10 @@ flutter:
     - assets/images/img_confirm_success.png
     - assets/images/icon_bg_right.png
     - assets/images/img_main_wait_pay.png
+    - assets/images/img_not_coupon.png
+    - assets/images/img_coupon_expired.png
+    - assets/images/img_coupon_bg.png
+    - assets/images/img_coupon_used.png
+    - assets/images/img_coupon_bg_2.png
+    - assets/images/img_wait_pay_btn_bg_2.png
+    - assets/images/img_wait_pay_btn_bg_1.png

@@ -1709,6 +1709,126 @@ class S {
       args: [],
     );
   }
+
+  /// `《 Loan agreement 》`
+  String get loanAgreement {
+    return Intl.message(
+      '《 Loan agreement 》',
+      name: 'loanAgreement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `《dislosure “statement” and amortization table》`
+  String get dislosureStatement {
+    return Intl.message(
+      '《dislosure “statement” and amortization table》',
+      name: 'dislosureStatement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `放款中`
+  String get loan_str {
+    return Intl.message(
+      '放款中',
+      name: 'loan_str',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `您的贷款已经审核通过`
+  String get loan_title {
+    return Intl.message(
+      '您的贷款已经审核通过',
+      name: 'loan_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `到帐金额`
+  String get amount_arrived {
+    return Intl.message(
+      '到帐金额',
+      name: 'amount_arrived',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tell the clerk: Money From SkyBridge Payment Inc.`
+  String get money_tip {
+    return Intl.message(
+      'Tell the clerk: Money From SkyBridge Payment Inc.',
+      name: 'money_tip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取款二维码`
+  String get withdrawal_qr {
+    return Intl.message(
+      '取款二维码',
+      name: 'withdrawal_qr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取款数字码`
+  String get withdrawal_digital_code {
+    return Intl.message(
+      '取款数字码',
+      name: 'withdrawal_digital_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `暂无订单`
+  String get not_order {
+    return Intl.message(
+      '暂无订单',
+      name: 'not_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `未使用`
+  String get not_use {
+    return Intl.message(
+      '未使用',
+      name: 'not_use',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已使用`
+  String get used {
+    return Intl.message(
+      '已使用',
+      name: 'used',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已过期`
+  String get expired {
+    return Intl.message(
+      '已过期',
+      name: 'expired',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

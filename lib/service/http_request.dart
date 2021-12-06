@@ -70,9 +70,7 @@ class HttpRequest {
 
 dynamic request(String path,Map<String, dynamic> dataMap) async {
    var reslut=  await HttpRequest.request(path, params: dataMap.create);
-
    Slog.d("服务器返回结果 ${json.encode(reslut)}");
-
    if(reslut.toString().contains("200")){
      return  reslut;
    }else{

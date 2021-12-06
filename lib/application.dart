@@ -13,6 +13,7 @@ import 'package:philippines_loan/pages/authentication/user_info_menu_page.dart';
 import 'package:philippines_loan/pages/authentication/userinfo/user_info_page.dart';
 import 'package:philippines_loan/pages/authentication/work/work_info_page.dart';
 import 'package:philippines_loan/pages/confirm/confirm_page.dart';
+import 'package:philippines_loan/pages/coupon/coupon_widget.dart';
 import 'package:philippines_loan/pages/face/face_detect.dart';
 import 'package:philippines_loan/pages/home/home_screen.dart';
 import 'package:philippines_loan/pages/login/login_page.dart';
@@ -103,6 +104,7 @@ class _ApplicationState extends State<Application> {
           NIdCardPage.routeName: (context) => NIdCardPage(),
           NConfirmPageWidget.routeName: (context) =>  NConfirmPageWidget(),
           NRePaymentPage.routeName: (context) =>  NRePaymentPage(),
+          NCouponWidget.routeName: (context) =>  NCouponWidget(),
 
 
         });
@@ -182,7 +184,7 @@ void initPageInfo() {
    *
    * */
   PackageInfo.fromPlatform().then((info) {
-    PackConfig.appName = info.appName;
+    // PackConfig.appName = info.appName;
     // PackConfig.packageName = info.packageName == "" ? "com.neutron.philippines_loan" : info.packageName;
     //ios
     PackConfig.packageName = "com.neutron.philippines_loan" ;

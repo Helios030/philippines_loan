@@ -120,8 +120,10 @@ class LoanstatusResult {
       int? secAppTime, 
       String? service, 
       String? withdrawalChannel, 
+      String? repayment_qr_json,
       String? withdrawalCode,}){
     _amount2Account = amount2Account;
+    _repayment_qr_json = repayment_qr_json;
     _appTime = appTime;
     _applicationId = applicationId;
     _applyTime = applyTime;
@@ -200,6 +202,7 @@ class LoanstatusResult {
     _withdrawalCode = json['withdrawal_code'];
   }
   String? _amount2Account;
+  String? _repayment_qr_json;
   String? _appTime;
   String? _applicationId;
   int? _applyTime;
@@ -238,6 +241,7 @@ class LoanstatusResult {
   String? _withdrawalCode;
 
   String? get amount2Account => _amount2Account;
+  String? get repayment_qr_json => _repayment_qr_json;
   String? get appTime => _appTime;
   String? get applicationId => _applicationId;
   int? get applyTime => _applyTime;
@@ -314,6 +318,7 @@ class LoanstatusResult {
     map['service'] = _service;
     map['withdrawal_channel'] = _withdrawalChannel;
     map['withdrawal_code'] = _withdrawalCode;
+    map['repayment_qr_json'] = _repayment_qr_json;
     return map;
   }
 

@@ -55,7 +55,7 @@ class _NOrdersPageState extends State<NOrdersPage> {
                     ),
                   ),
                   TextView(
-                    "暂无订单",
+                    S.of(context).not_order,
                     color: N.gray6F,
                   )
                 ])
@@ -74,13 +74,13 @@ class _NOrdersPageState extends State<NOrdersPage> {
   }
 
   Widget _buildOrderItem(OrdersResult result) {
-    var leftText = "借款金额";
-    var rightText = "审核中";
-    var dateText = "申请时间：";
-    var number = "8000";
+    var leftText = S.current.loan_amount_main;
+    var rightText = S.of(context).review;
+    var dateText = S.current.review_time;
+    var number = "";
     var isRed = true;
     var isDateRed = false;
-    var loanDate = "7";
+    var loanDate = "";
 
 //    2、放弃借款
 //    3、申请失败
@@ -95,8 +95,7 @@ class _NOrdersPageState extends State<NOrdersPage> {
 
     loanDate = result.duration.toString();
     number = result.principal.toString();
-    dateText=dateText+result.appTime.toString();
-
+    dateText = dateText + result.appTime.toString();
 
     switch (result.loanStatus) {
       case 1:
@@ -107,12 +106,12 @@ class _NOrdersPageState extends State<NOrdersPage> {
       case 9:
       case 3:
         rightText = S.of(context).review_faile;
-        isRed=false;
+        isRed = false;
         break;
 
       case 2:
         rightText = S.of(context).order_cancel;
-        isRed=false;
+        isRed = false;
         break;
       case 5:
       case 10:
@@ -123,13 +122,13 @@ class _NOrdersPageState extends State<NOrdersPage> {
       case 7:
         rightText = S.of(context).over;
         // topText = result.amount2Account;
-        isDateRed=true;
+        isDateRed = true;
         break;
       case 6:
       case 8:
         rightText = S.of(context).settle;
         // topText = result.principal;
-        isRed=false;
+        isRed = false;
         break;
     }
 

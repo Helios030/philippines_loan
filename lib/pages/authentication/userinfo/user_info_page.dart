@@ -200,7 +200,9 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     userDataMap['idType'] = menu.menuCode;
                     education = menu.menuName;
                   }, datas: DicUtil.array_idTypes),
-                  EditTextView("ID No", (text) {}, idNumberCTL),
+                  EditTextView("ID No", (text) {
+                    userDataMap['no_ktp'] = text;
+                  }, idNumberCTL),
                   EditTextView(S.current.nick_name, (text) {}, nNameCTL),
                   ItemTextView(
                     S.of(context).gender,
@@ -210,7 +212,7 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     },
                     datas: DicUtil.array_genders,
                   ),
-                  ItemTextView(S.of(context).religion, id_type,
+                  ItemTextView(S.of(context).religion, religion,
                       onSelected: (menu) {
                     userDataMap['religion'] = menu.menuCode;
                     education = menu.menuName;
@@ -274,19 +276,19 @@ class _NUserInfoWidgetState extends State<NUserInfoWidget> {
                     emailCTL,
                   ),
                   ButtonView(S.current.next_tip, () {
-                    // todo
-                    // request(UriPath.userBase, userDataMap)
-                    //      .then((value) {
-                    //    var result = EmptyReslut.fromJson(value);
-                    //    if (result.isSuccess()) {
-                    //      //    Slog.d(" 个人信息上传成功  ");
-                    //      Navigator.pop(context);
+                    request(UriPath.userBase, userDataMap)
+                         .then((value) {
+                       var result = EmptyReslut.fromJson(value);
+                       if (result.isSuccess()) {
+                         //    Slog.d(" 个人信息上传成功  ");
+
+                         Navigator.pop(context);
                     context.startTo(NContactInfoWidget.routeName);
-                    //   } else {
-                    //     toast(result.message);
-                    //     printLog("上传失败  == $result ", StackTrace.current);
-                    //   }
-                    // });
+                      } else {
+                        toast(result.message);
+                        printLog("上传失败  == $result ", StackTrace.current);
+                      }
+                    });
                   }),
                   Container(
                     height: 25.h,
@@ -365,6 +367,9 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
             sCity1 = city;
             select_province = city.addressName.toString();
             color1 = N.black33;
+
+            userDataMap["home_region_1"] = city.addressNo;
+
             setState(() {});
           },
           vColor: color1,
@@ -376,6 +381,7 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
             sCity2 = city;
             select_county = city.addressName.toString();
             color2 = N.black33;
+            userDataMap["home_region_2"] = city.addressNo;
             setState(() {});
           },
           vColor: color2,
@@ -388,6 +394,7 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
             sCity3 = city;
             select_street = city.addressName.toString();
             color3 = N.black33;
+            userDataMap["home_region_3"] = city.addressNo;
             setState(() {});
           },
           vColor: color3,

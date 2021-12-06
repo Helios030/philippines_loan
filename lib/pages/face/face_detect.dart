@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:philippines_loan/generated/l10n.dart';
-import 'package:philippines_loan/model/license_resuult.dart';
+import 'package:philippines_loan/model/license_result.dart';
 import 'package:philippines_loan/pages/confirm/confirm_page.dart';
 import 'package:philippines_loan/pages/widgets/button_view.dart';
 import 'package:philippines_loan/pages/widgets/comm_widget.dart';

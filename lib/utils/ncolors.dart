@@ -22,7 +22,7 @@ import 'package:flutter/material.dart';
   static const Color meetF1 = Color(0xFFFFF6F1);
   static const Color orange37 = Color(0xFFF97B37);
   static const Color grayF4 = Color(0xFFF4F4F4);
-
+  static const Color blue2a = Color(0xFF2A8DFF);
 }
 
  Color getPrimaryColor(BuildContext context) {

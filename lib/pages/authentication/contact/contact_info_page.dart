@@ -98,7 +98,7 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
             if (sContactInfo!.relation2 != null) {
               //服务器从1开始
               relation_2 = DicUtil
-                  .array_second_contact[int.parse(sContactInfo!.relation2!) - 1]
+                  .array_first_contact[int.parse(sContactInfo!.relation2!) - 1]
                   .menuName;
             }
 
@@ -219,7 +219,7 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
                       relation_2,
                       onSelected: (menu) {
                         relation_2 = menu.menuName;
-                        contactDataMap['relation2'] = menu.menuCode;
+                        contactDataMap['relation_2'] = menu.menuCode;
                         color_2=N.black33;
                       },
                       datas: DicUtil.array_first_contact,
@@ -259,12 +259,10 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
                       color: N.orange37,
                       textAlign: TextAlign.left,
                     ),
-                    ItemTextView(
-                      S.current.relationship_with_you,
-                      relation_3,
-                      onSelected: (menu) {
+
+                    ItemTextView(S.current.relationship_with_you,relation_3, onSelected: (menu) {
                         relation_3 = menu.menuName;
-                        contactDataMap['relation3'] = menu.menuCode;
+                        contactDataMap['relation_3'] = menu.menuCode;
                         color_3=N.black33;
                       },
                       datas: DicUtil.array_first_contact,
@@ -297,16 +295,16 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
                       });
                     }   ,vColor: color_3,),
                     Container(height: 27.h),
-                    TextView(
-                      S.of(context).contact_name_four,
-                      color: N.orange37,
-                      textAlign: TextAlign.left,
-                    ),
-                    ItemTextView(S.current.relationship_with_you, relation_4,
-                        onSelected: (menu) {
+                    TextView(S.of(context).contact_name_four, color: N.orange37, textAlign: TextAlign.left,),
+
+                    ItemTextView(S.current.relationship_with_you, relation_4, onSelected: (menu) {
+                      Slog.d("点击事件  4");
                       relation_4 = menu.menuName;
-                      contactDataMap['relation4'] = menu.menuCode;
-                    },vColor: color_4,),
+                      contactDataMap['relation_4'] = menu.menuCode;
+                    },
+                      datas: DicUtil.array_first_contact,
+                      vColor: color_4,),
+
                     ItemTextView(S.current.contact_number, phone_4,
                         onClick: () {
                       selectContact().then((value) {
@@ -320,6 +318,7 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
                         }
                       });
                     },vColor: color_4,),
+
                     ItemTextView(S.of(context).contact_name, name_4,
                         onClick: () {
                       selectContact().then((value) {
@@ -339,11 +338,15 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
                       color: N.orange37,
                       textAlign: TextAlign.left,
                     ),
-                    ItemTextView(S.current.relationship_with_you, relation_5,
-                        onSelected: (menu) {
+
+
+
+                    ItemTextView(S.current.relationship_with_you, relation_5, onSelected: (menu) {
                       relation_5 = menu.menuName;
-                      contactDataMap['relation5'] = menu.menuCode;
-                    },vColor: color_5,),
+                      contactDataMap['relation_5'] = menu.menuCode;
+                    },
+                      datas: DicUtil.array_first_contact,
+                      vColor: color_5,),
                     ItemTextView(S.current.contact_number, phone_5,
                         onClick: () {
                       selectContact().then((value) {
@@ -375,16 +378,16 @@ class _NContactInfoWidgetState extends State<NContactInfoWidget> {
                       height: 43.h,
                     ),
                     ButtonView(S.current.next_tip, () {
-                      // request(UriPath.userContact, contactDataMap).then((value) {
-                      //   var result = EmptyReslut.fromJson(value);
-                      //   if (result.isSuccess()) {
-                      //     Navigator.pop(context);
+                      request(UriPath.userContact, contactDataMap).then((value) {
+                        var result = EmptyReslut.fromJson(value);
+                        if (result.isSuccess()) {
+                          Navigator.pop(context);
                           context.startTo(NWorkInfoWidget.routeName);
-                      //   } else {
-                      //     toast(result.message);
-                      //     slog.d("上传失败  == $result ");
-                      //   }
-                      // });
+                        } else {
+                          toast(result.message);
+                          Slog.d("上传失败  == $result ");
+                        }
+                      });
                     }),
                     Container(
                       height: 25.h,

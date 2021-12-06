@@ -39,6 +39,12 @@ class UriPath{
   static const String reloanapp = "loan/re/loanapp";
   static const String userMediaSingle = "/api/user/userMediaSingle";
   static const String appsFlyer = "comm/v2/appsFlyer";
+
+  static const String cashCoupon = "cashCoupon/list";
+
+
+
+
 }
    class PackConfig{
  static String appName="Credit line";

@@ -21,14 +21,11 @@ import 'package:philippines_loan/utils/utils.dart';
 import '../../../resource.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
 
-
-
 var workDataMap = <String, dynamic>{};
 
 CityResult? sCity1;
 CityResult? sCity2;
 CityResult? sCity3;
-
 
 class NWorkInfoWidget extends StatefulWidget {
   static String routeName = "/work_info";
@@ -42,6 +39,7 @@ class NWorkInfoWidget extends StatefulWidget {
 class _NWorkInfoWidgetState extends State<NWorkInfoWidget> {
   var compNameCTL = TextEditingController();
   var detailAddressCTL = TextEditingController();
+  var compTelCTL = TextEditingController();
   var compPhoneCTL = TextEditingController();
 
   var select_job = S.current.select_job;
@@ -112,12 +110,9 @@ class _NWorkInfoWidgetState extends State<NWorkInfoWidget> {
       if (sWorkInfo!.compRegion1Value.isNotNull() &&
           sWorkInfo!.compRegion2Value.isNotNull()) {
         select_comp_address =
-        "${sWorkInfo!.compRegion1Value} ${sWorkInfo!.compRegion2Value}";
+            "${sWorkInfo!.compRegion1Value} ${sWorkInfo!.compRegion2Value}";
       }
     }
-
-
-
 
     return SingleChildScrollView(
       child: Column(
@@ -134,33 +129,50 @@ class _NWorkInfoWidgetState extends State<NWorkInfoWidget> {
           Container(
               margin: EdgeInsets.only(left: 18.w, right: 18.w),
               child: Column(children: [
-
-                ItemTextView(S.current.job, select_job,
-                    onSelected: (menu) {
-                      workDataMap['position'] = menu.menuCode;
-                      select_job = menu.menuName;
-                    }, datas: DicUtil.array_company_position),
-
+                ItemTextView(S.current.job, select_job, onSelected: (menu) {
+                  workDataMap['position'] = menu.menuCode;
+                  select_job = menu.menuName;
+                }, datas: DicUtil.array_company_position),
                 ItemTextView(S.current.job_type, select_job_type,
                     onSelected: (menu) {
-                      workDataMap['custemer_type'] = menu.menuCode;
-                      select_job_type = menu.menuName;
-                    }, datas: DicUtil.array_job_type),
+                  workDataMap['custemer_type'] = menu.menuCode;
+                  select_job_type = menu.menuName;
+                }, datas: DicUtil.array_job_type),
                 ItemTextView(S.current.industry, select_industry,
                     onSelected: (menu) {
-                      workDataMap['industry'] = menu.menuCode;
-                      select_industry = menu.menuName;
-                    }, datas: DicUtil.array_industry),
+                  workDataMap['industry'] = menu.menuCode;
+                  select_industry = menu.menuName;
+                }, datas: DicUtil.array_industry),
                 ItemTextView(S.current.salary_range, select_salary_range,
                     onSelected: (menu) {
-                      workDataMap['income_type'] = menu.menuCode;
-                      select_salary_range = menu.menuName;
-                    }, datas: DicUtil.array_company_position),
-                EditTextView(S.current.comp_name, (text) {workDataMap['company_name'] = text;}, compNameCTL),
+                  workDataMap['income_type'] = menu.menuCode;
+                  select_salary_range = menu.menuName;
+                }, datas: DicUtil.array_company_position),
+                EditTextView(S.current.comp_name, (text) {
+                  workDataMap['company_name'] = text;
+                }, compNameCTL),
                 NCitySelectWidget(sWorkInfo),
-                EditTextView(S.current.detail_address, (text) {workDataMap['comp_address'] = text;}, detailAddressCTL),
+                EditTextView(S.current.detail_address, (text) {
+                  workDataMap['comp_address'] = text;
+                }, detailAddressCTL),
+
+
+                EditTextView(S.current.comp_phone, (text) {
+                  workDataMap['company_tel'] = text;
+                }, compTelCTL),
+
                 ButtonView(S.current.next_tip, () {
-                  context.startTo(NCardInfoWidget.routeName);
+                  request(UriPath.userWork, workDataMap).then((value) {
+                    var result = EmptyReslut.fromJson(value);
+                    if (result.isSuccess()) {
+                      //print("工作上传成功");
+                      Navigator.pop(context);
+                      context.startTo(NCardInfoWidget.routeName);
+                    } else {
+                      toast(result.message);
+                      printLog("上传失败  == $result ", StackTrace.current);
+                    }
+                  });
                 }),
                 Container(
                   height: 25.h,
@@ -188,7 +200,6 @@ void setMapForResult(SWorkInfoResult? it) {
   }
 }
 
-
 class NCitySelectWidget extends StatefulWidget {
   SWorkInfoResult? sUserInfo = null;
 
@@ -199,7 +210,6 @@ class NCitySelectWidget extends StatefulWidget {
 }
 
 class _NCitySelectWidgetState extends State<NCitySelectWidget> {
-
   var select_province = S.current.select_province;
   var select_county = S.current.select_county;
   var select_street = S.current.select_street;
@@ -210,12 +220,10 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     if (widget.sUserInfo!.compRegion1Value.isNotNull()) {
       select_province = widget.sUserInfo!.compRegion1Value.toString();
     }
@@ -229,12 +237,14 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
     return Column(
       children: [
         ItemTextView(
-          S.current.home_city,
+          S.current.comp_address,
           select_province,
           onCity: (city) {
             sCity1 = city;
             select_province = city.addressName.toString();
             color1 = N.black33;
+            workDataMap["comp_region_1"] = city.addressNo;
+
             setState(() {});
           },
           vColor: color1,
@@ -246,6 +256,8 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
             sCity2 = city;
             select_county = city.addressName.toString();
             color2 = N.black33;
+            workDataMap["comp_region_2"] = city.addressNo;
+
             setState(() {});
           },
           vColor: color2,
@@ -258,6 +270,7 @@ class _NCitySelectWidgetState extends State<NCitySelectWidget> {
             sCity3 = city;
             select_street = city.addressName.toString();
             color3 = N.black33;
+            workDataMap["comp_region_3"] = city.addressNo;
             setState(() {});
           },
           vColor: color3,

@@ -10,7 +10,8 @@ class ButtonView extends StatelessWidget {
   String text;
   GestureTapCallback? onClick;
   double  size=312.0;
-  ButtonView(this.text,this.onClick,{this.size=312.0,Key? key}) : super(key: key);
+  AssetImage? bg=nimg_btn_bg;
+  ButtonView(this.text,this.onClick,{this.size=312.0,this.bg,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ButtonView extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: (nimg_btn_bg),
+              image: (bg!),
             ),
           ),
           child: TextView(text,size: 17,color: Colors.white,)),

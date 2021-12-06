@@ -14,6 +14,8 @@ import 'package:philippines_loan/utils/sp_key.dart';
 import 'package:philippines_loan/utils/sp_data.dart';
 import 'package:philippines_loan/utils/slog.dart';
 
+import 'loan_screen.dart';
+
 class NHomePage extends StatefulWidget {
   const NHomePage({Key? key}) : super(key: key);
   static String routeName = "/home";
@@ -55,18 +57,12 @@ class _NHomePageState extends State<NHomePage> {
           SPData.put(SPKey.APPLICATIONID.toString(), loanResult!.applicationId);
           SPData.put(SPKey.AMOUNT.toString(), loanResult!.remainAmount);
 
-
-
-
-          SPData.get(SPKey.APPLICATIONID.toString(), "").then((value){
-            Slog.d("=======APPLICATIONID   $value");
-          });
-          SPData.get(SPKey.AMOUNT.toString(), "").then((value){
-            Slog.d("=======AMOUNT   $value");
-          });
-
           switch (int.parse(loanResult!.loanStatus!)) {
             case STATE_LOANING:
+              currPage = LoanScreenWidget(loanResult);
+              break;
+
+
             case STATE_APPLYING:
               currPage = ReviewScreenWidget(loanResult);
               SPData.put(SPKey.ISSHOWFAILE.toString(), true);

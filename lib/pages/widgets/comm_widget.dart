@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:philippines_loan/generated/l10n.dart';
 import 'package:philippines_loan/pages/widgets/text_view.dart';
 import 'package:philippines_loan/utils/ncolors.dart';
+import 'package:philippines_loan/utils/sp_key.dart';
+import 'package:philippines_loan/utils/sp_data.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../resource.dart';
 
 class userItemWidget extends StatelessWidget {
-  final ImageProvider  image;
+  final ImageProvider image;
   final String text;
   final bool isShowLine;
   final GestureTapCallback? onclick;
@@ -54,9 +60,10 @@ class AppBarWidget extends StatelessWidget {
   final String title;
   final Color bgColor;
 
-  bool isShowLine=true;
+  bool isShowLine = true;
 
-  AppBarWidget(this.title, {this.bgColor = Colors.white,this.isShowLine=true});
+  AppBarWidget(this.title,
+      {this.bgColor = Colors.white, this.isShowLine = true});
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +81,95 @@ class AppBarWidget extends StatelessWidget {
                 size: 18,
                 color: N.black15,
               )),
-          isShowLine?
-          Container(
-            height: 1.h,
-            color: N.grayD6,
-          ):Container()
-
-          ,
+          isShowLine
+              ? Container(
+                  height: 1.h,
+                  color: N.grayD6,
+                )
+              : Container(),
         ],
       ),
+    );
+  }
+}
+
+typedef onCheckListener = Function(bool isCheck);
+
+class buildPPWidget extends StatefulWidget {
+  onCheckListener? onCheck;
+  String tipText = "";
+  String ppText = "";
+  String ppValue = "";
+
+  buildPPWidget(
+
+    this.tipText,
+    this.ppText,
+
+      this.onCheck,
+      {
+    Key? key,    this.ppValue="",
+  }) : super(key: key);
+
+  @override
+  State<buildPPWidget> createState() => _buildPPWidgetState();
+}
+
+class _buildPPWidgetState extends State<buildPPWidget> {
+  bool isSelected = false;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GestureDetector(
+          child: Container(
+
+              width: 16.r,
+              height: 16.r,
+              child: Image(image: isSelected ? nicon_selected : nicon_not_select)),
+          onTap: () {
+            isSelected = !isSelected;
+            if (widget.onCheck != null) {
+              widget.onCheck!(isSelected);
+            }
+            setState(() {});
+          },
+        ),
+        Container(width: 6.w,),
+        Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextView(
+                widget.tipText,
+                size: 12,
+                color: N.black36,
+              ),
+              GestureDetector(
+                onTap: () {
+                  if(widget.ppValue==""){
+                    SPData.get(SPKey.PP.toString(), "https://rmny.richmney.com").then((value) {
+                      widget.ppValue=value;
+                      launch(widget.ppValue);
+                    });
+                  }else{
+                    launch(widget.ppValue);
+                  }
+
+
+                },
+                child: TextView(
+                  widget.ppText,
+                  size: 12,
+                  color: N.blue2a,
+                ),
+              ),
+            ]),
+      ],
     );
   }
 }
