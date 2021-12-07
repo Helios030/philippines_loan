@@ -1,6 +1,6 @@
 class HttpConfig {
-  // static const String baseURL = "http://api.th.golden-union.top/api/";
-  static const String baseURL = "http://api.ms.golden-union.top/api/";
+  static const String baseURL = "http://api.th.golden-union.top/api/";
+  // static const String baseURL = "http://ph-api.saas.golden-union.top/api/";
   static const int timeout = 60000;
 }
 

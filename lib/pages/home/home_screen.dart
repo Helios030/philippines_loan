@@ -19,6 +19,9 @@ import 'package:philippines_loan/utils/sp_data.dart';
 import 'package:philippines_loan/utils/sp_key.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'loan_screen.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
+
+
 
 class NHomePage extends StatefulWidget {
   const NHomePage({Key? key}) : super(key: key);
@@ -38,19 +41,15 @@ class _NHomePageState extends State<NHomePage> {
     queyLoanStatus();
     queyUserConfig();
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
-
     Future.delayed(Duration(seconds: 2), (){
-
-
 
      // todo 需要切换优惠卷弹框模式
 
-     showMyDialog(context, WebView(
-       initialUrl: "https://www.baidu.com/",
-       //JS执行模式 是否允许JS执行
-       javascriptMode: JavascriptMode.unrestricted,
-     ),heightSize: 335.h,widthSize: 270.w,dismissible: true);
-
+     // showMyDialog(context, WebView(
+     //   initialUrl: "https://www.baidu.com/",
+     //   //JS执行模式 是否允许JS执行
+     //   javascriptMode: JavascriptMode.unrestricted,
+     // ),heightSize: 335.h,widthSize: 270.w,dismissible: true);
 
 
     });
@@ -61,7 +60,24 @@ class _NHomePageState extends State<NHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Align(
-        child: currPage,
+        child: EasyRefresh(
+          header: MaterialHeader(),
+          onRefresh: () async {
+            queyLoanStatus();
+          },
+          child:
+
+          SingleChildScrollView(
+            child: Container(
+              height: 667.h,
+              alignment: Alignment.center,
+              child: currPage,
+            ),
+          )
+
+
+          ,),
+        // child: currPage,
       ),
     );
   }

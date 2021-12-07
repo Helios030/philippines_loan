@@ -168,7 +168,7 @@ class _RulerWidgetState extends State<RulerWidget> {
                   }
                   isNeedBuild = true;
                   print("onclick   up  $currIndex");
-                  setNewValue(lists[currIndex]);
+                  setNewValue(lists.isEmpty?null:lists[currIndex]);
                   setState(() {});
                 },
                 child: Container(
@@ -405,7 +405,7 @@ class _RulerWidgetState extends State<RulerWidget> {
     );
   }
 
-  void setNewValue(PResult value) {
+  void setNewValue(PResult? value) {
     currvalue = value;
     currIndex = lists.indexOf(currvalue!);
     isAvailable = currvalue!.enable == "1";
