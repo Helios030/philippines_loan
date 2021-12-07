@@ -40,10 +40,10 @@ class DialogWidget extends Dialog {
   }
 }
 
-void showMyDialog(BuildContext myContext, Widget widget, {double heightSize = 200,widthSize=335}) {
+void showMyDialog(BuildContext myContext, Widget widget, {double heightSize = 200,widthSize=335,dismissible:false}) {
   showDialog(
       context: myContext,
-      barrierDismissible:false,
+      barrierDismissible:dismissible,
       builder: (myContext) {
         return Column(
           children: [

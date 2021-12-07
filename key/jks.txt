@@ -1,0 +1,33 @@
+D:\Android\SDK\JDK\bin>keytool -exportcert -list -v -alias Ben -keystore C:\Users\tunne\Desktop\neutron.jks
+输入密钥库口令:
+别名: Ben
+创建日期: 2021-7-7
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=1, OU=1, O=1, L=1, ST=1, C=1
+发布者: CN=1, OU=1, O=1, L=1, ST=1, C=1
+序列号: 79608371
+生效时间: Wed Jul 07 13:34:11 GMT+08:00 2021, 失效时间: Sun Jul 01 13:34:11 GMT+08:00 2046
+证书指纹:
+         SHA1: 25:87:E2:91:66:4C:9C:60:BD:6B:D6:6D:09:D7:12:82:84:30:C5:6D
+         SHA256: 7D:A9:A2:F2:CF:B6:FC:20:13:30:69:9C:54:4F:DA:D1:8B:72:6D:29:1A:6F:C5:1C:18:DB:1F:02:DB:BB:10:BB
+签名算法名称: SHA256withRSA
+主体公共密钥算法: 2048 位 RSA 密钥
+版本: 3
+
+扩展:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 83 AC CE 80 5A C1 AF 46   92 D0 82 9D B3 52 64 9E  ....Z..F.....Rd.
+0010: 43 B1 53 BE                                        C.S.
+]
+]
+
+散列 ： JYfikWZMnGC9a9ZtCdcSgoQwxW0=
+测试 ： WHz4AQ6QTXq5+uX5pOmO3ehtQck=
+
+
+keytool -exportcert -alias Ben -keystore "D:\KEY\neutron.jks " | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64

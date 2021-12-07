@@ -43,12 +43,13 @@ class _NHomePageState extends State<NHomePage> {
 
 
 
-     // 切换到
+     // todo 需要切换优惠卷弹框模式
+
      showMyDialog(context, WebView(
        initialUrl: "https://www.baidu.com/",
        //JS执行模式 是否允许JS执行
        javascriptMode: JavascriptMode.unrestricted,
-     ),heightSize: 335.h,widthSize: 270.w);
+     ),heightSize: 335.h,widthSize: 270.w,dismissible: true);
 
 
 
