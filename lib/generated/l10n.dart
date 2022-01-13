@@ -50,1520 +50,1520 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `电话号码`
+  /// `Phone number`
   String get phone_number {
     return Intl.message(
-      '电话号码',
+      'Phone number',
       name: 'phone_number',
       desc: '',
       args: [],
     );
   }
 
-  /// `验证码`
+  /// `Verification Code`
   String get vCode {
     return Intl.message(
-      '验证码',
+      'Verification Code',
       name: 'vCode',
       desc: '',
       args: [],
     );
   }
 
-  /// `获取验证码`
+  /// `Get Verification Code`
   String get getVCode {
     return Intl.message(
-      '获取验证码',
+      'Get Verification Code',
       name: 'getVCode',
       desc: '',
       args: [],
     );
   }
 
-  /// `验证码发送成功`
+  /// `Verification code sent successfully`
   String get code_send_success {
     return Intl.message(
-      '验证码发送成功',
+      'Verification code sent successfully',
       name: 'code_send_success',
       desc: '',
       args: [],
     );
   }
 
-  /// `登录`
+  /// `Login`
   String get login {
     return Intl.message(
-      '登录',
+      'Login',
       name: 'login',
       desc: '',
       args: [],
     );
   }
 
-  /// `《隐私政策》`
+  /// `Privacy Policy`
   String get pp {
     return Intl.message(
-      '《隐私政策》',
+      'Privacy Policy',
       name: 'pp',
       desc: '',
       args: [],
     );
   }
 
-  /// `我已仔细阅读并同意遵守:`
+  /// `I have read carefully and agree to abide by:`
   String get rade_success {
     return Intl.message(
-      '我已仔细阅读并同意遵守:',
+      'I have read carefully and agree to abide by:',
       name: 'rade_success',
       desc: '',
       args: [],
     );
   }
 
-  /// `发送验证码成功！`
+  /// `Send verification code successfully!`
   String get send_success {
     return Intl.message(
-      '发送验证码成功！',
+      'Send verification code successfully!',
       name: 'send_success',
       desc: '',
       args: [],
     );
   }
 
-  /// `请勾选隐私政策`
+  /// `Please tick the privacy policy`
   String get please_selected {
     return Intl.message(
-      '请勾选隐私政策',
+      'Please tick the privacy policy',
       name: 'please_selected',
       desc: '',
       args: [],
     );
   }
 
-  /// `我的资料`
+  /// `My Info`
   String get my_info {
     return Intl.message(
-      '我的资料',
+      'My Info',
       name: 'my_info',
       desc: '',
       args: [],
     );
   }
 
-  /// `我的贷款`
+  /// `My Loan`
   String get my_loan {
     return Intl.message(
-      '我的贷款',
+      'My Loan',
       name: 'my_loan',
       desc: '',
       args: [],
     );
   }
 
-  /// `客服`
+  /// `Customer Service`
   String get my_call {
     return Intl.message(
-      '客服',
+      'Customer Service',
       name: 'my_call',
       desc: '',
       args: [],
     );
   }
 
-  /// `关于我们`
+  /// `About Us`
   String get about_us {
     return Intl.message(
-      '关于我们',
+      'About Us',
       name: 'about_us',
       desc: '',
       args: [],
     );
   }
 
-  /// `退出登录`
+  /// `Sign out`
   String get my_exit {
     return Intl.message(
-      '退出登录',
+      'Sign out',
       name: 'my_exit',
       desc: '',
       args: [],
     );
   }
 
-  /// `按时还款，可自动提升额度`
+  /// `Repay on time, the amount can be automatically increased`
   String get product_tip {
     return Intl.message(
-      '按时还款，可自动提升额度',
+      'Repay on time, the amount can be automatically increased',
       name: 'product_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `当前可借金额`
+  /// `Current loan amount`
   String get curr_loan_money {
     return Intl.message(
-      '当前可借金额',
+      'Current loan amount',
       name: 'curr_loan_money',
       desc: '',
       args: [],
     );
   }
 
-  /// `借款期限`
+  /// `Loan period`
   String get loan_date {
     return Intl.message(
-      '借款期限',
+      'Loan period',
       name: 'loan_date',
       desc: '',
       args: [],
     );
   }
 
-  /// `去借款`
+  /// `Go Loan`
   String get go_loan {
     return Intl.message(
-      '去借款',
+      'Go Loan',
       name: 'go_loan',
       desc: '',
       args: [],
     );
   }
 
-  /// `正在为您尽快审核，请耐心等待，并保持电话畅通`
+  /// `Reviewing for you as soon as possible, please be patient and keep the phone open`
   String get review_tip {
     return Intl.message(
-      '正在为您尽快审核，请耐心等待，并保持电话畅通',
+      'Reviewing for you as soon as possible, please be patient and keep the phone open',
       name: 'review_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `人脸识别`
+  /// `Face Recognition`
   String get face_title {
     return Intl.message(
-      '人脸识别',
+      'Face Recognition',
       name: 'face_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `将进行人脸识别\n进一步保护您的财产安全`
+  /// `Face recognition will be performed\nto further protect your property`
   String get face_tip {
     return Intl.message(
-      '将进行人脸识别\n进一步保护您的财产安全',
+      'Face recognition will be performed\nto further protect your property',
       name: 'face_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `认证`
+  /// `Certification`
   String get certification {
     return Intl.message(
-      '认证',
+      'Certification',
       name: 'certification',
       desc: '',
       args: [],
     );
   }
 
-  /// `个人信息`
+  /// `Personal Information`
   String get user_info {
     return Intl.message(
-      '个人信息',
+      'Personal Information',
       name: 'user_info',
       desc: '',
       args: [],
     );
   }
 
-  /// `下一步`
+  /// `Next step`
   String get next_tip {
     return Intl.message(
-      '下一步',
+      'Next step',
       name: 'next_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `请输入`
+  /// `Please input`
   String get please_input {
     return Intl.message(
-      '请输入',
+      'Please input',
       name: 'please_input',
       desc: '',
       args: [],
     );
   }
 
-  /// `上传身份证正面`
+  /// `Upload front of ID card`
   String get upload_id_t {
     return Intl.message(
-      '上传身份证正面',
+      'Upload front of ID card',
       name: 'upload_id_t',
       desc: '',
       args: [],
     );
   }
 
-  /// `身份证号`
+  /// `ID number`
   String get id_number {
     return Intl.message(
-      '身份证号',
+      'ID number',
       name: 'id_number',
       desc: '',
       args: [],
     );
   }
 
-  /// `姓名`
+  /// `name`
   String get name {
     return Intl.message(
-      '姓名',
+      'name',
       name: 'name',
       desc: '',
       args: [],
     );
   }
 
-  /// `出生年月`
+  /// `Birthdate`
   String get birthday {
     return Intl.message(
-      '出生年月',
+      'Birthdate',
       name: 'birthday',
       desc: '',
       args: [],
     );
   }
 
-  /// `性别`
+  /// `gender`
   String get gender {
     return Intl.message(
-      '性别',
+      'gender',
       name: 'gender',
       desc: '',
       args: [],
     );
   }
 
-  /// `电子邮箱`
+  /// `E-mail`
   String get email {
     return Intl.message(
-      '电子邮箱',
+      'E-mail',
       name: 'email',
       desc: '',
       args: [],
     );
   }
 
-  /// `小名`
+  /// `nickname`
   String get nick_name {
     return Intl.message(
-      '小名',
+      'nickname',
       name: 'nick_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `居住类型`
+  /// `Housing Type`
   String get home_type {
     return Intl.message(
-      '居住类型',
+      'Housing Type',
       name: 'home_type',
       desc: '',
       args: [],
     );
   }
 
-  /// `居住时长`
+  /// `Home Time`
   String get home_time {
     return Intl.message(
-      '居住时长',
+      'Home Time',
       name: 'home_time',
       desc: '',
       args: [],
     );
   }
 
-  /// `居住省份`
+  /// `Home Province`
   String get home_city {
     return Intl.message(
-      '居住省份',
+      'Home Province',
       name: 'home_city',
       desc: '',
       args: [],
     );
   }
 
-  /// `详细地址`
+  /// `Details Address`
   String get details_address {
     return Intl.message(
-      '详细地址',
+      'Details Address',
       name: 'details_address',
       desc: '',
       args: [],
     );
   }
 
-  /// `学历`
+  /// `Education`
   String get education {
     return Intl.message(
-      '学历',
+      'Education',
       name: 'education',
       desc: '',
       args: [],
     );
   }
 
-  /// `婚姻`
+  /// `marriage`
   String get marriage {
     return Intl.message(
-      '婚姻',
+      'marriage',
       name: 'marriage',
       desc: '',
       args: [],
     );
   }
 
-  /// `孩子数`
+  /// `Number of children`
   String get how_children {
     return Intl.message(
-      '孩子数',
+      'Number of children',
       name: 'how_children',
       desc: '',
       args: [],
     );
   }
 
-  /// `职业信息`
+  /// `Job Information`
   String get work_info {
     return Intl.message(
-      '职业信息',
+      'Job Information',
       name: 'work_info',
       desc: '',
       args: [],
     );
   }
 
-  /// `确认申请`
+  /// `Confirm Request`
   String get confirm_request {
     return Intl.message(
-      '确认申请',
+      'Confirm Request',
       name: 'confirm_request',
       desc: '',
       args: [],
     );
   }
 
-  /// `您的申请已提交\n请耐心等待审核， 请保持电话联系`
+  /// `Your application has been submitted\nPlease be patient for review, please keep in touch`
   String get confirm_request_tip {
     return Intl.message(
-      '您的申请已提交\n请耐心等待审核， 请保持电话联系',
+      'Your application has been submitted\nPlease be patient for review, please keep in touch',
       name: 'confirm_request_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `借款金额（泰铢）`
+  /// `Loan Amount (Thai Baht)`
   String get loan_money {
     return Intl.message(
-      '借款金额（泰铢）',
+      'Loan Amount (Thai Baht)',
       name: 'loan_money',
       desc: '',
       args: [],
     );
   }
 
-  /// `借款金额（泰铢）`
+  /// `Loan Amount (Thai Baht)`
   String get loan_amount {
     return Intl.message(
-      '借款金额（泰铢）',
+      'Loan Amount (Thai Baht)',
       name: 'loan_amount',
       desc: '',
       args: [],
     );
   }
 
-  /// `借款期限`
+  /// `Loan period`
   String get loan_period {
     return Intl.message(
-      '借款期限',
+      'Loan period',
       name: 'loan_period',
       desc: '',
       args: [],
     );
   }
 
-  /// `请选择`
+  /// `Please select`
   String get please_check {
     return Intl.message(
-      '请选择',
+      'Please select',
       name: 'please_check',
       desc: '',
       args: [],
     );
   }
 
-  /// `四角完整`
+  /// `Four corners complete`
   String get photo_tip_f {
     return Intl.message(
-      '四角完整',
+      'Four corners complete',
       name: 'photo_tip_f',
       desc: '',
       args: [],
     );
   }
 
-  /// `照片清晰`
+  /// `Photos are clear`
   String get photo_tip_s {
     return Intl.message(
-      '照片清晰',
+      'Photos are clear',
       name: 'photo_tip_s',
       desc: '',
       args: [],
     );
   }
 
-  /// `我知道了`
+  /// `I know`
   String get iknow {
     return Intl.message(
-      '我知道了',
+      'I know',
       name: 'iknow',
       desc: '',
       args: [],
     );
   }
 
-  /// `取消`
+  /// `Cancel`
   String get cancel {
     return Intl.message(
-      '取消',
+      'Cancel',
       name: 'cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `确定`
+  /// `OK`
   String get ok {
     return Intl.message(
-      '确定',
+      'OK',
       name: 'ok',
       desc: '',
       args: [],
     );
   }
 
-  /// `您的身份`
+  /// `your identity`
   String get job {
     return Intl.message(
-      '您的身份',
+      'your identity',
       name: 'job',
       desc: '',
       args: [],
     );
   }
 
-  /// `请选择您的身份`
+  /// `Please select your job`
   String get select_job {
     return Intl.message(
-      '请选择您的身份',
+      'Please select your job',
       name: 'select_job',
       desc: '',
       args: [],
     );
   }
 
-  /// `职业类型`
+  /// `Job Type`
   String get job_type {
     return Intl.message(
-      '职业类型',
+      'Job Type',
       name: 'job_type',
       desc: '',
       args: [],
     );
   }
 
-  /// `请选择您的职业`
+  /// `Please select your job`
   String get select_job_type {
     return Intl.message(
-      '请选择您的职业',
+      'Please select your job',
       name: 'select_job_type',
       desc: '',
       args: [],
     );
   }
 
-  /// `行业分类`
+  /// `Industry Classification`
   String get industry {
     return Intl.message(
-      '行业分类',
+      'Industry Classification',
       name: 'industry',
       desc: '',
       args: [],
     );
   }
 
-  /// `请选择您的行业`
+  /// `Please select your industry`
   String get select_industry {
     return Intl.message(
-      '请选择您的行业',
+      'Please select your industry',
       name: 'select_industry',
       desc: '',
       args: [],
     );
   }
 
-  /// `收入范围`
+  /// `Revenue Range`
   String get salary_range {
     return Intl.message(
-      '收入范围',
+      'Revenue Range',
       name: 'salary_range',
       desc: '',
       args: [],
     );
   }
 
-  /// `请选择您的收入范围`
+  /// `Please select your income range`
   String get select_salary_range {
     return Intl.message(
-      '请选择您的收入范围',
+      'Please select your income range',
       name: 'select_salary_range',
       desc: '',
       args: [],
     );
   }
 
-  /// `公司名称`
+  /// `Company Name`
   String get comp_name {
     return Intl.message(
-      '公司名称',
+      'Company Name',
       name: 'comp_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `公司地址`
+  /// `Company Address`
   String get comp_address {
     return Intl.message(
-      '公司地址',
+      'Company Address',
       name: 'comp_address',
       desc: '',
       args: [],
     );
   }
 
-  /// `请选择公司的省份`
+  /// `Please select the company's province`
   String get select_comp_address {
     return Intl.message(
-      '请选择公司的省份',
+      'Please select the company\'s province',
       name: 'select_comp_address',
       desc: '',
       args: [],
     );
   }
 
-  /// `详细地址`
+  /// `Detailed address`
   String get detail_address {
     return Intl.message(
-      '详细地址',
+      'Detailed address',
       name: 'detail_address',
       desc: '',
       args: [],
     );
   }
 
-  /// `公司电话`
+  /// `Company Phone`
   String get comp_phone {
     return Intl.message(
-      '公司电话',
+      'Company Phone',
       name: 'comp_phone',
       desc: '',
       args: [],
     );
   }
 
-  /// `第一联系人`
+  /// `First Contact`
   String get contact_name_f {
     return Intl.message(
-      '第一联系人',
+      'First Contact',
       name: 'contact_name_f',
       desc: '',
       args: [],
     );
   }
 
-  /// `第二联系人`
+  /// `Secondary Contact`
   String get contact_name_s {
     return Intl.message(
-      '第二联系人',
+      'Secondary Contact',
       name: 'contact_name_s',
       desc: '',
       args: [],
     );
   }
 
-  /// `联系人关系`
+  /// `Contact relationship`
   String get relationship_with_you {
     return Intl.message(
-      '联系人关系',
+      'Contact relationship',
       name: 'relationship_with_you',
       desc: '',
       args: [],
     );
   }
 
-  /// `联系人电话`
+  /// `Contact phone number`
   String get contact_number {
     return Intl.message(
-      '联系人电话',
+      'Contact phone number',
       name: 'contact_number',
       desc: '',
       args: [],
     );
   }
 
-  /// `联系人信息`
+  /// `Contact Info`
   String get contact_info {
     return Intl.message(
-      '联系人信息',
+      'Contact Info',
       name: 'contact_info',
       desc: '',
       args: [],
     );
   }
 
-  /// `银行卡信息`
+  /// `Bank Card Information`
   String get card_info {
     return Intl.message(
-      '银行卡信息',
+      'Bank Card Information',
       name: 'card_info',
       desc: '',
       args: [],
     );
   }
 
-  /// `持卡人`
+  /// `Cardholder`
   String get cardholder {
     return Intl.message(
-      '持卡人',
+      'Cardholder',
       name: 'cardholder',
       desc: '',
       args: [],
     );
   }
 
-  /// `银行账号`
+  /// `Bank Account Number`
   String get bank_account {
     return Intl.message(
-      '银行账号',
+      'Bank Account Number',
       name: 'bank_account',
       desc: '',
       args: [],
     );
   }
 
-  /// `开户银行`
+  /// `Open Account Bank`
   String get open_account_bank {
     return Intl.message(
-      '开户银行',
+      'Open Account Bank',
       name: 'open_account_bank',
       desc: '',
       args: [],
     );
   }
 
-  /// `请选择开户银行`
+  /// `Please select an account opening bank`
   String get select_open_account_bank {
     return Intl.message(
-      '请选择开户银行',
+      'Please select an account opening bank',
       name: 'select_open_account_bank',
       desc: '',
       args: [],
     );
   }
 
-  /// `省份`
+  /// `Province`
   String get province {
     return Intl.message(
-      '省份',
+      'Province',
       name: 'province',
       desc: '',
       args: [],
     );
   }
 
-  /// `城市`
+  /// `city`
   String get city {
     return Intl.message(
-      '城市',
+      'city',
       name: 'city',
       desc: '',
       args: [],
     );
   }
 
-  /// `待解锁`
+  /// `To be unlocked`
   String get unlocked {
     return Intl.message(
-      '待解锁',
+      'To be unlocked',
       name: 'unlocked',
       desc: '',
       args: [],
     );
   }
 
-  /// `确定退出当前账号？`
+  /// `Are you sure you want to exit the current account?`
   String get exit_app_tip {
     return Intl.message(
-      '确定退出当前账号？',
+      'Are you sure you want to exit the current account?',
       name: 'exit_app_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `审核中`
+  /// `Reviewing`
   String get review {
     return Intl.message(
-      '审核中',
+      'Reviewing',
       name: 'review',
       desc: '',
       args: [],
     );
   }
 
-  /// `申请时间`
+  /// `Review time`
   String get review_time {
     return Intl.message(
-      '申请时间',
+      'Review time',
       name: 'review_time',
       desc: '',
       args: [],
     );
   }
 
-  /// `审核未通过`
+  /// `Review failed`
   String get review_faile {
     return Intl.message(
-      '审核未通过',
+      'Review failed',
       name: 'review_faile',
       desc: '',
       args: [],
     );
   }
 
-  /// `待还款`
+  /// `Pending payment`
   String get repay {
     return Intl.message(
-      '待还款',
+      'Pending payment',
       name: 'repay',
       desc: '',
       args: [],
     );
   }
 
-  /// `已逾期`
+  /// `Overdue`
   String get over {
     return Intl.message(
-      '已逾期',
+      'Overdue',
       name: 'over',
       desc: '',
       args: [],
     );
   }
 
-  /// `已结清`
+  /// `Cleared`
   String get settle {
     return Intl.message(
-      '已结清',
+      'Cleared',
       name: 'settle',
       desc: '',
       args: [],
     );
   }
 
-  /// `应还时间`
+  /// `Repay time`
   String get reapy_time {
     return Intl.message(
-      '应还时间',
+      'Repay time',
       name: 'reapy_time',
       desc: '',
       args: [],
     );
   }
 
-  /// `待还金额`
+  /// `Amount to be repaid`
   String get amount_repaid {
     return Intl.message(
-      '待还金额',
+      'Amount to be repaid',
       name: 'amount_repaid',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款时间`
+  /// `Payment time`
   String get pay_time {
     return Intl.message(
-      '还款时间',
+      'Payment time',
       name: 'pay_time',
       desc: '',
       args: [],
     );
   }
 
-  /// `已还金额`
+  /// `Payment amount`
   String get pay_money {
     return Intl.message(
-      '已还金额',
+      'Payment amount',
       name: 'pay_money',
       desc: '',
       args: [],
     );
   }
 
-  /// `您的贷款已经到账，请留意还款时间`
+  /// `Your loan has arrived, please pay attention to the repayment time`
   String get wait_pay_tip {
     return Intl.message(
-      '您的贷款已经到账，请留意还款时间',
+      'Your loan has arrived, please pay attention to the repayment time',
       name: 'wait_pay_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `待还金额`
+  /// `Amount to be repaid`
   String get remainAmount {
     return Intl.message(
-      '待还金额',
+      'Amount to be repaid',
       name: 'remainAmount',
       desc: '',
       args: [],
     );
   }
 
-  /// `应还时间`
+  /// `Deposit Time`
   String get depositTime {
     return Intl.message(
-      '应还时间',
+      'Deposit Time',
       name: 'depositTime',
       desc: '',
       args: [],
     );
   }
 
-  /// `利息`
+  /// `interest`
   String get interest {
     return Intl.message(
-      '利息',
+      'interest',
       name: 'interest',
       desc: '',
       args: [],
     );
   }
 
-  /// `罚息`
+  /// `Penalty Interest`
   String get penalty {
     return Intl.message(
-      '罚息',
+      'Penalty Interest',
       name: 'penalty',
       desc: '',
       args: [],
     );
   }
 
-  /// `滞纳金`
+  /// `Late Payment Fee`
   String get fale_fee {
     return Intl.message(
-      '滞纳金',
+      'Late Payment Fee',
       name: 'fale_fee',
       desc: '',
       args: [],
     );
   }
 
-  /// `支付费用`
+  /// `Payment fee`
   String get pay {
     return Intl.message(
-      '支付费用',
+      'Payment fee',
       name: 'pay',
       desc: '',
       args: [],
     );
   }
 
-  /// `技术服务费`
+  /// `Technical service fee`
   String get risk {
     return Intl.message(
-      '技术服务费',
+      'Technical service fee',
       name: 'risk',
       desc: '',
       args: [],
     );
   }
 
-  /// `审核咨询费`
+  /// `Audit Consulting Fee`
   String get service {
     return Intl.message(
-      '审核咨询费',
+      'Audit Consulting Fee',
       name: 'service',
       desc: '',
       args: [],
     );
   }
 
-  /// `去还款`
+  /// `To repay`
   String get to_pay {
     return Intl.message(
-      '去还款',
+      'To repay',
       name: 'to_pay',
       desc: '',
       args: [],
     );
   }
 
-  /// `全部还款`
+  /// `Full payment`
   String get all_pay {
     return Intl.message(
-      '全部还款',
+      'Full payment',
       name: 'all_pay',
       desc: '',
       args: [],
     );
   }
 
-  /// `展期还款`
+  /// `Rollover repayment`
   String get sub_pay {
     return Intl.message(
-      '展期还款',
+      'Rollover repayment',
       name: 'sub_pay',
       desc: '',
       args: [],
     );
   }
 
-  /// `应还金额`
+  /// `Amount due`
   String get amount_due {
     return Intl.message(
-      '应还金额',
+      'Amount due',
       name: 'amount_due',
       desc: '',
       args: [],
     );
   }
 
-  /// `应还展期金额`
+  /// `Amount to be repaid`
   String get sub_amount_due {
     return Intl.message(
-      '应还展期金额',
+      'Amount to be repaid',
       name: 'sub_amount_due',
       desc: '',
       args: [],
     );
   }
 
-  /// `银行`
+  /// `Bank`
   String get bank {
     return Intl.message(
-      '银行',
+      'Bank',
       name: 'bank',
       desc: '',
       args: [],
     );
   }
 
-  /// `银行卡号`
+  /// `Bank Card Number`
   String get bank_number {
     return Intl.message(
-      '银行卡号',
+      'Bank Card Number',
       name: 'bank_number',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款银行账号`
+  /// `Repayment bank account number`
   String get reapay_bank_code {
     return Intl.message(
-      '还款银行账号',
+      'Repayment bank account number',
       name: 'reapay_bank_code',
       desc: '',
       args: [],
     );
   }
 
-  /// `上传还款凭证`
+  /// `Upload repayment voucher`
   String get upload_repayment {
     return Intl.message(
-      '上传还款凭证',
+      'Upload repayment voucher',
       name: 'upload_repayment',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款标志`
+  /// `Repayment Sign`
   String get repayment_sign {
     return Intl.message(
-      '还款标志',
+      'Repayment Sign',
       name: 'repayment_sign',
       desc: '',
       args: [],
     );
   }
 
-  /// `账户名`
+  /// `Account Name`
   String get account_name {
     return Intl.message(
-      '账户名',
+      'Account Name',
       name: 'account_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款额`
+  /// `Repayment Amount`
   String get repay_amo {
     return Intl.message(
-      '还款额',
+      'Repayment Amount',
       name: 'repay_amo',
       desc: '',
       args: [],
     );
   }
 
-  /// `展期开始时间`
+  /// `Extension start time`
   String get start_time {
     return Intl.message(
-      '展期开始时间',
+      'Extension start time',
       name: 'start_time',
       desc: '',
       args: [],
     );
   }
 
-  /// `展期结束时间`
+  /// `Extension end time`
   String get end_time {
     return Intl.message(
-      '展期结束时间',
+      'Extension end time',
       name: 'end_time',
       desc: '',
       args: [],
     );
   }
 
-  /// `请先点击下一步，再上传还款凭证`
+  /// `Please click next, and then upload the repayment voucher`
   String get jx_tip {
     return Intl.message(
-      '请先点击下一步，再上传还款凭证',
+      'Please click next, and then upload the repayment voucher',
       name: 'jx_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `提交`
+  /// `Submit`
   String get submit {
     return Intl.message(
-      '提交',
+      'Submit',
       name: 'submit',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款`
+  /// `Repayment`
   String get repayment {
     return Intl.message(
-      '还款',
+      'Repayment',
       name: 'repayment',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款凭证上传成功，我们将尽快核对\n注意查看您的还款状态`
+  /// `The repayment voucher is uploaded successfully, we will check it as soon as possible\nPay attention to check your repayment status`
   String get upload_pay_tip {
     return Intl.message(
-      '还款凭证上传成功，我们将尽快核对\n注意查看您的还款状态',
+      'The repayment voucher is uploaded successfully, we will check it as soon as possible\nPay attention to check your repayment status',
       name: 'upload_pay_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `选择图片获取方式`
+  /// `Choose how to get picture`
   String get choose_get_photo {
     return Intl.message(
-      '选择图片获取方式',
+      'Choose how to get picture',
       name: 'choose_get_photo',
       desc: '',
       args: [],
     );
   }
 
-  /// `拍照`
+  /// `Photograph`
   String get photograph {
     return Intl.message(
-      '拍照',
+      'Photograph',
       name: 'photograph',
       desc: '',
       args: [],
     );
   }
 
-  /// `选取相册`
+  /// `Select Album`
   String get select_album {
     return Intl.message(
-      '选取相册',
+      'Select Album',
       name: 'select_album',
       desc: '',
       args: [],
     );
   }
 
-  /// `选择您的还款方式`
+  /// `Select your repayment method`
   String get select_reapy_method {
     return Intl.message(
-      '选择您的还款方式',
+      'Select your repayment method',
       name: 'select_reapy_method',
       desc: '',
       args: [],
     );
   }
 
-  /// `您的申请已被拒绝，请保持信用。七天后再试`
+  /// `Your application has been rejected, please keep your credit. Try again in seven days`
   String get fail_tip {
     return Intl.message(
-      '您的申请已被拒绝，请保持信用。七天后再试',
+      'Your application has been rejected, please keep your credit. Try again in seven days',
       name: 'fail_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `您的贷款已逾期，请尽快还款避免产生额外费用`
+  /// `Your loan is overdue, please repay as soon as possible to avoid extra charges`
   String get over_tip {
     return Intl.message(
-      '您的贷款已逾期，请尽快还款避免产生额外费用',
+      'Your loan is overdue, please repay as soon as possible to avoid extra charges',
       name: 'over_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `已取消`
+  /// `Canceled`
   String get order_cancel {
     return Intl.message(
-      '已取消',
+      'Canceled',
       name: 'order_cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `借款`
+  /// `Loan`
   String get loan {
     return Intl.message(
-      '借款',
+      'Loan',
       name: 'loan',
       desc: '',
       args: [],
     );
   }
 
-  /// `个人`
+  /// `Personal`
   String get main_user {
     return Intl.message(
-      '个人',
+      'Personal',
       name: 'main_user',
       desc: '',
       args: [],
     );
   }
 
-  /// `我的优惠券`
+  /// `My Coupon`
   String get my_coupon {
     return Intl.message(
-      '我的优惠券',
+      'My Coupon',
       name: 'my_coupon',
       desc: '',
       args: [],
     );
   }
 
-  /// `确定要拨打客服电话？`
+  /// `Are you sure you want to call customer service?`
   String get call_user_tip {
     return Intl.message(
-      '确定要拨打客服电话？',
+      'Are you sure you want to call customer service?',
       name: 'call_user_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `时间`
+  /// `time`
   String get time {
     return Intl.message(
-      '时间',
+      'time',
       name: 'time',
       desc: '',
       args: [],
     );
   }
 
-  /// `贷款期限`
+  /// `Loan Term`
   String get loan_term {
     return Intl.message(
-      '贷款期限',
+      'Loan Term',
       name: 'loan_term',
       desc: '',
       args: [],
     );
   }
 
-  /// `立即借钱`
+  /// `Borrow money now`
   String get borrow_money_now {
     return Intl.message(
-      '立即借钱',
+      'Borrow money now',
       name: 'borrow_money_now',
       desc: '',
       args: [],
     );
   }
 
-  /// `额度`
+  /// `Quota`
   String get quota {
     return Intl.message(
-      '额度',
+      'Quota',
       name: 'quota',
       desc: '',
       args: [],
     );
   }
 
-  /// `最高可借`
+  /// `Highest Loanable`
   String get highest_loanable {
     return Intl.message(
-      '最高可借',
+      'Highest Loanable',
       name: 'highest_loanable',
       desc: '',
       args: [],
     );
   }
 
-  /// `你想借`
+  /// `You want to borrow`
   String get you_want_borrow {
     return Intl.message(
-      '你想借',
+      'You want to borrow',
       name: 'you_want_borrow',
       desc: '',
       args: [],
     );
   }
 
-  /// `当前等级暂不可借`
+  /// `Current level cannot be borrowed temporarily`
   String get not_money_now {
     return Intl.message(
-      '当前等级暂不可借',
+      'Current level cannot be borrowed temporarily',
       name: 'not_money_now',
       desc: '',
       args: [],
     );
   }
 
-  /// `您的申请已被拒绝,请稍后再试`
+  /// `Your application has been rejected, please try again later`
   String get start_fail_tip {
     return Intl.message(
-      '您的申请已被拒绝,请稍后再试',
+      'Your application has been rejected, please try again later',
       name: 'start_fail_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `联系人姓名`
+  /// `contact name`
   String get contact_name {
     return Intl.message(
-      '联系人姓名',
+      'contact name',
       name: 'contact_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `第三联系人`
+  /// `Third Contact`
   String get contact_name_three {
     return Intl.message(
-      '第三联系人',
+      'Third Contact',
       name: 'contact_name_three',
       desc: '',
       args: [],
     );
   }
 
-  /// `第四联系人`
+  /// `Fourth Contact`
   String get contact_name_four {
     return Intl.message(
-      '第四联系人',
+      'Fourth Contact',
       name: 'contact_name_four',
       desc: '',
       args: [],
     );
   }
 
-  /// `第五联系人`
+  /// `Fifth Contact`
   String get contact_name_five {
     return Intl.message(
-      '第五联系人',
+      'Fifth Contact',
       name: 'contact_name_five',
       desc: '',
       args: [],
     );
   }
 
-  /// `宗教`
+  /// `Religion`
   String get religion {
     return Intl.message(
-      '宗教',
+      'Religion',
       name: 'religion',
       desc: '',
       args: [],
     );
   }
 
-  /// `选择省/市`
+  /// `Select Province/City`
   String get select_province {
     return Intl.message(
-      '选择省/市',
+      'Select Province/City',
       name: 'select_province',
       desc: '',
       args: [],
     );
   }
 
-  /// `选择县/区`
+  /// `Select County/District`
   String get select_county {
     return Intl.message(
-      '选择县/区',
+      'Select County/District',
       name: 'select_county',
       desc: '',
       args: [],
     );
   }
 
-  /// `选择街道`
+  /// `Select Street`
   String get select_street {
     return Intl.message(
-      '选择街道',
+      'Select Street',
       name: 'select_street',
       desc: '',
       args: [],
     );
   }
 
-  /// `位置`
+  /// `Location`
   String get location {
     return Intl.message(
-      '位置',
+      'Location',
       name: 'location',
       desc: '',
       args: [],
     );
   }
 
-  /// `点击获取定位`
+  /// `Click to get location`
   String get get_location {
     return Intl.message(
-      '点击获取定位',
+      'Click to get location',
       name: 'get_location',
       desc: '',
       args: [],
     );
   }
 
-  /// `请先选择上一级地址!`
+  /// `Please select the superior address first!`
   String get plese_select_superior {
     return Intl.message(
-      '请先选择上一级地址!',
+      'Please select the superior address first!',
       name: 'plese_select_superior',
       desc: '',
       args: [],
     );
   }
 
-  /// `手机号`
+  /// `Mobile phone number`
   String get bank_phone {
     return Intl.message(
-      '手机号',
+      'Mobile phone number',
       name: 'bank_phone',
       desc: '',
       args: [],
     );
   }
 
-  /// `取款方式`
+  /// `Withdrawal method`
   String get withdrawal_method {
     return Intl.message(
-      '取款方式',
+      'Withdrawal method',
       name: 'withdrawal_method',
       desc: '',
       args: [],
     );
   }
 
-  /// `确认贷款`
+  /// `Confirm Loan`
   String get confirm_loan {
     return Intl.message(
-      '确认贷款',
+      'Confirm Loan',
       name: 'confirm_loan',
       desc: '',
       args: [],
     );
   }
 
-  /// `订单信息`
+  /// `Order Information`
   String get order_info {
     return Intl.message(
-      '订单信息',
+      'Order Information',
       name: 'order_info',
       desc: '',
       args: [],
     );
   }
 
-  /// `天`
+  /// `day`
   String get day {
     return Intl.message(
-      '天',
+      'day',
       name: 'day',
       desc: '',
       args: [],
     );
   }
 
-  /// `Attention！For late repayment，thebelow fees will be applied.`
+  /// `Attention! For late repayment, the below fees will be applied.`
   String get comfirm_tip {
     return Intl.message(
-      'Attention！For late repayment，thebelow fees will be applied.',
+      'Attention! For late repayment, the below fees will be applied.',
       name: 'comfirm_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `取款账号`
+  /// `Withdrawal account number`
   String get withdrawal_method_number {
     return Intl.message(
-      '取款账号',
+      'Withdrawal account number',
       name: 'withdrawal_method_number',
       desc: '',
       args: [],
@@ -1590,110 +1590,110 @@ class S {
     );
   }
 
-  /// `请拍摄工作证明(或以下其一)`
+  /// `Please take a photo of your work certificate (or one of the following)`
   String get take_photo_tip {
     return Intl.message(
-      '请拍摄工作证明(或以下其一)',
+      'Please take a photo of your work certificate (or one of the following)',
       name: 'take_photo_tip',
       desc: '',
       args: [],
     );
   }
 
-  /// `1. 工资单`
+  /// `1. Payroll`
   String get payroll {
     return Intl.message(
-      '1. 工资单',
+      '1. Payroll',
       name: 'payroll',
       desc: '',
       args: [],
     );
   }
 
-  /// `2. 工作证`
+  /// `2. Work Permit`
   String get work_permit {
     return Intl.message(
-      '2. 工作证',
+      '2. Work Permit',
       name: 'work_permit',
       desc: '',
       args: [],
     );
   }
 
-  /// `3. 驾驶执照（摩托车/汽车）`
+  /// `3. Driving license (motorcycle/car)`
   String get driving_license {
     return Intl.message(
-      '3. 驾驶执照（摩托车/汽车）',
+      '3. Driving license (motorcycle/car)',
       name: 'driving_license',
       desc: '',
       args: [],
     );
   }
 
-  /// `4. 工作场所照片`
+  /// `4. Workplace photo`
   String get work_place_photo {
     return Intl.message(
-      '4. 工作场所照片',
+      '4. Workplace photo',
       name: 'work_place_photo',
       desc: '',
       args: [],
     );
   }
 
-  /// `借款金额`
+  /// `Loan Amount`
   String get loan_amount_main {
     return Intl.message(
-      '借款金额',
+      'Loan Amount',
       name: 'loan_amount_main',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款日期`
+  /// `Repayment Date`
   String get repayment_date {
     return Intl.message(
-      '还款日期',
+      'Repayment Date',
       name: 'repayment_date',
       desc: '',
       args: [],
     );
   }
 
-  /// `距离还款日还有`
+  /// `There is still until the repayment date`
   String get until_date {
     return Intl.message(
-      '距离还款日还有',
+      'There is still until the repayment date',
       name: 'until_date',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款银行`
+  /// `Repayment Bank`
   String get repayment_bank {
     return Intl.message(
-      '还款银行',
+      'Repayment Bank',
       name: 'repayment_bank',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款数字码`
+  /// `Repayment digital code`
   String get repayment_digital_code {
     return Intl.message(
-      '还款数字码',
+      'Repayment digital code',
       name: 'repayment_digital_code',
       desc: '',
       args: [],
     );
   }
 
-  /// `还款二维码`
+  /// `Repayment QR code`
   String get repayment_digital_qr {
     return Intl.message(
-      '还款二维码',
+      'Repayment QR code',
       name: 'repayment_digital_qr',
       desc: '',
       args: [],
@@ -1710,10 +1710,10 @@ class S {
     );
   }
 
-  /// `《 Loan agreement 》`
+  /// `《Loan agreement》`
   String get loanAgreement {
     return Intl.message(
-      '《 Loan agreement 》',
+      '《Loan agreement》',
       name: 'loanAgreement',
       desc: '',
       args: [],
@@ -1730,30 +1730,30 @@ class S {
     );
   }
 
-  /// `放款中`
+  /// `Loaning`
   String get loan_str {
     return Intl.message(
-      '放款中',
+      'Loaning',
       name: 'loan_str',
       desc: '',
       args: [],
     );
   }
 
-  /// `您的贷款已经审核通过`
+  /// `Your loan has been approved`
   String get loan_title {
     return Intl.message(
-      '您的贷款已经审核通过',
+      'Your loan has been approved',
       name: 'loan_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `到帐金额`
+  /// `Amount arrived`
   String get amount_arrived {
     return Intl.message(
-      '到帐金额',
+      'Amount arrived',
       name: 'amount_arrived',
       desc: '',
       args: [],
@@ -1770,80 +1770,80 @@ class S {
     );
   }
 
-  /// `取款二维码`
+  /// `Withdrawal QR code`
   String get withdrawal_qr {
     return Intl.message(
-      '取款二维码',
+      'Withdrawal QR code',
       name: 'withdrawal_qr',
       desc: '',
       args: [],
     );
   }
 
-  /// `取款数字码`
+  /// `Withdrawal digital code`
   String get withdrawal_digital_code {
     return Intl.message(
-      '取款数字码',
+      'Withdrawal digital code',
       name: 'withdrawal_digital_code',
       desc: '',
       args: [],
     );
   }
 
-  /// `暂无订单`
+  /// `No order yet`
   String get not_order {
     return Intl.message(
-      '暂无订单',
+      'No order yet',
       name: 'not_order',
       desc: '',
       args: [],
     );
   }
 
-  /// `未使用`
+  /// `Not used`
   String get not_use {
     return Intl.message(
-      '未使用',
+      'Not used',
       name: 'not_use',
       desc: '',
       args: [],
     );
   }
 
-  /// `已使用`
+  /// `used`
   String get used {
     return Intl.message(
-      '已使用',
+      'used',
       name: 'used',
       desc: '',
       args: [],
     );
   }
 
-  /// `已过期`
+  /// `Expired`
   String get expired {
     return Intl.message(
-      '已过期',
+      'Expired',
       name: 'expired',
       desc: '',
       args: [],
     );
   }
 
-  /// `查看更新`
+  /// `Look for updates`
   String get look_new {
     return Intl.message(
-      '查看更新',
+      'Look for updates',
       name: 'look_new',
       desc: '',
       args: [],
     );
   }
 
-  /// `隐私协议`
+  /// `Privacy Policy`
   String get pp_str {
     return Intl.message(
-      '隐私协议',
+      'Privacy Policy',
       name: 'pp_str',
       desc: '',
       args: [],
