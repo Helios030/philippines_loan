@@ -32,7 +32,7 @@ class NAboutPage extends StatelessWidget {
             height: 52.h,
           ),
           TextView(
-            "隐私协议",
+            S.of(context).pp_str,
             textAlign: TextAlign.left,
           ),
           Container(
@@ -40,7 +40,7 @@ class NAboutPage extends StatelessWidget {
             color: N.black33,
           ),
           TextView(
-            "查看更新",
+            S.of(context).look_new,
             textAlign: TextAlign.left,
           ),
         ],

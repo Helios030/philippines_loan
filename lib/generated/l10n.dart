@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -1826,6 +1825,26 @@ class S {
     return Intl.message(
       '已过期',
       name: 'expired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `查看更新`
+  String get look_new {
+    return Intl.message(
+      '查看更新',
+      name: 'look_new',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `隐私协议`
+  String get pp_str {
+    return Intl.message(
+      '隐私协议',
+      name: 'pp_str',
       desc: '',
       args: [],
     );

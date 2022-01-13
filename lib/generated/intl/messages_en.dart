@@ -112,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loan_title": MessageLookupByLibrary.simpleMessage("您的贷款已经审核通过"),
         "location": MessageLookupByLibrary.simpleMessage("位置"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
+        "look_new": MessageLookupByLibrary.simpleMessage("查看更新"),
         "main_user": MessageLookupByLibrary.simpleMessage("个人"),
         "marriage": MessageLookupByLibrary.simpleMessage("婚姻"),
         "money_tip": MessageLookupByLibrary.simpleMessage(
@@ -149,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plese_select_superior":
             MessageLookupByLibrary.simpleMessage("请先选择上一级地址!"),
         "pp": MessageLookupByLibrary.simpleMessage("《隐私政策》"),
+        "pp_str": MessageLookupByLibrary.simpleMessage("隐私协议"),
         "product_tip": MessageLookupByLibrary.simpleMessage("按时还款，可自动提升额度"),
         "province": MessageLookupByLibrary.simpleMessage("省份"),
         "quota": MessageLookupByLibrary.simpleMessage("额度"),
