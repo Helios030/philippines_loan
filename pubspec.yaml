@@ -36,7 +36,7 @@ dev_dependencies:
   flutter_easyloading: ^3.0.3
   permission_handler: ^8.2.6
   flutter_easyrefresh: ^2.2.1
-  appsflyer_sdk: ^6.4.0+1
+  appsflyer_sdk: ^6.4.0
   flutter_facebook_sdk: ^1.0.0
   fluttercontactpicker: ^4.5.1
   contacts_service: ^0.6.3

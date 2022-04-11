@@ -60,7 +60,7 @@ class LivenessPlugin {
         case "init":
           break;
         case "onDetectionSuccess":
-          print("onDetectionSuccess called:" + livenessDetectionCallback.toString());
+          //print("onDetectionSuccess called:" + livenessDetectionCallback.toString());
           livenessDetectionCallback.onGetDetectionResult(
               true, (methodCall.arguments as Map?));
           break;
